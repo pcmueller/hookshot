@@ -24,15 +24,17 @@ function Main() {
           <button>SEARCH</button>
         </div>
       </section>
-      <section className='goal-btn-container'>
-        <h4>~OR~</h4>
-        <h3>SELECT TODAY'S GOAL</h3>
+      <section className='goal-container'>
+        <div className='goal-heading'>
+          <h4>~OR~</h4>
+          <h3>SELECT TODAY'S GOAL</h3>
+        </div>
         <div className='goal-btns'>
-          <button>DEFEAT MONSTERS</button>
-          <button>$GET PAID$</button>
-          <button>DO SOME FORAGING</button>
-          <button>HUNT SOME CRITTERS</button>
-          <button>GEAR UP</button>
+          <button className='btn-left'>DEFEAT MONSTERS</button>
+          <button className='btn-right'>$GET PAID$</button>
+          <button className='btn-left'>DO SOME FORAGING</button>
+          <button className='btn-right'>HUNT SOME CRITTERS</button>
+          <button className='btn-left'>GEAR UP</button>
         </div>
       </section>
     </main>
