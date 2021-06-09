@@ -1,5 +1,5 @@
 # HOOKSHOT
-## A travel guide for the busy Hyrulian adventurer
+*A travel guide for the busy Hyrulian adventurer*
 
 ## Getting Started with Create React App
 
