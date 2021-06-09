@@ -9,7 +9,7 @@ const apiCalls = {
   },
 
   async fetchDataByCategory(category) {
-    const response = await fetch(`${baseURL}/category${category}`);
+    const response = await fetch(`${baseURL}/category/${category}`);
     const data = await response.json();
     return data;
   },

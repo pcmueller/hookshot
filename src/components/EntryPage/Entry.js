@@ -7,7 +7,7 @@ function Entry({ locations }) {
       <header className='header'>
         <h1>HOOKSHOT</h1>
       </header>
-      <form className='location-container' tabindex='-1' >
+      <form className='location-container' tabIndex='-1' >
           <label className='location-label' for='location'>
             <h3>where are you currently?</h3>
             <select required name='location-drop' id='location'>

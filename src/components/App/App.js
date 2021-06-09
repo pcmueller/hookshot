@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 import apiCalls from '../../utilities/apiCalls';
 import Entry from '../EntryPage/Entry';
+import Main from '../MainPage/Main';
 
 class App extends Component {
   constructor() {
@@ -16,21 +17,31 @@ class App extends Component {
   }
 
   componentDidMount = () => {
+    this.setState({ category: 'monsters'});
+    this.getAllData();
+  };
+
+  componentDidUpdate = () => {
+    if (this.state.category.length > 0) {
+      this.getDataByCategory(`${this.state.category}`);
+    }
+  };
+
+  getAllData = () => {
     apiCalls.fetchAllData()
       .then(data => {
-        this.setState({ allData: data })
+        this.setState({ allData: data.data })
       })
       .catch((error) => {
         console.log(error);
         this.setState({ error: 'Uh Oh, Something Went Wrong' });
       })
-  };
+  }
 
-  getDataByCategory = () => {
-    const category = this.state.category;
+  getDataByCategory = (category) => {
     apiCalls.fetchDataByCategory(category)
       .then(data => {
-        this.setState({ [category]: data })
+        this.setState({ [category]: data.data })
       })
       .catch((error) => {
         console.log(error);
@@ -47,7 +58,8 @@ class App extends Component {
   render() {
     return (
       <div className='app'>
-        <Entry locations={this.state.locations} />
+        {/* <Entry locations={this.state.locations}/> */}
+        <Main />
       </div>
     );
   };
