@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import fetchData from '../../utilities/apiCalls';
+import Entry from '../EntryPage/Entry';
 
 class App extends Component {
   constructor() {
@@ -27,9 +28,7 @@ class App extends Component {
   render() {
     return (
       <div className='app'>
-        <header className='header'>
-          <h1 className='title'>HOOKSHOT</h1>
-        </header>
+        <Entry></Entry>
       </div>
     );
   }
