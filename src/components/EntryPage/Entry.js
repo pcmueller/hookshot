@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Entry() {
+function Entry({ locations }) {
 
   return (
     <section className='entry-container'>
