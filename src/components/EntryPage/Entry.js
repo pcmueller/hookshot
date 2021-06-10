@@ -9,6 +9,7 @@ function Entry({ locations, assignLocation }) {
 
   useEffect(() => {
     assignLocation(selectedOption.value);
+    console.log("SELECTED OPTION: ", selectedOption);
     setClickEnter(false);
   }, [clickEnter]);
 
@@ -17,13 +18,20 @@ function Entry({ locations, assignLocation }) {
   };
 
   const options = locations.map(location => {
-    return { value: location, label: location };
+    const joined = location.replaceAll(' ', '');
+
+    return { value: location, label: location, key: joined};
   });
+
+
 
   return (
     <section className='entry-container'>
       <header className='header'>
         <h1>HOOKSHOT</h1>
+        <h4>
+          A PRODUCTIVITY TOOL FOR THE BUSY HYRULIAN ADVENTURER
+        </h4>
       </header>
       <form className='location-container' tabIndex='-1'>
         <h3>where are you now?</h3>
@@ -35,7 +43,7 @@ function Entry({ locations, assignLocation }) {
           options={options}
         />
       </form>
-      <Link to={'/home'} className='link-container'>
+      <Link to={`/home/:${selectedOption.key}`} id={selectedOption.key} className='entry-link-container'>
         <button 
           className='enter-btn' 
           type='submit' 

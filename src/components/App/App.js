@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    this.setState({ category: 'monsters'});
+    // this.setState({ category: 'monsters'});
     this.getAllData();
   };
 
@@ -55,12 +55,6 @@ class App extends Component {
     this.setState({ category: e.target.id });
   }
 
-  assignLocation = (selected) => {
-    if (selected) {
-      this.setState({ currentLocation: selected });
-    }
-  }
-
   render() {
     return (
       <div className='app'>
@@ -72,8 +66,12 @@ class App extends Component {
                 assignLocation={this.assignLocation}
               />
             </Route>
-            <Route exact path='/home'>
-              <Main handleClick={this.handleGoalClick}/>
+            <Route exact path='/home/:id' render={({ match }) => 
+              <Main 
+                id={match.params.id} 
+                handleClick={this.handleGoalClick}
+              /> 
+            }>
             </Route>
           </Switch>
         </Router>

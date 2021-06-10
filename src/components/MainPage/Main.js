@@ -1,16 +1,19 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import categories from '../../datasets/categories';
 import utils from '../../utilities/utils';
 
-function Main({ handleClick }) {
+function Main({ id, handleClick }) {
+
+  // let location = location.replaceAll(' ', '');
 
   return (
     <main>
       <section className='welcome'>
-        <h1>WELCOME TO HOOKSHOT</h1>
-        <h4>
-          *A productivity tool for the busy Hyrulian adventurer*
-        </h4>
+        <Link to={'/'} className='home-link-container'>
+          <h1>WELCOME TO HYRULE</h1>
+          <h4>CURRENT LOCATION: {id}</h4>
+        </Link>
       </section>
       <section className='search-container'>
         <h3>
