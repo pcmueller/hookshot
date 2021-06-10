@@ -28,31 +28,33 @@ function Entry({ locations, assignLocation }) {
       <header className='header'>
         <h1>HOOKSHOT</h1>
         <h4>
-          A PRODUCTIVITY TOOL FOR THE BUSY HYRULIAN ADVENTURER
+          PRODUCTIVITY GUIDE FOR THE BUSY HYRULIAN
         </h4>
       </header>
-      <form className='location-drop-container' tabIndex='-1'>
-        <h3>where are you now?</h3>
-        <Select
-          className='dropdown'
-          placeholder='Select your location'
-          defaultValue={selectedOption}
-          onChange={setSelectedOption}
-          options={options}
-        />
+      <form className='form-container'>
+        <section className='location-dropdown-section' tabIndex='-1'>
+          <h3>where are you now?</h3>
+          <Select
+            className='dropdown'
+            placeholder='Select your location'
+            defaultValue={selectedOption}
+            onChange={setSelectedOption}
+            options={options}
+            />
+        </section>
+        <section className='entry-btn-section'>
+          <Link to={`/home/${selectedOption.key}`} 
+                id={selectedOption.key}
+                className='entry-link-component'>
+            <button 
+              className='enter-btn' 
+              type='reset'
+              onClick={handleClick}>
+                CLICK TO ENTER
+            </button>
+          </Link>
+        </section>
       </form>
-      <section className='entry-btn-section'>
-        <Link to={`/home/${selectedOption.key}`} 
-              id={selectedOption.key} 
-              className='entry-link-component'>
-          <button 
-            className='enter-btn' 
-            type='submit' 
-            onClick={handleClick}>
-              CLICK TO ENTER
-          </button>
-        </Link>
-      </section>
     </main>
   )
 }

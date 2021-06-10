@@ -13,6 +13,8 @@
   }
 }
 
+// WELCOME HEADER
+
 .header {
   display: flex;
   flex-direction: column;
@@ -21,7 +23,7 @@
   width: 100%;
   height: 25%;
   padding: 1vw;
-  margin-bottom: 5vw;
+  margin-bottom: 3vw;
   border-top: 5px solid black;
   border-bottom: 5px solid black;
   font-family: PressStart;
@@ -31,29 +33,45 @@
     margin: 0;
     font-size: 4vw;
     color: whitesmoke;
+    text-shadow: 4px 4px black;
   }
 
   h4 {
     margin: 0;
     font-size: 1.3vw;
-    color: skyblue;
+    color: gold;
+    text-shadow: 2px 2px black;
   }
 }
 
-.location-drop-container {
+// FORM SECTION
+
+.form-container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50%;
+}
+
+// LOCATION DROPDOWN SECTION
+
+.location-dropdown-section {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   justify-content: space-evenly;
-  width: 60%;
-  height: 20%;
-  background-color: lightseagreen;
-  border: 3px dotted black;
+  width: 45%;
+  height: 55%;
+  background-color: skyblue;
+  border: 3px solid gold;
   margin-bottom: 1vw;
 
   h3 {
     font-family: KongText;
-    font-size: 2vw;
+    font-size: 1.75vw;
+    text-shadow: 2px 2px ghostwhite;
   }
 }
 
@@ -77,8 +95,10 @@
   width: 50%;
   height: 25%;
   color: black;
-  border: 5px solid gold;
+  border: 5px solid darkgreen;
 }
+
+// ENTER BUTTON SECTION
 
 .entry-btn-section {
   display: flex;
@@ -86,7 +106,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 15%;
+  height: 40%;
 }
 
 .entry-link-component {
@@ -98,8 +118,13 @@
 }
 
 .enter-btn {
-  width: 20%;
-  height: 60%;
-  background-color: ghostwhite;
-
+  width: 25%;
+  height: 55%;
+  border: 5px solid green;
+  color: black;
+  text-shadow: 2px 2px ghostwhite;
+  background-color: lightgray;
+  font-family: PressStart;
+  font-weight: bold;
+  font-size: 1.4vw;
 }
