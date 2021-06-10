@@ -45,10 +45,17 @@
     font-size: 2vw;
   }
 }
+
+// input container
 .css-1pahdxg-control,
 .css-yk16xz-control {
   width: 100%;
   height: 100%;
+}
+
+// input text
+.css-1wa3eu0-placeholder {
+  padding-left: 2%;
 }
 
 .dropdown {
@@ -62,8 +69,17 @@
   border: 5px solid gold;
 }
 
-.enter-btn {
-  width: 25vw;
+.link-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   height: 10%;
+}
+
+.enter-btn {
+  width: 20%;
+  height: 70%;
   background-color: ghostwhite;
 }

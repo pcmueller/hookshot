@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Select from 'react-select';
 
 function Entry({ locations, assignLocation }) {
@@ -34,12 +35,14 @@ function Entry({ locations, assignLocation }) {
           options={options}
         />
       </form>
-      <button 
-        className='enter-btn' 
-        type='submit' 
-        onClick={handleClick}>
-          CLICK TO ENTER
-      </button>
+      <Link to={'/home'} className='link-container'>
+        <button 
+          className='enter-btn' 
+          type='submit' 
+          onClick={handleClick}>
+            CLICK TO ENTER
+        </button>
+      </Link>
     </section>
   )
 }

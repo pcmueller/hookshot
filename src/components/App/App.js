@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import apiCalls from '../../utilities/apiCalls';
 import locationData from '../../datasets/locations';
 import Entry from '../EntryPage/Entry';
@@ -63,11 +64,19 @@ class App extends Component {
   render() {
     return (
       <div className='app'>
-        <Entry 
-          locations={this.state.locations} 
-          assignLocation={this.assignLocation}
-        />
-        {/* <Main handleClick={ this.handleGoalClick }/> */}
+        <Router>
+          <Switch>
+            <Route exact path='/'>
+              <Entry 
+                locations={this.state.locations} 
+                assignLocation={this.assignLocation}
+              />
+            </Route>
+            <Route exact path='/home'>
+              <Main handleClick={this.handleGoalClick}/>
+            </Route>
+          </Switch>
+        </Router>
       </div>
     );
   };
