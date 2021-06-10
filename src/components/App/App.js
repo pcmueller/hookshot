@@ -1,25 +1,78 @@
 import React, { Component } from 'react';
+import apiCalls from '../../utilities/apiCalls';
+import locationData from '../../datasets/locations';
+import Entry from '../EntryPage/Entry';
+import Main from '../MainPage/Main';
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
-      location: '',
+      allData: {},
+      locations: locationData,
+      currentLocation: '',
       category: '',
       item: '',
+      error: '',
     }
+  }
+
+  componentDidMount = () => {
+    this.setState({ category: 'monsters'});
+    this.getAllData();
+  };
+
+  componentDidUpdate = () => {
+    if (this.state.category.length > 0) {
+      this.getDataByCategory(`${this.state.category}`);
+
+    }
+  };
+
+  getAllData = () => {
+    apiCalls.fetchAllData()
+      .then(data => {
+        this.setState({ allData: data.data })
+      })
+      .catch((error) => {
+        console.log(error);
+        this.setState({ error: 'Uh Oh, Something Went Wrong' });
+      })
+  }
+
+  getDataByCategory = (category) => {
+    apiCalls.fetchDataByCategory(category)
+      .then(data => {
+        this.setState({ [category]: data.data })
+      })
+      .catch((error) => {
+        console.log(error);
+        this.setState({ error: 'Uh Oh, Something Went Wrong' });
+      })
+  };
+
+  handleGoalClick = (e) => {
+    this.setState({ category: e.target.id });
+  }
+
+  assignLocation = (selected) => {
+    // this.setState({ currentLocation: selected });
+
+    // console.log(selected);
   }
 
   render() {
     return (
       <div className='app'>
-        <header className='header'>
-          <h1 className='title'>HOOKSHOT</h1>
-          
-        </header>
+        <Entry 
+          locations={this.state.locations} 
+          assignLocation={this.assignLocation}
+        />
+        {/* <Main handleClick={ this.handleGoalClick }/> */}
       </div>
     );
-  }
-}
+  };
+
+};
 
 export default App;

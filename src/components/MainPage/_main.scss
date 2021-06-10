@@ -1,0 +1,139 @@
+main {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 100%;
+  background-color: lightgreen;
+}
+
+// WELCOME
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 25%;
+  text-align: center;
+  justify-content: space-evenly;
+  padding: 1%;
+  border-top: 5px solid black;
+  border-bottom: 5px solid black;
+  font-family: PressStart;
+  background-color: green;
+
+  h1 {
+    margin: 0;
+    font-size: 3vw;
+    color: whitesmoke;
+  }
+
+  h4 {
+    margin: 0;
+    font-size: 1vw;
+    color: skyblue;
+  }
+}
+
+// SEARCH
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  height: 20%;
+  align-items: center;
+  justify-content: space-evenly;
+  color: ghostwhite;
+  background-color: rgb(42, 44, 18);
+  border: 4px solid skyblue;
+  font-family: KongText;
+}
+
+.search-bar {
+  display: flex;
+  width: 50%;
+  height: 20%;
+
+  input {
+    width: 70%;
+    height: 100%;
+    text-align: center;
+    margin-right: 1vw;
+  }
+
+  button {
+    width: 25%;
+    font-size: 60%;
+    color: ghostwhite;
+    background-color: darkgreen;
+  }
+}
+
+// GOAL SELECT
+
+.goal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: space-around;
+  width: 90%;
+  height: 40%;
+}
+
+.goal-heading {
+  height: 20%;
+  justify-content: flex-end;
+  font-family: PressStart;
+  
+  h4 {
+    width: 100%;
+    height: 40%;
+    margin: 0;
+    font-size: 1.3vw;
+  }
+  
+  h3 {
+    width: 100%;
+    height: 60%;
+    margin: 0;
+    font-size: 1.5vw;
+  }
+}
+
+.goal-btns {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: space-evenly;
+  justify-content: space-evenly;
+  width: 50%;
+  height: 80%;
+  padding: 2% 5% 2% 5%;
+  background-color: skyblue;
+  border: 4px solid gold;
+  font-family: KongText;
+
+  span {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+  }
+
+  button {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    margin: 1%;
+    width: 60%;
+    height: 80%;
+    font-size: 80%;
+    color: ghostwhite;
+    background-color: darkgreen;
+  }
+}
