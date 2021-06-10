@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Main() {
+function Main({ handleClick }) {
 
   return (
     <main>
@@ -32,11 +32,11 @@ function Main() {
           <h3>SELECT TODAY'S GOAL</h3>
         </div>
         <div className='goal-btns'>
-          <button className='btn-left'>DEFEAT MONSTERS</button>
-          <button className='btn-right'>$GET PAID$</button>
-          <button className='btn-left'>DO SOME FORAGING</button>
-          <button className='btn-right'>HUNT SOME CRITTERS</button>
-          <button className='btn-left'>GEAR UP</button>
+          <button id='monsters' className='btn-left' onClick={handleClick}>DEFEAT MONSTERS</button>
+          <button id='treasure' className='btn-right' onClick={handleClick}>GET PAID$</button>
+          <button id='materials' className='btn-left' onClick={handleClick}>DO SOME FORAGING</button>
+          <button id='creatures' className='btn-right' onClick={handleClick}>HUNT SOME CRITTERS</button>
+          <button id='equipment' className='btn-left' onClick={handleClick}>GEAR UP</button>
         </div>
       </section>
     </main>

@@ -1,4 +1,4 @@
-import React, { Component, useEffect } from 'react';
+import React, { Component } from 'react';
 import apiCalls from '../../utilities/apiCalls';
 import Entry from '../EntryPage/Entry';
 import Main from '../MainPage/Main';
@@ -49,6 +49,12 @@ class App extends Component {
       })
   };
 
+  handleGoalClick = (e) => {
+    this.setState({ category: e.target.id });
+
+    console.log(e.target.id);
+  }
+
   getLocations = () => {
     const filtered = this.state.allData.reduce((acc, obj) => {
 
@@ -59,7 +65,7 @@ class App extends Component {
     return (
       <div className='app'>
         {/* <Entry locations={this.state.locations}/> */}
-        <Main />
+        <Main handleClick={ this.handleGoalClick }/>
       </div>
     );
   };
