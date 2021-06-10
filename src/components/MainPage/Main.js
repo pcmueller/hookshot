@@ -9,7 +9,7 @@ function Main({ handleClick }) {
       <section className='welcome'>
         <h1>WELCOME TO HOOKSHOT</h1>
         <h4>
-          A PRODUCTIVITY TOOL FOR BUSY HYRULIANS
+          *A productivity tool for the busy Hyrulian adventurer*
         </h4>
       </section>
       <section className='search-container'>

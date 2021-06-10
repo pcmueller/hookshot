@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import vhssmoke from '../../assets/images/vhs-smoke.jpeg';
+
 
 function Entry({ locations, assignLocation }) {
 
@@ -14,7 +16,7 @@ function Entry({ locations, assignLocation }) {
       <header className='header'>
         <h1>HOOKSHOT</h1>
       </header>
-      <form className='location-container' tabIndex='-1' >
+      <form className='location-container' tabIndex='-1'>
           <label className='location-label' for='location'>
             <h3>where are you currently?</h3>
             <select required name='location-drop' id='location'>
@@ -32,5 +34,7 @@ function Entry({ locations, assignLocation }) {
     </section>
   )
 }
+
+//  style={{ backgroundImage: `url(${vhssmoke})`}}
 
 export default Entry;
