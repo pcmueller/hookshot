@@ -3,15 +3,11 @@
   padding: 0;
 }
 
-// html,
-// body,
-// #app,
-// #app>div {
-//   height: 100%
-// }
-
-body>#root>div {
-  height: 100vh;
+html,
+body,
+#root {
+  height: 100%;
+  background-color: lightgreen;
 }
 
 .app {
@@ -19,5 +15,4 @@ body>#root>div {
   justify-content: center;
   width: 100%;
   height: 100%;
-  background-color: lightgreen;
 }

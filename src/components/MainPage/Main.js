@@ -6,8 +6,10 @@ function Main() {
     <main>
       <section className='welcome'>
         <h1>WELCOME TO HOOKSHOT</h1>
-        <h4>we know you're very busy. <br></br>
-            let's plan your next adventure!
+        <h4>
+          hyrule takes time. life takes even more.
+          <br></br>
+          so let's plan your next adventure!
         </h4>
       </section>
       <section className='search-container'>
