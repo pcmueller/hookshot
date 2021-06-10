@@ -1,24 +1,27 @@
 import React from 'react';
+import categories from '../../utilities/datasets';
+import utils from '../../utilities/utils';
 
 function Main({ handleClick }) {
+
 
   return (
     <main>
       <section className='welcome'>
         <h1>WELCOME TO HOOKSHOT</h1>
         <h4>
-          hyrule takes time. life takes even more.
-          <br></br>
-          so let's plan your next adventure!
+          A TRAVEL TOOL FOR BUSY HYRULIANS
         </h4>
       </section>
       <section className='search-container'>
-        <h3>search for item or creature:</h3>
+        <h3>
+          looking for an item or creature?
+        </h3>
         <div className='search-bar'>
           <input
             className='search-input'
             type='text'
-            placeholder='enter search'
+            placeholder='search here!'
             name='input'
             // value={this.state.searchQuery}
             // onChange={this.handleChange}
@@ -32,11 +35,18 @@ function Main({ handleClick }) {
           <h3>SELECT TODAY'S GOAL</h3>
         </div>
         <div className='goal-btns'>
-          <button id='monsters' className='btn-left' onClick={handleClick}>DEFEAT MONSTERS</button>
-          <button id='treasure' className='btn-right' onClick={handleClick}>GET PAID$</button>
-          <button id='materials' className='btn-left' onClick={handleClick}>DO SOME FORAGING</button>
-          <button id='creatures' className='btn-right' onClick={handleClick}>HUNT SOME CRITTERS</button>
-          <button id='equipment' className='btn-left' onClick={handleClick}>GEAR UP</button>
+          <span>
+            <button id='monsters' onClick={handleClick}>DEFEAT MONSTERS</button>
+            <button id='treasure' onClick={handleClick}>GIMME THE LOOT</button>
+          </span>
+          <span>
+            <button id='materials' onClick={handleClick}>FORAGE THE LAND</button>
+            <button id='creatures' onClick={handleClick}>BOTHER SOME CRITTERS</button>
+          </span>
+          <span>
+            <button id='equipment' onClick={handleClick}>GEAR UP</button>
+            <button id={utils.getRandomElement(categories)} onClick={handleClick}>ROLL THE DICE</button>
+          </span>
         </div>
       </section>
     </main>
