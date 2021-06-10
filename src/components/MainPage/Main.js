@@ -10,17 +10,20 @@ function Main({ location, handleClick }) {
   useEffect(() => {
     const formatted = location.replaceAll('+', ' ');
     setCurrentLocation(formatted);
-  }, []);
+  }, [location]);
 
   return (
-    <main>
-      <section className='welcome'>
-        <Link to={'/'} className='home-link-container'>
-          <h1>WELCOME TO HYRULE</h1>
-          <h4>CURRENT LOCATION: {currentLocation}</h4>
+    <main className='main-page'>
+      <section className='welcome-section'>
+        <Link to={'/'} className='home-link-component'>
+          <h1 className='welcome-heading'>WELCOME TO HYRULE</h1>
         </Link>
+        <div className='welcome-subtext'>
+          <h4>CURRENT LOCATION:</h4>
+          <h3>{currentLocation}</h3>
+        </div>
       </section>
-      <section className='search-container'>
+      <section className='search-section'>
         <h3>
           looking for an item or creature?
         </h3>

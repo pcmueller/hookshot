@@ -24,14 +24,14 @@ function Entry({ locations, assignLocation }) {
   });
 
   return (
-    <section className='entry-container'>
+    <main className='entry-page'>
       <header className='header'>
         <h1>HOOKSHOT</h1>
         <h4>
           A PRODUCTIVITY TOOL FOR THE BUSY HYRULIAN ADVENTURER
         </h4>
       </header>
-      <form className='location-container' tabIndex='-1'>
+      <form className='location-drop-container' tabIndex='-1'>
         <h3>where are you now?</h3>
         <Select
           className='dropdown'
@@ -41,15 +41,19 @@ function Entry({ locations, assignLocation }) {
           options={options}
         />
       </form>
-      <Link to={`/home/${selectedOption.key}`} id={selectedOption.key} className='entry-link-container'>
-        <button 
-          className='enter-btn' 
-          type='submit' 
-          onClick={handleClick}>
-            CLICK TO ENTER
-        </button>
-      </Link>
-    </section>
+      <section className='entry-btn-section'>
+        <Link to={`/home/${selectedOption.key}`} 
+              id={selectedOption.key} 
+              className='entry-link-component'>
+          <button 
+            className='enter-btn' 
+            type='submit' 
+            onClick={handleClick}>
+              CLICK TO ENTER
+          </button>
+        </Link>
+      </section>
+    </main>
   )
 }
 
