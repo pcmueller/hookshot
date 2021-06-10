@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-function Entry({ locations }) {
+function Entry({ locations, assignLocation }) {
+
+  const [ currentLocation, setCurrentLocation ] = useState('');
+
+  const locationOptions = locations.map(location => {
+    const id = locations.indexOf(location) + 1;
+    return <option onClick={setCurrentLocation} key={location} value={id}>{location}</option>
+  });
 
   return (
     <section className='entry-container'>
@@ -12,9 +19,15 @@ function Entry({ locations }) {
             <h3>where are you currently?</h3>
             <select required name='location-drop' id='location'>
               <option value='0'>Select destination</option>
+              {locationOptions}
             </select>
           </label>
-        <button className='enter-btn' type='submit'>CLICK TO ENTER</button>
+        <button 
+          className='enter-btn' 
+          type='submit' 
+          onClick={assignLocation(currentLocation)}>
+          CLICK TO ENTER
+        </button>
       </form>
     </section>
   )

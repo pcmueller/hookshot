@@ -53,15 +53,22 @@ class App extends Component {
 
   handleGoalClick = (e) => {
     this.setState({ category: e.target.id });
-    // console.log(e.target.id);
-    // console.log(this.state.locations)
+  }
+
+  assignLocation = (selected) => {
+    // this.setState({ currentLocation: selected });
+
+    // console.log(selected);
   }
 
   render() {
     return (
       <div className='app'>
-        {/* <Entry locations={this.state.locations}/> */}
-        <Main handleClick={ this.handleGoalClick }/>
+        <Entry 
+          locations={this.state.locations} 
+          assignLocation={this.assignLocation}
+        />
+        {/* <Main handleClick={ this.handleGoalClick }/> */}
       </div>
     );
   };
