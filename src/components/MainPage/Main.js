@@ -1,18 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import categories from '../../datasets/categories';
 import utils from '../../utilities/utils';
 
-function Main({ id, handleClick }) {
+function Main({ location, handleClick }) {
 
-  // let location = location.replaceAll(' ', '');
+  const [ currentLocation, setCurrentLocation ] = useState('');
+
+  useEffect(() => {
+    const formatted = location.replaceAll('+', ' ');
+    setCurrentLocation(formatted);
+  }, []);
 
   return (
     <main>
       <section className='welcome'>
         <Link to={'/'} className='home-link-container'>
           <h1>WELCOME TO HYRULE</h1>
-          <h4>CURRENT LOCATION: {id}</h4>
+          <h4>CURRENT LOCATION: {currentLocation}</h4>
         </Link>
       </section>
       <section className='search-container'>

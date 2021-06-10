@@ -18,12 +18,10 @@ function Entry({ locations, assignLocation }) {
   };
 
   const options = locations.map(location => {
-    const joined = location.replaceAll(' ', '');
+    const joined = location.replaceAll(' ', '+');
 
     return { value: location, label: location, key: joined};
   });
-
-
 
   return (
     <section className='entry-container'>
@@ -43,7 +41,7 @@ function Entry({ locations, assignLocation }) {
           options={options}
         />
       </form>
-      <Link to={`/home/:${selectedOption.key}`} id={selectedOption.key} className='entry-link-container'>
+      <Link to={`/home/${selectedOption.key}`} id={selectedOption.key} className='entry-link-container'>
         <button 
           className='enter-btn' 
           type='submit' 

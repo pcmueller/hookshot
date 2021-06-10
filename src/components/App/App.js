@@ -74,7 +74,7 @@ class App extends Component {
             </Route>
             <Route exact path='/home/:id' render={({ match }) => 
               <Main 
-                id={match.params.id} 
+                location={match.params.id} 
                 handleClick={this.handleGoalClick}
               /> 
             }>
