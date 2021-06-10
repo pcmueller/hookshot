@@ -45,14 +45,19 @@ main {
 .search-container {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 65%;
   height: 20%;
+  text-align: center;
   align-items: center;
   justify-content: space-evenly;
   color: ghostwhite;
   background-color: rgb(42, 44, 18);
   border: 4px solid skyblue;
   font-family: KongText;
+}
+
+h3 {
+  font-size: 100%;
 }
 
 .search-bar {
