@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import apiCalls from '../../utilities/apiCalls';
+import locationData from '../../datasets/locations';
 import Entry from '../EntryPage/Entry';
 import Main from '../MainPage/Main';
 
@@ -8,7 +9,7 @@ class App extends Component {
     super()
     this.state = {
       allData: {},
-      locations: [],
+      locations: locationData,
       currentLocation: '',
       category: '',
       item: '',
@@ -24,7 +25,7 @@ class App extends Component {
   componentDidUpdate = () => {
     if (this.state.category.length > 0) {
       this.getDataByCategory(`${this.state.category}`);
-      
+
     }
   };
 
@@ -52,15 +53,9 @@ class App extends Component {
 
   handleGoalClick = (e) => {
     this.setState({ category: e.target.id });
-
-    console.log(e.target.id);
+    // console.log(e.target.id);
+    // console.log(this.state.locations)
   }
-
-  getLocations = () => {
-    const filtered = this.state.allData.reduce((acc, obj) => {
-
-    });
-  };
 
   render() {
     return (

@@ -1,16 +1,15 @@
 import React from 'react';
-import categories from '../../utilities/datasets';
+import categories from '../../datasets/categories';
 import utils from '../../utilities/utils';
 
 function Main({ handleClick }) {
-
 
   return (
     <main>
       <section className='welcome'>
         <h1>WELCOME TO HOOKSHOT</h1>
         <h4>
-          A TRAVEL TOOL FOR BUSY HYRULIANS
+          A PRODUCTIVITY TOOL FOR BUSY HYRULIANS
         </h4>
       </section>
       <section className='search-container'>
