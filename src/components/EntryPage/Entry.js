@@ -8,13 +8,13 @@ function Entry({ locations, assignLocation }) {
   const [ clickEnter, setClickEnter ] = useState(false);
 
   useEffect(() => {
-    assignLocation(selectedOption.value);
-    console.log("SELECTED OPTION: ", selectedOption);
     setClickEnter(false);
   }, [clickEnter]);
 
   const handleClick = () => {
     setClickEnter(true);
+    assignLocation(selectedOption.value);
+    console.log("SELECTED: ", selectedOption);
   };
 
   const options = locations.map(location => {

@@ -51,6 +51,12 @@ class App extends Component {
       })
   };
 
+  assignLocation = (selection) => {
+    if (selection) {
+      this.setState({ currentLocation: selection });
+    }
+  }
+
   handleGoalClick = (e) => {
     this.setState({ category: e.target.id });
   }
