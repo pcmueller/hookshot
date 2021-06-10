@@ -25,7 +25,6 @@ class App extends Component {
   componentDidUpdate = () => {
     if (this.state.category.length > 0) {
       this.getDataByCategory(`${this.state.category}`);
-
     }
   };
 

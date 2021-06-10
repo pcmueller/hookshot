@@ -8,6 +8,7 @@ function Entry({ locations, assignLocation }) {
 
   useEffect(() => {
     assignLocation(selectedOption.value);
+    setClickEnter(false);
   }, [clickEnter]);
 
   const handleClick = () => {
