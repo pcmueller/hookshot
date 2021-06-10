@@ -56,9 +56,9 @@ class App extends Component {
   }
 
   assignLocation = (selected) => {
-    // this.setState({ currentLocation: selected });
-
-    // console.log(selected);
+    if (selected) {
+      this.setState({ currentLocation: selected });
+    }
   }
 
   render() {

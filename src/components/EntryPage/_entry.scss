@@ -11,7 +11,7 @@
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 15vw;
+  height: 20vw;
   padding: 4vw;
   margin: 10vw auto 5vw auto;
   border-top: 5px solid black;
@@ -35,30 +35,32 @@
   height: 20vw;
   background-color: lightseagreen;
   border: 1px solid black;
+  margin-bottom: 5vw;
+
+  h3 {
+    font-family: KongText;
+    font-size: 2vw;
+  }
+}
+.css-1pahdxg-control,
+.css-yk16xz-control {
+  width: 100%;
+  height: 100%;
 }
 
-.location-label {
+.dropdown {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
-  height: 40%;
-  border-top: 5px solid blue;
-  border-bottom: 5px solid blue;
-
-  h3 {
-    font-family: KongText;
-  }
-
-  select {
-    width: 30vw;
-    height: 5vw;
-    padding-left: 2vw;
-  }
+  width: 30%;
+  height: 25%;
+  color: black;
+  border: 5px solid gold;
 }
 
 .enter-btn {
   width: 20vw;
   height: 5vw;
-  background-color: rgb(170, 227, 250);
+  background-color: ghostwhite;
 }

@@ -1,14 +1,21 @@
-import React, { useState } from 'react';
-import vhssmoke from '../../assets/images/vhs-smoke.jpeg';
-
+import React, { useState, useEffect } from 'react';
+import Select from 'react-select';
 
 function Entry({ locations, assignLocation }) {
 
-  const [ currentLocation, setCurrentLocation ] = useState('');
+  const [ selectedOption, setSelectedOption ] = useState('');
+  const [ clickEnter, setClickEnter ] = useState(false);
 
-  const locationOptions = locations.map(location => {
-    const id = locations.indexOf(location) + 1;
-    return <option onClick={setCurrentLocation} key={location} value={id}>{location}</option>
+  useEffect(() => {
+    assignLocation(selectedOption.value);
+  }, [clickEnter]);
+
+  const handleClick = () => {
+    setClickEnter(true);
+  };
+
+  const options = locations.map(location => {
+    return { value: location, label: location };
   });
 
   return (
@@ -17,24 +24,23 @@ function Entry({ locations, assignLocation }) {
         <h1>HOOKSHOT</h1>
       </header>
       <form className='location-container' tabIndex='-1'>
-          <label className='location-label' for='location'>
-            <h3>where are you currently?</h3>
-            <select required name='location-drop' id='location'>
-              <option value='0'>Select destination</option>
-              {locationOptions}
-            </select>
-          </label>
-        <button 
-          className='enter-btn' 
-          type='submit' 
-          onClick={assignLocation(currentLocation)}>
-          CLICK TO ENTER
-        </button>
+        <h3>where are you now?</h3>
+        <Select
+          className='dropdown'
+          placeholder='Select your location'
+          defaultValue={selectedOption}
+          onChange={setSelectedOption}
+          options={options}
+        />
       </form>
+      <button 
+        className='enter-btn' 
+        type='submit' 
+        onClick={handleClick}>
+          CLICK TO ENTER
+      </button>
     </section>
   )
 }
-
-//  style={{ backgroundImage: `url(${vhssmoke})`}}
 
 export default Entry;
