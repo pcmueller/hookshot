@@ -6,7 +6,6 @@ import utils from '../../utilities/utils';
 function Main({ location }) {
 
   const [ currentLocation, setCurrentLocation ] = useState('');
-  // const [ category, setCategory ] = useState('');
   const [ buttons, setButtons ]  = useState([]);
 
   useEffect(() => {
@@ -15,21 +14,15 @@ function Main({ location }) {
     setButtons(buildButtons());
   }, [location]);
 
-  // const handleClick = (id) => {
-  //   setCategory(id);
-  // };
-
   const buildButtons = () => {
-    // onClick={() => handleClick(elem)}
     const buttonsArr = categories.map(elem => {
       return (
-        <Link to={`/category/${elem}`} key={elem}>
+        <Link to={`/location/${location}/category/${elem}`} key={elem}>
           <button id={elem}>{elem}</button>
         </Link>
       )
     });
     const random = utils.getRandomElement(categories);
-    //  onClick={() => handleClick(random)}
     buttonsArr.push(
       <Link to={`/category/${random}`} key='random'>
         <button id='random'>ROLL THE DICE</button>
@@ -59,8 +52,6 @@ function Main({ location }) {
             type='text'
             placeholder='search here!'
             name='input'
-            // value={this.state.searchQuery}
-            // onChange={this.handleChange}
           />
           <button>SEARCH</button>
         </div>

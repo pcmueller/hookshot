@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Select from 'react-select';
+import utils from '../../utilities/utils';
 
 function Entry({ locations, assignLocation }) {
 
@@ -17,9 +18,8 @@ function Entry({ locations, assignLocation }) {
   };
 
   const options = locations.map(location => {
-    const joined = location.replaceAll(' ', '+');
-
-    return { value: location, label: location, key: joined};
+    const path = utils.convertLocationPath(location);
+    return { value: location, label: location, key: path};
   });
 
   return (

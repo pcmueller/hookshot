@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import apiCalls from '../../utilities/apiCalls';
+import utils from '../../utilities/utils';
 import locationData from '../../datasets/locations';
 import Entry from '../EntryPage/Entry';
 import Main from '../MainPage/Main';
@@ -81,13 +82,15 @@ class App extends Component {
               /> 
             }>
             </Route>
-            <Route exact path='/category/:id' 
-                  render={({ match }) => 
-              <Results
-                category={match.params.id}
-                assignCategory={this.assignCategory}
-                categoryData={this.state[this.state.category]}
-              />
+            <Route 
+              exact path={`/location/:location/category/:id`}
+              render={({ match }) => 
+                <Results
+                  location={utils.revertLocationName(match.params.location)}
+                  category={match.params.id}
+                  categoryData={this.state[this.state.category]}
+                  assignCategory={this.assignCategory}
+                />
             }>
             </Route>
           </Switch>
