@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // import categories from '../../datasets/categories';
 // import utils from '../../utilities/utils';
 
@@ -9,7 +9,9 @@ function Results({}) {
   return (
     <main className='results-page'>
       <header className='results-banner'>
-        <h1>HOOKSHOT</h1>
+        <Link to={'/'} className='home-link-component'>
+          <h1>HOOKSHOT</h1>
+        </Link>
         <h4>
           LET'S FIND SOME *category*!
         </h4>

@@ -25,14 +25,14 @@ function Main({ location, assignCategory }) {
       console.log(`/category/${elem}`);
       return (
         <Link to={`/category/${elem}`} >
-          <button id={elem} onClick={() => handleClick(elem)}>{elem}</button>
+          <button id={elem} key={elem} onClick={() => handleClick(elem)}>{elem}</button>
         </Link>
       )
     });
     const random = utils.getRandomElement(categories);
     buttonsArr.push(
       <Link>
-        <button id={random} onClick={() => handleClick(random)}>ROLL THE DICE</button>
+        <button id={random} key={random} onClick={() => handleClick(random)}>ROLL THE DICE</button>
       </Link>
     )
     return buttonsArr;
