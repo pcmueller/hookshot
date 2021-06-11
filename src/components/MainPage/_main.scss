@@ -10,7 +10,7 @@
 
 // WELCOME
 
-.welcome-section {
+.main-banner {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -31,14 +31,14 @@
   }
 }
 
-.welcome-heading {
+.welcome-message {
   margin: 0;
   font-size: 3vw;
   color: whitesmoke;
   text-shadow: 2px 2px black;
 }
 
-.welcome-subtext {
+.welcome-location {
   display: flex;
   flex-direction: column;
   justify-content: space-between;

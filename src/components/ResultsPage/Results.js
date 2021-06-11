@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import categories from '../../datasets/categories';
-import utils from '../../utilities/utils';
+// import { Link } from 'react-router-dom';
+// import categories from '../../datasets/categories';
+// import utils from '../../utilities/utils';
 
 function Results({}) {
 
 
   return (
     <main className='results-page'>
-      <section className='results-intro'>
-        <h1>Let's find some *category*!</h1>
-      </section>
-      <section>
+      <header className='results-banner'>
+        <h1>HOOKSHOT</h1>
+        <h4>
+          LET'S FIND SOME *category*!
+        </h4>
+      </header>
+      <section className='results-section'>
         <h3>Alright, here's what we've found in your area:</h3>
         <article className='results-grid'>
           <ul className='item-list'>

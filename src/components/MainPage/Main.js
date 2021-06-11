@@ -41,11 +41,11 @@ function Main({ location, assignCategory }) {
 
   return (
     <main className='main-page'>
-      <section className='welcome-section'>
+      <section className='main-banner'>
         <Link to={'/'} className='home-link-component'>
-          <h1 className='welcome-heading'>WELCOME TO HYRULE</h1>
+          <h1 className='welcome-message'>WELCOME TO HYRULE</h1>
         </Link>
-        <div className='welcome-subtext'>
+        <div className='welcome-location'>
           <h4>CURRENT LOCATION:</h4>
           <h3>{currentLocation}</h3>
         </div>

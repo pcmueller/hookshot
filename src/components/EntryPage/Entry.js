@@ -24,7 +24,7 @@ function Entry({ locations, assignLocation }) {
 
   return (
     <main className='entry-page'>
-      <header className='header'>
+      <header className='entry-banner'>
         <h1>HOOKSHOT</h1>
         <h4>
           ~ A FIELD GUIDE FOR HYRULIAN EXPLORATION ~
