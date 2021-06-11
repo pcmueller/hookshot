@@ -12,6 +12,7 @@ function Main({ location }) {
     const formatted = location.replaceAll('+', ' ');
     setCurrentLocation(formatted);
     setButtons(buildButtons());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location]);
 
   const buildButtons = () => {

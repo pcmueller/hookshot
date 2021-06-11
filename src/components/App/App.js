@@ -17,6 +17,7 @@ class App extends Component {
       category: '',
       item: '',
       error: '',
+      dataLoaded: false,
     }
   }
 
@@ -46,6 +47,9 @@ class App extends Component {
     apiCalls.fetchDataByCategory(category)
       .then(data => {
         this.setState({ [category]: data.data })
+      })
+      .then(() => {
+        this.setState({ dataLoaded: true })
       })
       .catch((error) => {
         console.log(error);
@@ -90,6 +94,7 @@ class App extends Component {
                   category={match.params.id}
                   categoryData={this.state[this.state.category]}
                   assignCategory={this.assignCategory}
+                  loaded={this.state.dataLoaded}
                 />
             }>
             </Route>

@@ -1,44 +1,41 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import categories from '../../datasets/categories';
 // import utils from '../../utilities/utils';
 
-function Results({ location, category, categoryData, assignCategory }) {
+function Results({ location, category, categoryData, assignCategory, loaded }) {
 
-  const [ data, setData ] = useState('');
-  const [ locationData, setLocationData ] = useState('');
+  const [ localItems, setLocalItems ] = useState([]);
   
   useEffect(() => {
     assignCategory(category);
-    if (categoryData) {
-      setData(categoryData);
-    }
-    console.log("LOCATION PROP: ", location)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [category]);
 
   useEffect(() => {
-    console.log("USE EFFECT")
-    if (data) {
-      filterData(data);
+    if (categoryData) {
+      filterLocalItems(categoryData);
     }
-  }, [data]);
+  }, [loaded])
 
-  const filterData = () => {
+  const filterLocalItems = async () => {
+    const filtered = await categoryData.reduce((acc, elem) => {
+      if (elem['common_locations'].includes(location)) {
+        acc.push(elem);
+      }
+      return acc;
+    }, []);
+    setLocalItems(filtered);
+  }
 
-
-    console.log("FILTERING")
-    // const localData = data.reduce((acc, elem) => {
-    //   // if (elem['common_locations'].contains(location)) {
-    //   //   acc.push(elem);
-    //   // }
-    //   acc.push(elem);
-    //   return acc;
-    // }, []);
-
-    data.forEach(elem => {
-      console.log(elem);
+  const buildItemList = () => {
+    const itemList = localItems.filter(item => {
+      return (
+        <p>
+          
+        </p>
+      )
     });
-
-    // console.log("LOCAL DATA: ", localData);
   }
 
   return (
