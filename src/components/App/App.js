@@ -58,7 +58,8 @@ class App extends Component {
     }
   }
 
-  handleGoalClick = (e) => {
+  assignCategory = (e) => {
+    console.log(e.target);
     this.setState({ category: e.target.id });
   }
 
@@ -77,11 +78,11 @@ class App extends Component {
                   render={({ match }) => 
               <Main 
                 location={match.params.id} 
-                handleClick={this.handleGoalClick}
+                handleClick={this.assignCategory}
               /> 
             }>
             </Route>
-            <Route exact path='/results/:category' 
+            <Route exact path='/category/:id' 
                   render={({ match }) => 
               <Results
                 category={match.params.id} 

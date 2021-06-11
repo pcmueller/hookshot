@@ -14,7 +14,6 @@ function Entry({ locations, assignLocation }) {
   const handleClick = () => {
     setClickEnter(true);
     assignLocation(selectedOption.value);
-    console.log("SELECTED: ", selectedOption);
   };
 
   const options = locations.map(location => {
