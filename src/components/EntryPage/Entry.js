@@ -1,27 +1,41 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Select from 'react-select';
+import AppContext from '../App/AppContext';
 
-function Entry({ locations, assignLocation }) {
+function Entry() {
 
-  const [ selectedOption, setSelectedOption ] = useState('');
-  const [ clickEnter, setClickEnter ] = useState(false);
+  const [ state, dispatch ] = useContext(AppContext);
+  const [ locationObj, setLocationObj ] = useState('');
+  const [ options, setOptions ] = useState('');
+
+  // const [ clickEnter, setClickEnter ] = useState(false);
 
   useEffect(() => {
-    setClickEnter(false);
-  }, [clickEnter]);
+    if (!state.enterClicked) {
+      const locationOptions = state.locations.map(location => {
+        const joined = location.replaceAll(' ', '+');
+  
+        return { value: location, label: location, key: joined};
+      });
+      setOptions(locationOptions);
+    }
+  }, []);
 
-  const handleClick = () => {
-    setClickEnter(true);
-    assignLocation(selectedOption.value);
-    console.log("SELECTED: ", selectedOption);
+  const handleClick = (event) => {
+    event.preventDefault();
+    const enterClicked = true;
+    dispatch({ type: 'ENTER_CLICKED', enterClicked});
+    const location = locationObj.value;
+    dispatch({ type: 'SET_LOCATION', location });
+    console.log(locationObj);
   };
 
-  const options = locations.map(location => {
-    const joined = location.replaceAll(' ', '+');
+  // const options = state.locations.map(location => {
+  //   const joined = location.replaceAll(' ', '+');
 
-    return { value: location, label: location, key: joined};
-  });
+  //   return { value: location, label: location, key: joined};
+  // });
 
   return (
     <main className='entry-page'>
@@ -37,14 +51,14 @@ function Entry({ locations, assignLocation }) {
           <Select
             className='dropdown'
             placeholder='Select your location'
-            defaultValue={selectedOption}
-            onChange={setSelectedOption}
+            defaultValue={locationObj.key}
+            onChange={setLocationObj}
             options={options}
             />
         </section>
         <section className='entry-btn-section'>
-          <Link to={`/home/${selectedOption.key}`} 
-                id={selectedOption.key}
+          <Link to={`/home/${locationObj.key}`} 
+                id={locationObj.key}
                 className='entry-link-component'>
             <button 
               className='enter-btn' 
