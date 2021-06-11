@@ -1,5 +1,5 @@
 # HOOKSHOT
-*A productivity tool for the busy Hyrulian adventurer*
+* A digital field guide for busy Hyrulian professionals *
 
 ## Getting Started with Create React App
 
