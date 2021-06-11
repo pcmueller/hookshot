@@ -1,4 +1,4 @@
-main {
+.main-page {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
@@ -10,63 +10,93 @@ main {
 
 // WELCOME
 
-.welcome {
+.welcome-section {
   display: flex;
   flex-direction: column;
   width: 100%;
   height: 25%;
   text-align: center;
-  justify-content: space-evenly;
-  padding: 1%;
+  justify-content: space-between;
+  margin-top: 2%;
+  margin-bottom: 1%;
+  padding-top: 3%;
+  padding-bottom: 1%;
   border-top: 5px solid black;
   border-bottom: 5px solid black;
   font-family: PressStart;
   background-color: green;
 
-  h1 {
-    margin: 0;
-    font-size: 3vw;
-    color: whitesmoke;
+  a {
+    text-decoration: none;
+  }
+}
+
+.welcome-heading {
+  margin: 0;
+  font-size: 3vw;
+  color: whitesmoke;
+  text-shadow: 2px 2px black;
+}
+
+.welcome-subtext {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0;
+  
+  h4 {
+    font-size: 1.4vw;
+    letter-spacing: 0.25vw;
+    color: skyblue;
   }
 
-  h4 {
-    margin: 0;
-    font-size: 1vw;
-    color: skyblue;
+  h3 {
+    font-size: 1.75vw;
+    color:gold;
+    text-shadow: 2px 2px black;
   }
 }
 
 // SEARCH
 
-.search-container {
+.search-section {
   display: flex;
   flex-direction: column;
-  width: 60%;
+  width: 65%;
   height: 20%;
+  text-align: center;
   align-items: center;
   justify-content: space-evenly;
+  padding: 1%;
   color: ghostwhite;
   background-color: rgb(42, 44, 18);
   border: 4px solid skyblue;
   font-family: KongText;
+  
+  h3 {
+    font-size: 1.5vw;
+    color: lightgoldenrodyellow;
+  }
 }
 
 .search-bar {
   display: flex;
-  width: 50%;
-  height: 20%;
+  width: 65%;
+  height: 25%;
 
   input {
-    width: 70%;
+    width: 80%;
     height: 100%;
     text-align: center;
     margin-right: 1vw;
   }
 
   button {
-    width: 25%;
-    font-size: 60%;
-    color: ghostwhite;
+    width: 30%;
+    height: 100%;
+    font-size: 80%;
+    color: lightgoldenrodyellow;
+    text-shadow: 1px 1px black;
     background-color: darkgreen;
   }
 }
@@ -91,7 +121,7 @@ main {
   h4 {
     width: 100%;
     height: 40%;
-    margin: 0;
+    margin-bottom: 1%;
     font-size: 1.3vw;
   }
   
@@ -99,7 +129,9 @@ main {
     width: 100%;
     height: 60%;
     margin: 0;
-    font-size: 1.5vw;
+    font-size: 1.75vw;
+    color: blueviolet;
+    text-shadow: 2px 2px ghostwhite;
   }
 }
 

@@ -1,35 +1,62 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import Select from 'react-select';
 
 function Entry({ locations, assignLocation }) {
 
-  const [ currentLocation, setCurrentLocation ] = useState('');
+  const [ selectedOption, setSelectedOption ] = useState('');
+  const [ clickEnter, setClickEnter ] = useState(false);
 
-  const locationOptions = locations.map(location => {
-    const id = locations.indexOf(location) + 1;
-    return <option onClick={setCurrentLocation} key={location} value={id}>{location}</option>
+  useEffect(() => {
+    setClickEnter(false);
+  }, [clickEnter]);
+
+  const handleClick = () => {
+    setClickEnter(true);
+    assignLocation(selectedOption.value);
+    console.log("SELECTED: ", selectedOption);
+  };
+
+  const options = locations.map(location => {
+    const joined = location.replaceAll(' ', '+');
+
+    return { value: location, label: location, key: joined};
   });
 
   return (
-    <section className='entry-container'>
+    <main className='entry-page'>
       <header className='header'>
         <h1>HOOKSHOT</h1>
+        <h4>
+          PRODUCTIVITY GUIDE FOR THE BUSY HYRULIAN
+        </h4>
       </header>
-      <form className='location-container' tabIndex='-1' >
-          <label className='location-label' for='location'>
-            <h3>where are you currently?</h3>
-            <select required name='location-drop' id='location'>
-              <option value='0'>Select destination</option>
-              {locationOptions}
-            </select>
-          </label>
-        <button 
-          className='enter-btn' 
-          type='submit' 
-          onClick={assignLocation(currentLocation)}>
-          CLICK TO ENTER
-        </button>
+      <form className='form-container'>
+        <section className='location-dropdown-section' tabIndex='-1'>
+          <h3>where are you now?</h3>
+          <Select
+            className='dropdown'
+            placeholder='Select your location'
+            defaultValue={selectedOption}
+            onChange={setSelectedOption}
+            options={options}
+            />
+        </section>
+        <section className='entry-btn-section'>
+          <Link to={`/home/${selectedOption.key}`} 
+                id={selectedOption.key}
+                className='entry-link-component'>
+            <button 
+              disabled={selectedOption.length < 1}
+              className='enter-btn' 
+              type='reset'
+              onClick={handleClick}>
+                CLICK TO ENTER
+            </button>
+          </Link>
+        </section>
       </form>
-    </section>
+    </main>
   )
 }
 

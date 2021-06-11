@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import apiCalls from '../../utilities/apiCalls';
 import locationData from '../../datasets/locations';
 import Entry from '../EntryPage/Entry';
@@ -18,14 +19,13 @@ class App extends Component {
   }
 
   componentDidMount = () => {
-    this.setState({ category: 'monsters'});
+    // this.setState({ category: 'monsters'});
     this.getAllData();
   };
 
   componentDidUpdate = () => {
     if (this.state.category.length > 0) {
       this.getDataByCategory(`${this.state.category}`);
-
     }
   };
 
@@ -51,24 +51,36 @@ class App extends Component {
       })
   };
 
-  handleGoalClick = (e) => {
-    this.setState({ category: e.target.id });
+  assignLocation = (selection) => {
+    if (selection) {
+      this.setState({ currentLocation: selection });
+    }
   }
 
-  assignLocation = (selected) => {
-    // this.setState({ currentLocation: selected });
-
-    // console.log(selected);
+  handleGoalClick = (e) => {
+    this.setState({ category: e.target.id });
   }
 
   render() {
     return (
       <div className='app'>
-        <Entry 
-          locations={this.state.locations} 
-          assignLocation={this.assignLocation}
-        />
-        {/* <Main handleClick={ this.handleGoalClick }/> */}
+        <Router>
+          <Switch>
+            <Route exact path='/'>
+              <Entry 
+                locations={this.state.locations} 
+                assignLocation={this.assignLocation}
+              />
+            </Route>
+            <Route exact path='/home/:id' render={({ match }) => 
+              <Main 
+                location={match.params.id} 
+                handleClick={this.handleGoalClick}
+              /> 
+            }>
+            </Route>
+          </Switch>
+        </Router>
       </div>
     );
   };

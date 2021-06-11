@@ -1,65 +1,130 @@
-.entry-container {
+.entry-page {
   display: flex;
   flex-direction: column;
   align-items: center;
-  // justify-content: center;
+  justify-content: center;
   width: 100%;
   height: 100%;
+  padding-top: 5vw;
+  padding-bottom: 3vw;
+
+  a {
+    text-decoration: none;
+  }
 }
+
+// WELCOME HEADER
 
 .header {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: space-evenly;
   width: 100%;
-  height: 15vw;
-  padding: 4vw;
-  margin: 10vw auto 5vw auto;
+  height: 25%;
+  padding: 1vw;
+  margin-bottom: 3vw;
   border-top: 5px solid black;
   border-bottom: 5px solid black;
   font-family: PressStart;
   background-color: green;
-  
+
   h1 {
     margin: 0;
     font-size: 4vw;
     color: whitesmoke;
+    text-shadow: 4px 4px black;
+  }
+
+  h4 {
+    margin: 0;
+    font-size: 1.3vw;
+    color: gold;
+    text-shadow: 2px 2px black;
   }
 }
 
-.location-container {
+// FORM SECTION
+
+.form-container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50%;
+}
+
+// LOCATION DROPDOWN SECTION
+
+.location-dropdown-section {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   justify-content: space-evenly;
-  width: 100%;
-  height: 30vw;
-  background-color: lightseagreen;
-  border: 1px solid black;
+  width: 45%;
+  height: 55%;
+  background-color: skyblue;
+  border: 3px solid gold;
+  margin-bottom: 1vw;
+
+  h3 {
+    font-family: KongText;
+    font-size: 1.75vw;
+    text-shadow: 2px 2px ghostwhite;
+  }
 }
 
-.location-label {
+// input container
+.css-1pahdxg-control,
+.css-yk16xz-control {
+  width: 100%;
+  height: 100%;
+}
+
+// input text
+.css-1wa3eu0-placeholder {
+  padding-left: 2%;
+}
+
+.dropdown {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-evenly;
+  width: 50%;
+  height: 25%;
+  color: black;
+  border: 5px solid darkgreen;
+}
+
+// ENTER BUTTON SECTION
+
+.entry-btn-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   height: 40%;
-  border-top: 5px solid blue;
-  border-bottom: 5px solid blue;
+}
 
-  h3 {
-    font-family: KongText;
-  }
-
-  select {
-    width: 30vw;
-    height: 5vw;
-    padding-left: 2vw;
-  }
+.entry-link-component {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 .enter-btn {
-  width: 20vw;
-  height: 5vw;
-  background-color: rgb(170, 227, 250);
+  width: 25%;
+  height: 55%;
+  border: 5px solid green;
+  color: black;
+  text-shadow: 2px 2px ghostwhite;
+  background-color: lightgray;
+  font-family: PressStart;
+  font-weight: bold;
+  font-size: 1.4vw;
 }
