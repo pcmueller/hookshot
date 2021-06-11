@@ -28,7 +28,7 @@ function Entry({ locations, assignLocation }) {
       <header className='header'>
         <h1>HOOKSHOT</h1>
         <h4>
-          PRODUCTIVITY GUIDE FOR THE BUSY HYRULIAN
+          ~ A FIELD GUIDE FOR HYRULIAN EXPLORATION ~
         </h4>
       </header>
       <form className='form-container'>

@@ -4,6 +4,7 @@ import apiCalls from '../../utilities/apiCalls';
 import locationData from '../../datasets/locations';
 import Entry from '../EntryPage/Entry';
 import Main from '../MainPage/Main';
+import Results from '../ResultsPage/Results';
 
 class App extends Component {
   constructor() {
@@ -72,11 +73,19 @@ class App extends Component {
                 assignLocation={this.assignLocation}
               />
             </Route>
-            <Route exact path='/home/:id' render={({ match }) => 
+            <Route exact path='/home/:id' 
+                  render={({ match }) => 
               <Main 
                 location={match.params.id} 
                 handleClick={this.handleGoalClick}
               /> 
+            }>
+            </Route>
+            <Route exact path='/results/:category' 
+                  render={({ match }) => 
+              <Results
+                category={match.params.id} 
+              />
             }>
             </Route>
           </Switch>
