@@ -58,9 +58,9 @@ class App extends Component {
     }
   }
 
-  assignCategory = (e) => {
-    console.log(e.target);
-    this.setState({ category: e.target.id });
+  assignCategory = (selection) => {
+    console.log("SELECTED CAT: ", selection);
+    this.setState({ category: selection });
   }
 
   render() {
@@ -78,7 +78,7 @@ class App extends Component {
                   render={({ match }) => 
               <Main 
                 location={match.params.id} 
-                handleClick={this.assignCategory}
+                assignCategory={this.assignCategory}
               /> 
             }>
             </Route>

@@ -3,19 +3,41 @@ import { Link } from 'react-router-dom';
 import categories from '../../datasets/categories';
 import utils from '../../utilities/utils';
 
-function Main({ location, handleClick }) {
+function Main({ location, assignCategory }) {
 
   const [ currentLocation, setCurrentLocation ] = useState('');
   const [ category, setCategory ] = useState('');
+  const [ buttons, setButtons ]  = useState([]);
 
   useEffect(() => {
     const formatted = location.replaceAll('+', ' ');
     setCurrentLocation(formatted);
+    setButtons(buildButtons());
   }, [location]);
 
-  useEffect(() => {
-    setCategory(formatted);
-  }, [location]);
+  const handleClick = (id) => {
+    setCategory(id);
+    assignCategory(category);
+  };
+
+  const buildButtons = () => {
+    const buttonsArr = categories.map(elem => {
+      console.log(`/category/${elem}`);
+      return (
+        <Link to={`/category/${elem}`} >
+          <button id={elem} onClick={() => handleClick(elem)}>{elem}</button>
+        </Link>
+      )
+    });
+    const random = utils.getRandomElement(categories);
+    buttonsArr.push(
+      <Link>
+        <button id={random} onClick={() => handleClick(random)}>ROLL THE DICE</button>
+      </Link>
+    )
+    return buttonsArr;
+  }
+  
 
   return (
     <main className='main-page'>
@@ -50,28 +72,9 @@ function Main({ location, handleClick }) {
           <h3>SELECT TODAY'S GOAL</h3>
         </div>
         <div className='goal-btns'>
-          <span>
-            <Link to={`/category/${selectedOption.key}`} >
-              <button id='monsters' onClick={handleClick}>SLAY MONSTERS</button>
-            </Link>
-            <Link>
-              <button id='treasure' onClick={handleClick}>GIMME THE LOOT</button>
-            </Link>
-            <Link>
-              <button id='materials' onClick={handleClick}>SNACK TIME</button>
-            </Link>
-          </span>
-          <span>
-            <Link>
-              <button id='creatures' onClick={handleClick}>BOTHER SOME CRITTERS</button>
-            </Link>
-            <Link>
-              <button id='equipment' onClick={handleClick}>GEAR UP</button>
-            </Link>
-            <Link>
-              <button id={utils.getRandomElement(categories)} onClick={handleClick}>ROLL THE DICE</button>
-            </Link>
-          </span>
+          <article>
+            {buttons}
+          </article>
         </div>
       </section>
     </main>
