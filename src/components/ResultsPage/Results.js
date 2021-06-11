@@ -3,8 +3,17 @@ import { Link } from 'react-router-dom';
 // import categories from '../../datasets/categories';
 // import utils from '../../utilities/utils';
 
-function Results({}) {
+function Results({ category, assignCategory, categoryData }) {
 
+  const [ data, setData ] = useState('');
+  
+  useEffect(() => {
+    assignCategory(category);
+    if (categoryData) {
+      setData(categoryData);
+      console.log("DATA: ", data );
+    }
+  }, [category]);
 
   return (
     <main className='results-page'>

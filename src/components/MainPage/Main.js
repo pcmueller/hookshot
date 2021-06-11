@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import categories from '../../datasets/categories';
 import utils from '../../utilities/utils';
 
-function Main({ location, assignCategory }) {
+function Main({ location }) {
 
   const [ currentLocation, setCurrentLocation ] = useState('');
-  const [ category, setCategory ] = useState('');
+  // const [ category, setCategory ] = useState('');
   const [ buttons, setButtons ]  = useState([]);
 
   useEffect(() => {
@@ -15,29 +15,28 @@ function Main({ location, assignCategory }) {
     setButtons(buildButtons());
   }, [location]);
 
-  const handleClick = (id) => {
-    setCategory(id);
-    assignCategory(category);
-  };
+  // const handleClick = (id) => {
+  //   setCategory(id);
+  // };
 
   const buildButtons = () => {
+    // onClick={() => handleClick(elem)}
     const buttonsArr = categories.map(elem => {
-      console.log(`/category/${elem}`);
       return (
-        <Link to={`/category/${elem}`} >
-          <button id={elem} key={elem} onClick={() => handleClick(elem)}>{elem}</button>
+        <Link to={`/category/${elem}`} key={elem}>
+          <button id={elem}>{elem}</button>
         </Link>
       )
     });
     const random = utils.getRandomElement(categories);
+    //  onClick={() => handleClick(random)}
     buttonsArr.push(
-      <Link>
-        <button id={random} key={random} onClick={() => handleClick(random)}>ROLL THE DICE</button>
+      <Link to={`/category/${random}`} key='random'>
+        <button id='random'>ROLL THE DICE</button>
       </Link>
     )
     return buttonsArr;
   }
-  
 
   return (
     <main className='main-page'>

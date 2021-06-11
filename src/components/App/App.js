@@ -19,10 +19,10 @@ class App extends Component {
     }
   }
 
-  componentDidMount = () => {
-    // this.setState({ category: 'monsters'});
-    this.getAllData();
-  };
+  // componentDidMount = () => {
+  //   this.setState({ locations: locationData})
+  //   // this.getAllData();
+  // };
 
   componentDidUpdate = () => {
     if (this.state.category.length > 0) {
@@ -59,7 +59,7 @@ class App extends Component {
   }
 
   assignCategory = (selection) => {
-    console.log("SELECTED CAT: ", selection);
+    console.log("CATEGORY SELECTED: ", selection);
     this.setState({ category: selection });
   }
 
@@ -77,15 +77,16 @@ class App extends Component {
             <Route exact path='/home/:id' 
                   render={({ match }) => 
               <Main 
-                location={match.params.id} 
-                assignCategory={this.assignCategory}
+                location={match.params.id}
               /> 
             }>
             </Route>
             <Route exact path='/category/:id' 
                   render={({ match }) => 
               <Results
-                category={match.params.id} 
+                category={match.params.id}
+                assignCategory={this.assignCategory}
+                categoryData={this.state[this.state.category]}
               />
             }>
             </Route>
