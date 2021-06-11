@@ -47,6 +47,7 @@ function Entry({ locations, assignLocation }) {
                 id={selectedOption.key}
                 className='entry-link-component'>
             <button 
+              disabled={selectedOption.length < 1}
               className='enter-btn' 
               type='reset'
               onClick={handleClick}>
