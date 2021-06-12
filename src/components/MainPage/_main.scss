@@ -13,12 +13,13 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 22vw;
+  height: 20%;
+  min-height: 15vw;
   text-align: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   margin-top: 3vw;
-  margin-bottom: 1vw;
-  padding-top: 4%;
+  margin-bottom: 3vw;
+  padding-top: 2%;
   padding-bottom: 1%;
   border-top: 5px solid black;
   border-bottom: 5px solid black;
@@ -32,7 +33,7 @@
 
 .welcome-message {
   margin: 0;
-  font-size: 3vw;
+  font-size: 3.5vw;
   color: whitesmoke;
   text-shadow: 2px 2px black;
 }
@@ -63,12 +64,13 @@
   display: flex;
   flex-direction: column;
   width: 65%;
-  height: 15vw;
+  height: 30%;
+  min-height: 10vw;
   text-align: center;
   align-items: center;
   justify-content: space-evenly;
   padding: 1%;
-  margin-bottom: 1vw;
+  margin-bottom: 2vw;
   color: ghostwhite;
   background-color: rgb(42, 103, 184);
   border: 4px solid skyblue;
@@ -76,26 +78,33 @@
   
   h3 {
     font-size: 1.5vw;
+    height: 50%;
     color: lightgoldenrodyellow;
   }
 }
 
 .search-bar {
   display: flex;
-  width: 65%;
-  height: 25%;
-  margin-bottom: 2vw;
+  align-items: center;
+  justify-items: center;
+  width: 70%;
+  height: 50%;
+  padding: 0;
 
   input {
     width: 80%;
     height: 100%;
+    min-height: 4vw;
+    margin: 0 5% 0 0;
     text-align: center;
-    margin-right: 1vw;
+    font-size: 1.5vw;
+    font-family: $Roboto;
   }
 
   button {
     width: 30%;
     height: 100%;
+    min-height: 4vw;
     font-size: 80%;
     color: lightgoldenrodyellow;
     text-shadow: 1px 1px black;
@@ -112,11 +121,12 @@
   text-align: center;
   justify-content: space-around;
   width: 80%;
-  height: 30vw;
+  height: 30%;
+  min-height: 20vw;
 }
 
 .goal-heading {
-  height: 10vw;
+  height: 30%;
   justify-content: flex-end;
   font-family: PressStart;
   
@@ -124,14 +134,15 @@
     width: 100%;
     height: 40%;
     margin-bottom: 1%;
-    font-size: 1.75vw;
+    color: rgb(255, 255, 255);
+    font-size: 1.5vw;
   }
   
   h3 {
     width: 100%;
     height: 60%;
     margin: 0;
-    font-size: 2.5vw;
+    font-size: 2vw;
     color: rgb(242, 100, 237);
     text-shadow: 2px 2px rgb(7, 7, 9);
   }
@@ -142,10 +153,11 @@
   flex-flow: column nowrap;
   align-items: space-evenly;
   justify-content: space-evenly;
-  width: 80%;
-  height: 80%;
+  width: 65%;
+  height: 60%;
+  min-height: 15vw;
   margin-top: 2%;
-  padding: 2% 3% 2% 3%;
+  padding: 1%;
   background-color: skyblue;
   border: 4px solid gold;
   font-family: KongText;
@@ -154,21 +166,27 @@
     display: flex;
     flex-flow: row wrap;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 100%;
     height: 100%;
+
+    a {
+      display: flex;
+      flex-flow: row wrap;
+      align-items: center;
+      justify-content: center;
+      width: 32%;
+      height: 100%;
+      margin: 0;
+      padding: 2%;
+    }
   }
 
   button {
-    display: flex;
-    flex-flow: row wrap;
-    align-items: center;
-    justify-content: center;
-    width: 15vw;
-    height: 5vw;
-    margin: 2vw;
-    padding: 2%;
-    font-size: 80%;
+    width: 100%;;
+    height: 100%;
+    min-height: 5vw;
+    font-size: 1.25vw;
     text-transform: uppercase;
     color: ghostwhite;
     background-color: darkgreen;
