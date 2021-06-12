@@ -1,22 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import categories from '../../datasets/categories';
-// import utils from '../../utilities/utils';
 
-function Results({ location, category, categoryData, assignCategory, loaded }) {
+function Results(
+  { location, 
+    category, 
+    categoryData, 
+    assignCategory, 
+    assignDataLoadState, 
+    loaded }) {
 
   const [ localItems, setLocalItems ] = useState([]);
+  // const [ data, setData ] = useState([]);
   
   useEffect(() => {
-    assignCategory(category);
+    if (!categoryData) {
+      assignDataLoadState(false)
+      assignCategory(category);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [category]);
+  }, []);
 
   useEffect(() => {
     if (categoryData) {
+      assignDataLoadState(true);
+      // setData(categoryData);
       filterLocalItems(categoryData);
     }
-  }, [loaded])
+  }, [categoryData])
 
   const filterLocalItems = async () => {
     const filtered = await categoryData.reduce((acc, elem) => {
@@ -32,7 +42,8 @@ function Results({ location, category, categoryData, assignCategory, loaded }) {
     const itemList = localItems.filter(item => {
       return (
         <p>
-          
+          <h2>Name: {item.name}</h2>
+          <h3>Cooking Effect: </h3>
         </p>
       )
     });

@@ -27,7 +27,8 @@ class App extends Component {
   // };
 
   componentDidUpdate = () => {
-    if (this.state.category.length > 0) {
+    
+    if (this.state.dataLoaded === false && this.state.category.length > 0) {
       this.getDataByCategory(`${this.state.category}`);
     }
   };
@@ -48,9 +49,6 @@ class App extends Component {
       .then(data => {
         this.setState({ [category]: data.data })
       })
-      .then(() => {
-        this.setState({ dataLoaded: true })
-      })
       .catch((error) => {
         console.log(error);
         this.setState({ error: 'Uh Oh, Something Went Wrong' });
@@ -66,6 +64,10 @@ class App extends Component {
   assignCategory = (selection) => {
     console.log("CATEGORY SELECTED: ", selection);
     this.setState({ category: selection });
+  }
+
+  assignDataLoadState = (bool) => {
+    this.setState({ dataLoaded: bool });
   }
 
   render() {
@@ -94,6 +96,7 @@ class App extends Component {
                   category={match.params.id}
                   categoryData={this.state[this.state.category]}
                   assignCategory={this.assignCategory}
+                  assignDataLoadState={this.assignDataLoadState}
                   loaded={this.state.dataLoaded}
                 />
             }>
