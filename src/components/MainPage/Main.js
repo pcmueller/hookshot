@@ -31,7 +31,7 @@ function Main({ location }) {
     )
     return buttonsArr;
   }
-
+  
   return (
     <main className='main-page'>
       <section className='banner'>

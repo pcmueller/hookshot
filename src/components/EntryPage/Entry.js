@@ -4,12 +4,19 @@ import utils from '../../utilities/utils';
 
 function Entry({ locations, assignLocation }) {
 
-  const [ selectedOption, setSelectedOption ] = useState('');
+  const [ selectedOption, setSelectedOption ] = useState('default');
+  const [ locationPath, setLocationPath ] = useState('');
   const [ clickEnter, setClickEnter ] = useState(false);
 
   useEffect(() => {
     setClickEnter(false);
   }, [clickEnter]);
+
+  const handleSelect = (e) => {
+    const location = e.target.value;
+    setSelectedOption(location);
+    setLocationPath(utils.convertLocationPath(location));
+  }
 
   const handleClick = () => {
     setClickEnter(true);
@@ -17,8 +24,7 @@ function Entry({ locations, assignLocation }) {
   };
 
   const options = locations.map(location => {
-    const path = utils.convertLocationPath(location);
-    return <option value={location} label={location} key={path}>{path}</option>
+    return <option value={location} label={location}></option>
   });
 
   return (
@@ -38,28 +44,17 @@ function Entry({ locations, assignLocation }) {
           <label htmlFor="dark_select">where are you now?</label>
           <div className="nes-select">
             <select 
-              required id="default_select"
-              defaultValue={selectedOption}
-              onChange={setSelectedOption}
+              defaultValue="0"
+              onChange={handleSelect}
             >
-              <option value="" disabled hidden>Select your location...</option>
+              <option value="0" disabled >Select your location...</option>
               {options}
             </select>
           </div>
         </section>
-        {/* <section className='location-dropdown-section' tabIndex='-1'>
-          <h3>WHERE ARE YOU NOW?</h3>
-          <Select
-            className='dropdown'
-            placeholder='Select your location'
-            defaultValue={selectedOption}
-            onChange={setSelectedOption}
-            options={options}
-            />
-        </section> */}
         <section className='enter-btn-section'>
-          <Link to={`/home/${selectedOption.key}`} 
-                id={selectedOption.key}
+          <Link to={`/home/${locationPath}`} 
+                id={locationPath}
                 className='entry-link-component'>
             <button 
               disabled={selectedOption.length < 1}
