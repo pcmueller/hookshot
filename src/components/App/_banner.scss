@@ -15,24 +15,53 @@
   border-top: 5px ridge black;
   border-bottom: 5px ridge black;
   font-family: PressStart;
-  background-color: rgba(2, 177, 2, 0.433);
+  background-color: rgba(5, 206, 5, 0.289);
 
   a {
     text-decoration: none;
   }
+}
 
-  h1 {
-    margin: 0;
-    font-size: 4.5vw;
-    color: whitesmoke;
-    text-shadow: 4px 4px black;
-  }
+.app-title {
+  margin: 0;
+  font-size: 4.5vw;
+  color: whitesmoke;
+  text-shadow: 4px 4px black;
+}
+
+.app-subtitle {
+  margin: 0;
+  font-size: 1.5vw;
+  color: gold;
+  text-shadow: 2px 2px black;
+}
+
+.welcome-message {
+  margin: 2% auto 2% auto;
+  color: whitesmoke;
+  text-shadow: 2px 2px black;
+  font-size: 3vw;
+}
+
+.welcome-location {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0;
 
   h4 {
-    margin: 0;
-    font-size: 1.5vw;
+    margin-bottom: 1%;
+    font-size: 1.4vw;
+    letter-spacing: 0.25vw;
+    text-shadow: 1px 2px black;
+    color: skyblue;
+  }
+
+  h3 {
+    margin-bottom: 1%;
+    font-size: 2.2vw;
     color: gold;
     text-shadow: 2px 2px black;
   }
-
 }

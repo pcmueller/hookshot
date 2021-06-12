@@ -146,7 +146,7 @@ function Results(
     return (
       <main className='results-page'>
         <section className='banner'>
-          <Link to={'/'} className='home-link-component'>
+          <Link to={'/'}>
             <h1 className='welcome-message'>WELCOME TO HYRULE</h1>
           </Link>
           <div className='welcome-location'>
@@ -155,8 +155,8 @@ function Results(
           </div>
         </section>
         <section className='results-section'>
-          <div className='results-title'>
-            <h3>Great choice!</h3>
+          <div className='nes-container with-title results-title'>
+            <span className='title'>Great choice!</span>
             <h2>Here's a list of {category} in your area:</h2>
           </div>
           <div className='results-grid'>

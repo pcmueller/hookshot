@@ -7,35 +7,6 @@
   height: 100%;
 }
 
-.welcome-message {
-  margin: 2% auto 2% auto;
-  color: whitesmoke;
-  text-shadow: 2px 2px black;
-  font-size: 3vw;
-}
-
-.welcome-location {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin: 0;
-  
-  h4 {
-    margin-bottom: 1%;
-    font-size: 1.4vw;
-    letter-spacing: 0.25vw;
-    text-shadow: 1px 2px black;
-    color: skyblue;
-  }
-
-  h3 {
-    margin-bottom: 1%;
-    font-size: 2.2vw;
-    color:gold;
-    text-shadow: 2px 2px black;
-  }
-}
-
 // SEARCH
 
 .search-section {
@@ -86,9 +57,6 @@
     min-height: 4vw;
     font-size: 1.3vw;
     border: 2px solid black;
-    color: black;
-    text-shadow: 2px 2px ghostwhite;
-    background-color: lightgray;
   }
 }
 
@@ -117,15 +85,6 @@
     color: rgb(255, 255, 255);
     font-size: 1.5vw;
   }
-  
-  h3 {
-    width: 100%;
-    height: 60%;
-    margin: 0;
-    font-size: 2vw;
-    color: rgb(242, 100, 237);
-    text-shadow: 2px 2px rgb(7, 7, 9);
-  }
 }
 
 .goal-btns {
@@ -141,6 +100,10 @@
   background-color: skyblue;
   border: 4px solid gold;
   font-family: KongText;
+
+  span {
+    background-color: inherit;
+  }
 
   article {
     display: flex;
@@ -168,7 +131,5 @@
     min-height: 5vw;
     font-size: 1.25vw;
     text-transform: uppercase;
-    color: ghostwhite;
-    background-color: darkgreen;
   }
 }

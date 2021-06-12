@@ -19,14 +19,14 @@ function Main({ location }) {
     const buttonsArr = categories.names.map(elem => {
       return (
         <Link to={`/location/${location}/category/${elem}`} key={elem}>
-          <button id={elem}>{elem}</button>
+          <button className='nes-btn is-success' id={elem}>{elem}</button>
         </Link>
       )
     });
     const random = utils.getRandomElement(categories.names);
     buttonsArr.push(
       <Link to={`/category/${random}`} key='random'>
-        <button id='random'>ROLL THE DICE</button>
+        <button className='nes-btn is-success' id='random'>ROLL THE DICE</button>
       </Link>
     )
     return buttonsArr;
@@ -35,7 +35,7 @@ function Main({ location }) {
   return (
     <main className='main-page'>
       <section className='banner'>
-        <Link to={'/'} className='home-link-component'>
+        <Link to={'/'}>
           <h1 className='welcome-message'>WELCOME TO HYRULE</h1>
         </Link>
         <div className='welcome-location'>
@@ -43,7 +43,7 @@ function Main({ location }) {
           <h3>{currentLocation}</h3>
         </div>
       </section>
-      <section className='search-section'>
+      <section className='search-section nes-container'>
         <h3>
           looking for an item or creature?
         </h3>
@@ -54,15 +54,15 @@ function Main({ location }) {
             placeholder='search here!'
             name='input'
           />
-          <button>SEARCH</button>
+          <button className='nes-btn'>SEARCH</button>
         </div>
       </section>
       <section className='goal-container'>
         <div className='goal-heading'>
           <h4>~OR~</h4>
-          <h3>SELECT TODAY'S GOAL</h3>
         </div>
-        <div className='goal-btns'>
+        <div className='nes-container with-title goal-btns'>
+          <span>SELECT TODAY'S GOAL</span>
           <article>
             {buttons}
           </article>
