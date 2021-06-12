@@ -72,14 +72,15 @@
   padding: 1%;
   margin-bottom: 2vw;
   color: ghostwhite;
-  background-color: rgb(42, 103, 184);
-  border: 4px solid skyblue;
+  background-color: rgba(5, 73, 219, 0.589);
+  border: 3px solid rgb(228, 231, 26);
   font-family: KongText;
   
   h3 {
     font-size: 1.5vw;
     height: 50%;
-    color: lightgoldenrodyellow;
+    color: rgb(255, 255, 255);
+    text-shadow: 5px 3px black;
   }
 }
 
@@ -105,10 +106,11 @@
     width: 30%;
     height: 100%;
     min-height: 4vw;
-    font-size: 80%;
-    color: lightgoldenrodyellow;
-    text-shadow: 1px 1px black;
-    background-color: darkgreen;
+    font-size: 1.3vw;
+    border: 2px solid black;
+    color: black;
+    text-shadow: 2px 2px ghostwhite;
+    background-color: lightgray;
   }
 }
 
