@@ -6,11 +6,11 @@ function Results(
     category, 
     categoryData, 
     assignCategory, 
-    assignDataLoadState, 
-    loaded }) {
+    assignDataLoadState
+  }) {
 
   const [ localItems, setLocalItems ] = useState([]);
-  // const [ data, setData ] = useState([]);
+  const [ itemList, setItemList ] = useState([]);
   
   useEffect(() => {
     if (!categoryData) {
@@ -23,19 +23,47 @@ function Results(
   useEffect(() => {
     if (categoryData) {
       assignDataLoadState(true);
-      // setData(categoryData);
       filterLocalItems(categoryData);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [categoryData])
 
   const filterLocalItems = async () => {
-    const filtered = await categoryData.reduce((acc, elem) => {
+    let filtered = [];
+
+    if (category === 'creatures') {
+      filtered = filterCreatures();
+    } else {
+      filtered = filterNonCreatures();
+    }
+    setLocalItems(filtered);
+  }
+
+  const filterCreatures = () => {
+    let creatures = { food: [], nonfood: [] };
+
+    categoryData.food.forEach(elem => {
+      if (elem['common_locations'].includes(location)) {
+        creatures.food.push(elem);
+      }
+    });
+
+    categoryData['non_food'].forEach(elem => {
+      if (elem['common_locations'].includes(location)) {
+        creatures.nonfood.push(elem);
+      }
+    });
+
+    return creatures;
+  }
+
+  const filterNonCreatures = () => {
+    return categoryData.reduce((acc, elem) => {
       if (elem['common_locations'].includes(location)) {
         acc.push(elem);
       }
       return acc;
     }, []);
-    setLocalItems(filtered);
   }
 
   const buildItemList = () => {

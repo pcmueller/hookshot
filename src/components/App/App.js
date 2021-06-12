@@ -21,13 +21,7 @@ class App extends Component {
     }
   }
 
-  // componentDidMount = () => {
-  //   this.setState({ locations: locationData})
-  //   // this.getAllData();
-  // };
-
   componentDidUpdate = () => {
-    
     if (this.state.dataLoaded === false && this.state.category.length > 0) {
       this.getDataByCategory(`${this.state.category}`);
     }
@@ -97,7 +91,6 @@ class App extends Component {
                   categoryData={this.state[this.state.category]}
                   assignCategory={this.assignCategory}
                   assignDataLoadState={this.assignDataLoadState}
-                  loaded={this.state.dataLoaded}
                 />
             }>
             </Route>
