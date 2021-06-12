@@ -32,7 +32,7 @@ function Entry({ locations, assignLocation }) {
       </header>
       <form className='form-container'>
         <section className='location-dropdown-section' tabIndex='-1'>
-          <h3>where are you now?</h3>
+          <h3>WHERE ARE YOU NOW?</h3>
           <Select
             className='dropdown'
             placeholder='Select your location'

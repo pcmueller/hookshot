@@ -72,6 +72,7 @@ function Results(
   const filterNonCreatures = () => {
     return categoryData.reduce((acc, elem) => {
       if (elem['common_locations'].includes(location)) {
+        console.log("MATCHED ITEM: ", elem);
         acc.push(elem);
       }
       return acc;
@@ -90,7 +91,7 @@ function Results(
             <div className='item-info'>
               <p>Name: {item.name}</p>
               <p>Edible: Yes</p>
-              <p>Common Locations: {item.common_locations}</p>
+              <p>Common Locations: {item.common_locations.join(', ')}</p>
               <p>Description: {item.description}</p>
             </div>
           </article>
@@ -105,7 +106,7 @@ function Results(
             <div className='item-info'>
               <p>{item.name}</p>
               <p>Edible: No</p>
-              <p>Common Locations: {item.common_locations}</p>
+              <p>Common Locations: {item.common_locations.join(', ')}</p>
               <p>Description: {item.description}</p>
             </div>
           </article>
@@ -119,9 +120,12 @@ function Results(
               <img src={item.image} alt={item.name}/>
             </div>
             <div className='item-info'>
-              <p>Name: {item.name}</p>
-              <p>Common Locations: {item.common_locations}</p>
-              <p>Description: {item.description}</p>
+              Name:
+              <p className='item-name'>{item.name}</p>
+              Common Locations:
+              <p className='item-locations'>{item.common_locations.join(', ')}</p>
+              Description: 
+              <p className='item-description'>{item.description}</p>
             </div>
           </article>
         )
@@ -140,22 +144,19 @@ function Results(
   } else {
     return (
       <main className='results-page'>
-        <header className='results-banner'>
+        <section className='main-banner'>
           <Link to={'/'} className='home-link-component'>
-            <h1>HOOKSHOT</h1>
+            <h1 className='welcome-message'>WELCOME TO HYRULE</h1>
           </Link>
-          <h4>
-            wow, what a great choice. 
-              <br></br>
-            let's find some {category}!
-          </h4>
-        </header>
+          <div className='welcome-location'>
+            <h4>CURRENT LOCATION:</h4>
+            <h3>{location}</h3>
+          </div>
+        </section>
         <section className='results-section'>
           <div className='results-title'>
-            <h3>
-              Alright, here's a list of all the 
-                <br></br>
-              {category} in your area:</h3>
+            <h3>Great choice!</h3>
+            <h3>Here's a list of {category} in your area:</h3>
           </div>
           <div className='results-grid'>
             <div className='item-list'>
