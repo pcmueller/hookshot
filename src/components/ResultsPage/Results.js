@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import categories from '../../datasets/categories';
 
 function Results(
   { location, 
@@ -27,6 +28,17 @@ function Results(
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [categoryData])
+
+  useEffect(() => {
+    let list = [];
+    if (localItems) {
+      list = buildItemList();
+    }
+    if (list.length > 0) {
+      setItemList(list);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [localItems])
 
   const filterLocalItems = async () => {
     let filtered = [];
@@ -67,39 +79,72 @@ function Results(
   }
 
   const buildItemList = () => {
-    const itemList = localItems.filter(item => {
-      return (
-        <p>
-          <h2>Name: {item.name}</h2>
-          <h3>Cooking Effect: </h3>
-        </p>
-      )
-    });
+    let itemCards = [];
+    if (category === 'creatures') {
+      localItems.food.forEach(item => {
+        itemList.push(
+          <p id={item.id} key={item.id}>
+            <img src={item.image} alt={item.name}/>
+            <h2>Name: {item.name}</h2>
+            <h3>Edible: Yes</h3>
+            <h3>Common Locations: {item.common_locations}</h3>
+            <h3>Description: {item.description}</h3>
+          </p>
+        )
+      });
+      localItems.nonfood.forEach(item => {
+        itemList.push(
+          <p id={item.id} key={item.id}>
+            <img src={item.image} alt={item.name}/>
+            <h2>Name: {item.name}</h2>
+            <h3>Edible: No</h3>
+            <h3>Common Locations: {item.common_locations}</h3>
+            <h3>Description: {item.description}</h3>
+          </p>
+        )
+      });
+    } else {
+      localItems.forEach(item => {
+        itemList.push(
+          <p id={item.id} key={item.id}>
+            <img src={item.image} alt={item.name}/>
+            <h2>Name: {item.name}</h2>
+            <h3>Common Locations: {item.common_locations}</h3>
+            <h3>Description: {item.description}</h3>
+          </p>
+        )
+      });
+    }
+    return itemCards;
   }
 
-  return (
-    <main className='results-page'>
-      <header className='results-banner'>
-        <Link to={'/'} className='home-link-component'>
-          <h1>HOOKSHOT</h1>
-        </Link>
-        <h4>wow, what a great choice. <br></br>let's find some {category}!</h4>
-      </header>
-      <section className='results-section'>
-        <h3>Alright, here's a list of all the <br></br>{category} in your area:</h3>
-        <article className='results-grid'>
-          <ul className='item-list'>
-            <li>ITEM #1</li>
-            <li>ITEM #2</li>
-            <li>ITEM #3</li>
-            <li>ITEM #4</li>
-            <li>ITEM #5</li>
-            <li>ITEM #6</li>
-          </ul>
-        </article>
-      </section>
-    </main>
-  )
+  if (itemList.length === 0) {
+    console.log("NO LIST YET");
+    return (
+      <main>
+        <h1>PAGE LOADING</h1>
+      </main>
+    )
+  } else {
+    return (
+      <main className='results-page'>
+        <header className='results-banner'>
+          <Link to={'/'} className='home-link-component'>
+            <h1>HOOKSHOT</h1>
+          </Link>
+          <h4>wow, what a great choice. <br></br>let's find some {category}!</h4>
+        </header>
+        <section className='results-section'>
+          <h3>Alright, here's a list of all the <br></br>{category} in your area:</h3>
+          <article className='results-grid'>
+            <ul className='item-list'>
+              {itemList}
+            </ul>
+          </article>
+        </section>
+      </main>
+    )
+  }
 }
 
 export default Results;

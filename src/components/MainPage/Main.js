@@ -16,14 +16,14 @@ function Main({ location }) {
   }, [location]);
 
   const buildButtons = () => {
-    const buttonsArr = categories.map(elem => {
+    const buttonsArr = categories.names.map(elem => {
       return (
         <Link to={`/location/${location}/category/${elem}`} key={elem}>
           <button id={elem}>{elem}</button>
         </Link>
       )
     });
-    const random = utils.getRandomElement(categories);
+    const random = utils.getRandomElement(categories.names);
     buttonsArr.push(
       <Link to={`/category/${random}`} key='random'>
         <button id='random'>ROLL THE DICE</button>
