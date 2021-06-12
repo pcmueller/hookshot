@@ -2,24 +2,23 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
   width: 100%;
   height: 100%;
-  background-color: lightgreen;
 }
 
 // WELCOME
 
-.welcome-section {
+.main-banner {
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: 25%;
+  height: 22vw;
   text-align: center;
-  justify-content: space-between;
-  margin-top: 2%;
-  margin-bottom: 1%;
-  padding-top: 3%;
+  justify-content: space-around;
+  margin-top: 3vw;
+  margin-bottom: 1vw;
+  padding-top: 4%;
   padding-bottom: 1%;
   border-top: 5px solid black;
   border-bottom: 5px solid black;
@@ -31,14 +30,14 @@
   }
 }
 
-.welcome-heading {
+.welcome-message {
   margin: 0;
   font-size: 3vw;
   color: whitesmoke;
   text-shadow: 2px 2px black;
 }
 
-.welcome-subtext {
+.welcome-location {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -47,11 +46,12 @@
   h4 {
     font-size: 1.4vw;
     letter-spacing: 0.25vw;
+    text-shadow: 1px 2px black;
     color: skyblue;
   }
 
   h3 {
-    font-size: 1.75vw;
+    font-size: 2vw;
     color:gold;
     text-shadow: 2px 2px black;
   }
@@ -63,13 +63,14 @@
   display: flex;
   flex-direction: column;
   width: 65%;
-  height: 20%;
+  height: 15vw;
   text-align: center;
   align-items: center;
   justify-content: space-evenly;
   padding: 1%;
+  margin-bottom: 1vw;
   color: ghostwhite;
-  background-color: rgb(42, 44, 18);
+  background-color: rgb(42, 103, 184);
   border: 4px solid skyblue;
   font-family: KongText;
   
@@ -83,6 +84,7 @@
   display: flex;
   width: 65%;
   height: 25%;
+  margin-bottom: 2vw;
 
   input {
     width: 80%;
@@ -109,12 +111,12 @@
   align-items: center;
   text-align: center;
   justify-content: space-around;
-  width: 90%;
-  height: 40%;
+  width: 80%;
+  height: 30vw;
 }
 
 .goal-heading {
-  height: 20%;
+  height: 10vw;
   justify-content: flex-end;
   font-family: PressStart;
   
@@ -122,16 +124,16 @@
     width: 100%;
     height: 40%;
     margin-bottom: 1%;
-    font-size: 1.3vw;
+    font-size: 1.75vw;
   }
   
   h3 {
     width: 100%;
     height: 60%;
     margin: 0;
-    font-size: 1.75vw;
-    color: blueviolet;
-    text-shadow: 2px 2px ghostwhite;
+    font-size: 2.5vw;
+    color: rgb(242, 100, 237);
+    text-shadow: 2px 2px rgb(7, 7, 9);
   }
 }
 
@@ -140,16 +142,17 @@
   flex-flow: column nowrap;
   align-items: space-evenly;
   justify-content: space-evenly;
-  width: 50%;
+  width: 80%;
   height: 80%;
-  padding: 2% 5% 2% 5%;
+  margin-top: 2%;
+  padding: 2% 3% 2% 3%;
   background-color: skyblue;
   border: 4px solid gold;
   font-family: KongText;
 
-  span {
+  article {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     align-items: center;
     justify-content: space-between;
     width: 100%;
@@ -161,10 +164,12 @@
     flex-flow: row wrap;
     align-items: center;
     justify-content: center;
-    margin: 1%;
-    width: 60%;
-    height: 80%;
+    width: 15vw;
+    height: 5vw;
+    margin: 2vw;
+    padding: 2%;
     font-size: 80%;
+    text-transform: uppercase;
     color: ghostwhite;
     background-color: darkgreen;
   }

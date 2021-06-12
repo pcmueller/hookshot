@@ -3,22 +3,42 @@ import { Link } from 'react-router-dom';
 import categories from '../../datasets/categories';
 import utils from '../../utilities/utils';
 
-function Main({ location, handleClick }) {
+function Main({ location }) {
 
   const [ currentLocation, setCurrentLocation ] = useState('');
+  const [ buttons, setButtons ]  = useState([]);
 
   useEffect(() => {
     const formatted = location.replaceAll('+', ' ');
     setCurrentLocation(formatted);
+    setButtons(buildButtons());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location]);
+
+  const buildButtons = () => {
+    const buttonsArr = categories.names.map(elem => {
+      return (
+        <Link to={`/location/${location}/category/${elem}`} key={elem}>
+          <button id={elem}>{elem}</button>
+        </Link>
+      )
+    });
+    const random = utils.getRandomElement(categories.names);
+    buttonsArr.push(
+      <Link to={`/category/${random}`} key='random'>
+        <button id='random'>ROLL THE DICE</button>
+      </Link>
+    )
+    return buttonsArr;
+  }
 
   return (
     <main className='main-page'>
-      <section className='welcome-section'>
+      <section className='main-banner'>
         <Link to={'/'} className='home-link-component'>
-          <h1 className='welcome-heading'>WELCOME TO HYRULE</h1>
+          <h1 className='welcome-message'>WELCOME TO HYRULE</h1>
         </Link>
-        <div className='welcome-subtext'>
+        <div className='welcome-location'>
           <h4>CURRENT LOCATION:</h4>
           <h3>{currentLocation}</h3>
         </div>
@@ -33,8 +53,6 @@ function Main({ location, handleClick }) {
             type='text'
             placeholder='search here!'
             name='input'
-            // value={this.state.searchQuery}
-            // onChange={this.handleChange}
           />
           <button>SEARCH</button>
         </div>
@@ -45,18 +63,9 @@ function Main({ location, handleClick }) {
           <h3>SELECT TODAY'S GOAL</h3>
         </div>
         <div className='goal-btns'>
-          <span>
-            <button id='monsters' onClick={handleClick}>DEFEAT MONSTERS</button>
-            <button id='treasure' onClick={handleClick}>GIMME THE LOOT</button>
-          </span>
-          <span>
-            <button id='materials' onClick={handleClick}>FORAGE THE LAND</button>
-            <button id='creatures' onClick={handleClick}>BOTHER SOME CRITTERS</button>
-          </span>
-          <span>
-            <button id='equipment' onClick={handleClick}>GEAR UP</button>
-            <button id={utils.getRandomElement(categories)} onClick={handleClick}>ROLL THE DICE</button>
-          </span>
+          <article>
+            {buttons}
+          </article>
         </div>
       </section>
     </main>

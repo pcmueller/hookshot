@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Select from 'react-select';
+import utils from '../../utilities/utils';
 
 function Entry({ locations, assignLocation }) {
 
@@ -14,26 +15,24 @@ function Entry({ locations, assignLocation }) {
   const handleClick = () => {
     setClickEnter(true);
     assignLocation(selectedOption.value);
-    console.log("SELECTED: ", selectedOption);
   };
 
   const options = locations.map(location => {
-    const joined = location.replaceAll(' ', '+');
-
-    return { value: location, label: location, key: joined};
+    const path = utils.convertLocationPath(location);
+    return { value: location, label: location, key: path};
   });
 
   return (
     <main className='entry-page'>
-      <header className='header'>
+      <header className='entry-banner'>
         <h1>HOOKSHOT</h1>
         <h4>
-          PRODUCTIVITY GUIDE FOR THE BUSY HYRULIAN
+          ~ A FIELD GUIDE FOR HYRULIAN EXPLORATION ~
         </h4>
       </header>
       <form className='form-container'>
         <section className='location-dropdown-section' tabIndex='-1'>
-          <h3>where are you now?</h3>
+          <h3>WHERE ARE YOU NOW?</h3>
           <Select
             className='dropdown'
             placeholder='Select your location'
