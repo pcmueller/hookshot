@@ -34,7 +34,7 @@ function Main({ location }) {
 
   return (
     <main className='main-page'>
-      <section className='main-banner'>
+      <section className='banner'>
         <Link to={'/'} className='home-link-component'>
           <h1 className='welcome-message'>WELCOME TO HYRULE</h1>
         </Link>

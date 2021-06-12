@@ -1,0 +1,38 @@
+// WELCOME HEADER
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 20%;
+  min-height: 20vw;
+  padding-top: 2%;
+  padding-bottom: 1%;
+  margin-top: 5vw;
+  margin-bottom: 4vw;
+  border-top: 5px ridge black;
+  border-bottom: 5px ridge black;
+  font-family: PressStart;
+  background-color: rgba(2, 177, 2, 0.433);
+
+  a {
+    text-decoration: none;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 4.5vw;
+    color: whitesmoke;
+    text-shadow: 4px 4px black;
+  }
+
+  h4 {
+    margin: 0;
+    font-size: 1.5vw;
+    color: gold;
+    text-shadow: 2px 2px black;
+  }
+
+}

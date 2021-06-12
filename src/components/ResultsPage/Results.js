@@ -25,6 +25,7 @@ function Results(
     if (categoryData) {
       assignDataLoadState(true);
       filterLocalItems(categoryData);
+      console.log(categoryData);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [categoryData])
@@ -144,7 +145,7 @@ function Results(
   } else {
     return (
       <main className='results-page'>
-        <section className='main-banner'>
+        <section className='banner'>
           <Link to={'/'} className='home-link-component'>
             <h1 className='welcome-message'>WELCOME TO HYRULE</h1>
           </Link>
@@ -156,7 +157,7 @@ function Results(
         <section className='results-section'>
           <div className='results-title'>
             <h3>Great choice!</h3>
-            <h3>Here's a list of {category} in your area:</h3>
+            <h2>Here's a list of {category} in your area:</h2>
           </div>
           <div className='results-grid'>
             <div className='item-list'>

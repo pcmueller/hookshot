@@ -7,35 +7,11 @@
   height: 100%;
 }
 
-// WELCOME
-
-.main-banner {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 20%;
-  min-height: 15vw;
-  text-align: center;
-  justify-content: space-evenly;
-  margin-top: 3vw;
-  margin-bottom: 3vw;
-  padding-top: 2%;
-  padding-bottom: 1%;
-  border-top: 5px solid black;
-  border-bottom: 5px solid black;
-  font-family: PressStart;
-  background-color: green;
-
-  a {
-    text-decoration: none;
-  }
-}
-
 .welcome-message {
-  margin: 0;
-  font-size: 3.5vw;
+  margin: 2% auto 2% auto;
   color: whitesmoke;
   text-shadow: 2px 2px black;
+  font-size: 3vw;
 }
 
 .welcome-location {
@@ -45,6 +21,7 @@
   margin: 0;
   
   h4 {
+    margin-bottom: 1%;
     font-size: 1.4vw;
     letter-spacing: 0.25vw;
     text-shadow: 1px 2px black;
@@ -52,7 +29,8 @@
   }
 
   h3 {
-    font-size: 2vw;
+    margin-bottom: 1%;
+    font-size: 2.2vw;
     color:gold;
     text-shadow: 2px 2px black;
   }

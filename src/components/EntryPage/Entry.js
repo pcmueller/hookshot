@@ -24,7 +24,7 @@ function Entry({ locations, assignLocation }) {
 
   return (
     <main className='entry-page'>
-      <header className='entry-banner'>
+      <header className='banner'>
         <h1>HOOKSHOT</h1>
         <h4>
           ~ A FIELD GUIDE FOR HYRULIAN EXPLORATION ~
@@ -47,10 +47,10 @@ function Entry({ locations, assignLocation }) {
                 className='entry-link-component'>
             <button 
               disabled={selectedOption.length < 1}
-              className='enter-btn' 
+              className='enter-btn blinker' 
               type='reset'
               onClick={handleClick}>
-                CLICK TO ENTER
+                PRESS START
             </button>
           </Link>
         </section>
