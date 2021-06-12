@@ -83,35 +83,47 @@ function Results(
     if (category === 'creatures') {
       localItems.food.forEach(item => {
         itemList.push(
-          <p id={item.id} key={item.id}>
-            <img src={item.image} alt={item.name}/>
-            <h2>Name: {item.name}</h2>
-            <h3>Edible: Yes</h3>
-            <h3>Common Locations: {item.common_locations}</h3>
-            <h3>Description: {item.description}</h3>
-          </p>
+          <article className='item-card' id={item.id} key={item.id}>
+            <div className='image-container'>
+              <img src={item.image} alt={item.name}/>
+            </div>
+            <div className='item-info'>
+              <p>Name: {item.name}</p>
+              <p>Edible: Yes</p>
+              <p>Common Locations: {item.common_locations}</p>
+              <p>Description: {item.description}</p>
+            </div>
+          </article>
         )
       });
       localItems.nonfood.forEach(item => {
         itemList.push(
-          <p id={item.id} key={item.id}>
-            <img src={item.image} alt={item.name}/>
-            <h2>Name: {item.name}</h2>
-            <h3>Edible: No</h3>
-            <h3>Common Locations: {item.common_locations}</h3>
-            <h3>Description: {item.description}</h3>
-          </p>
+          <article className='item-card' id={item.id} key={item.id}>
+            <div className='image-container'>
+              <img src={item.image} alt={item.name}/>
+            </div>
+            <div className='item-info'>
+              <p>{item.name}</p>
+              <p>Edible: No</p>
+              <p>Common Locations: {item.common_locations}</p>
+              <p>Description: {item.description}</p>
+            </div>
+          </article>
         )
       });
     } else {
       localItems.forEach(item => {
         itemList.push(
-          <p id={item.id} key={item.id}>
-            <img src={item.image} alt={item.name}/>
-            <h2>Name: {item.name}</h2>
-            <h3>Common Locations: {item.common_locations}</h3>
-            <h3>Description: {item.description}</h3>
-          </p>
+          <article className='item-card' id={item.id} key={item.id}>
+            <div className='image-container'>
+              <img src={item.image} alt={item.name}/>
+            </div>
+            <div className='item-info'>
+              <p>Name: {item.name}</p>
+              <p>Common Locations: {item.common_locations}</p>
+              <p>Description: {item.description}</p>
+            </div>
+          </article>
         )
       });
     }
@@ -132,15 +144,24 @@ function Results(
           <Link to={'/'} className='home-link-component'>
             <h1>HOOKSHOT</h1>
           </Link>
-          <h4>wow, what a great choice. <br></br>let's find some {category}!</h4>
+          <h4>
+            wow, what a great choice. 
+              <br></br>
+            let's find some {category}!
+          </h4>
         </header>
         <section className='results-section'>
-          <h3>Alright, here's a list of all the <br></br>{category} in your area:</h3>
-          <article className='results-grid'>
-            <ul className='item-list'>
+          <div className='results-title'>
+            <h3>
+              Alright, here's a list of all the 
+                <br></br>
+              {category} in your area:</h3>
+          </div>
+          <div className='results-grid'>
+            <div className='item-list'>
               {itemList}
-            </ul>
-          </article>
+            </div>
+          </div>
         </section>
       </main>
     )
