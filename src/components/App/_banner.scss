@@ -12,10 +12,11 @@
   padding-bottom: 1%;
   margin-top: 10vw;
   margin-bottom: 4vw;
-  border-top: 5px ridge black;
-  border-bottom: 5px ridge black;
+  border-top: 3px ridge rgb(235, 238, 50);
+  border-bottom: 3px ridge rgb(235, 238, 50);
   font-family: PressStart;
-  background-color: $banner-green;
+  background-color: $banner;
+  box-shadow: $shadow-opaque;
 
   a {
     text-decoration: none;
@@ -25,15 +26,14 @@
 .app-title {
   margin: 0;
   font-size: 4.5vw;
-  color: whitesmoke;
-  text-shadow: 4px 4px black;
+  color: hsla(180, 38%, 94%, 0.829);
 }
 
 .app-subtitle {
   margin: 0;
   font-size: 1.5vw;
-  color: gold;
-  text-shadow: 2px 2px black;
+  color: rgba(254, 254, 50, 0.808);
+  text-shadow: 2px 3px black;
 }
 
 .welcome-message {

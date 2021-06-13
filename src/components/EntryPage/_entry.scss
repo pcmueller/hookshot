@@ -21,16 +21,16 @@
 
 // LOCATION DROPDOWN SECTION
 
-.dropdown-section {
-
-  label {
-    font-family: KongText;
-    font-size: 1.5vw;
-    color: rgb(255, 255, 255);
-    text-shadow: 2px 2px black;
-  }
+.select {
+  background-color: rgba(4, 17, 7, 0.267);
 }
 
+.drop-label {
+  font-family: KongText;
+  font-size: 1.5vw;
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 2px black;
+}
 // ENTER BUTTON SECTION
 
 .enter-btn-section {

@@ -4,7 +4,7 @@ import utils from '../../utilities/utils';
 
 function Entry({ locations, assignLocation }) {
 
-  const [ selectedOption, setSelectedOption ] = useState('default');
+  const [ selectedOption, setSelectedOption ] = useState('');
   const [ locationPath, setLocationPath ] = useState('');
   const [ clickEnter, setClickEnter ] = useState(false);
 
@@ -27,10 +27,16 @@ function Entry({ locations, assignLocation }) {
     return <option value={location} label={location}></option>
   });
 
+  const addEffects = (e) => {
+    e.target.classList.add('shimmer');
+    // const title = document.getElementById('app-title');
+    // title.classList.add('shimmer');
+  }
+
   return (
-    <main className='entry-page shine'>
-      <header className='banner glimmer'>
-        <h1 className='app-title'>HOOKSHOT</h1>
+    <main className='entry-page shine' onMouseOver={addEffects}>
+      <header className='banner'>
+        <h1 className='app-title' id='app-title'>HOOKSHOT</h1>
         <h4 className='app-subtitle'>
           ~ A FIELD GUIDE FOR HYRULIAN EXPLORATION ~
         </h4>
@@ -41,8 +47,8 @@ function Entry({ locations, assignLocation }) {
           style={{width: 'calc(50% + 8px)'}} 
           tabIndex='-1'
           >
-          <label htmlFor="dark_select">where are you now?</label>
-          <div className="nes-select">
+          <label className='drop-label' htmlFor="dark_select">where are you now?</label>
+          <div className="select nes-select">
             <select 
               defaultValue="0"
               onChange={handleSelect}
