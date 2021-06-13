@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import utils from '../../utilities/utils';
 import categories from '../../datasets/categories';
 
 function Results(
@@ -145,7 +146,7 @@ function Results(
   } else {
     return (
       <main className='results-page'>
-        <section className='banner'>
+        <section className='banner' onMouseOver={utils.addShimmerEffect}>
           <Link to={'/'}>
             <h1 className='welcome-message'>WELCOME TO HYRULE</h1>
           </Link>
@@ -155,10 +156,10 @@ function Results(
           </div>
         </section>
           <section className="results-header message -left">
+            <i className="nes-bcrikko animate__heartBeat"></i>
             <div className="nes-balloon from-left">
               <p>Great choice! Here's a list of {category} in your area:</p>
             </div>
-            <i className="nes-bcrikko"></i>
           </section>
         <section className='results-section'>
           <div className='results-grid'>

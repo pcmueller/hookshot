@@ -25,18 +25,20 @@
 
 .results-header {
   display: flex;
-  flex-direction: column;
-  width: 30%;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
   font-family: PressStart;
 
 
   .nes-bcrikko {
-    align-self: flex-start;
+    width: auto;
+    align-self: flex-end;
   }
   
   .nes-balloon {
-    width: 90%;
-    align-self: flex-end;
+    width: auto;
+    align-self: flex-start;
   }
 }
 
