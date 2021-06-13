@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import utils from '../../utilities/utils';
+import link from '../../assets/images/link-nes.png';
 
 function Entry({ locations, assignLocation }) {
 
@@ -61,6 +62,7 @@ function Entry({ locations, assignLocation }) {
               className='enter-btn blinker' 
               type='reset'
               onClick={handleClick}>
+                <i class="snes-logo"></i><br></br>
                 PRESS START
             </button>
           </Link>

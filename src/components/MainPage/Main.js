@@ -39,18 +39,17 @@ function Main({ location }) {
           <h1 className='welcome-message'>WELCOME TO HYRULE</h1>
         </Link>
         <div className='welcome-location'>
-          <h4>CURRENT LOCATION:</h4>
+          <h4>current location:</h4>
           <h3>{currentLocation}</h3>
         </div>
       </section>
-      <section className='search-section nes-container'>
-        <h3>
-          looking for an item or creature?
-        </h3>
-        <div className='search-bar'>
+      <section className='search-section nes-container is-rounded'>
+        <label className='search-label' for="name_field">looking for an item or creature?</label>
+        <div className='nes-field search-bar'>
           <input
-            className='search-input'
             type='text'
+            id='name_field'
+            className='nes-input is-inline search-input'
             placeholder='search here!'
             name='input'
           />
@@ -61,8 +60,8 @@ function Main({ location }) {
         <div className='goal-heading'>
           <h4>~OR~</h4>
         </div>
-        <div className='goal-btns nes-container with-title'>
-          <span>choose your adventure</span>
+        <div className='goal-btns nes-container is-rounded with-title'>
+          <span>choose your adventure!</span>
           <article>
             {buttons}
           </article>

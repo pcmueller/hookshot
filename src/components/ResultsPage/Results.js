@@ -154,11 +154,13 @@ function Results(
             <h3>{location}</h3>
           </div>
         </section>
+          <section className="results-header message -left">
+            <div className="nes-balloon from-left">
+              <p>Great choice! Here's a list of {category} in your area:</p>
+            </div>
+            <i className="nes-bcrikko"></i>
+          </section>
         <section className='results-section'>
-          <div className='nes-container with-title results-title'>
-            <span className='title'>Great choice!</span>
-            <h2>Here's a list of {category} in your area:</h2>
-          </div>
           <div className='results-grid'>
             <div className='item-list'>
               {itemList}

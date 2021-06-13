@@ -12,16 +12,8 @@
 .search-section {
   display: flex;
   flex-direction: column;
-  width: 65%;
-  height: 30%;
-  min-height: 10vw;
-  text-align: center;
   align-items: center;
-  justify-content: space-evenly;
-  padding: 1%;
-  margin-bottom: 2vw;
-  color: ghostwhite;
-  background-color: rgba(22, 86, 224, 0.316);
+  background-color: rgba(100, 145, 241, 0.596);
   font-family: KongText;
   
   h3 {
@@ -33,32 +25,20 @@
   }
 }
 
+.search-label {
+  color: ghostwhite;
+  text-shadow: 3px 3px black;
+}
+
 .search-bar {
   display: flex;
-  align-items: center;
-  justify-items: center;
   width: 70%;
-  height: 30%;
   padding: 0;
+}
 
-  input {
-    width: 80%;
-    height: 90%;
-    min-height: 4vw;
-    margin: 0 5% 0 0;
-    text-align: center;
-    font-size: 1.5vw;
-    font-family: $Roboto;
-  }
-
-  button {
-    width: 30%;
-    height: 100%;
-    min-height: 4vw;
-    font-size: 1.3vw;
-    border: 2px solid black;
-    text-transform: uppercase;
-  }
+.search-input {
+  margin-right: 5%;
+  font-family: $Roboto;
 }
 
 // GOAL SELECT
@@ -68,10 +48,6 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  justify-content: space-around;
-  width: 80%;
-  height: 30%;
-  min-height: 20vw;
 }
 
 .goal-heading {
@@ -80,9 +56,7 @@
   font-family: PressStart;
   
   h4 {
-    width: 100%;
-    height: 40%;
-    margin-bottom: 1%;
+    margin: 2vw;
     color: rgb(255, 255, 255);
     font-size: 1.5vw;
   }
@@ -99,10 +73,10 @@
   margin-top: 2%;
   padding: 1%;
   background-color: rgba(127, 241, 92, 0.931);
-  font-family: KongText;
 
   span {
-    font-size: 2vw;
+    font-family: PressStart;
+    font-size: 1.75vw;
     text-shadow: 2px 2px ghostwhite;
     text-transform: uppercase;
   }
@@ -131,7 +105,16 @@
     width: 100%;;
     height: 100%;
     min-height: 5vw;
+    font-family: KongText;
     font-size: 1.25vw;
     text-transform: uppercase;
+    text-shadow: 2px 2px black;
   }
+}
+
+.svg-img {
+  background: transparent;
+  stroke: none;
+  stroke-opacity: 0;
+  fill: none;
 }

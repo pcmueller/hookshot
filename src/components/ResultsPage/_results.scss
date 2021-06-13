@@ -23,24 +23,25 @@
   box-shadow: $shadow-opaque;
 }
 
-.results-title {
+.results-header {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  // align-items: center;
-  width: 85%;
-  margin: 2vw;
-  // padding: 2vw;
-  // line-height: 3vw;
+  width: 30%;
+  font-family: PressStart;
 
-  h2 {
-    font-weight: bold;
-    color: ghostwhite;
-    text-shadow: 1px 1px black;
-    font-size: 1.75vw;
-    line-height: 3vw;
+
+  .nes-bcrikko {
+    align-self: flex-start;
+  }
+  
+  .nes-balloon {
+    width: 90%;
+    align-self: flex-end;
   }
 }
+
+
+
 
 .results-grid {
   display: flex;
