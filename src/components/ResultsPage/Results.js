@@ -15,7 +15,7 @@ function Results(
   // const [ cleanedElements, setCleanedElements ] = useState([]);
   const [ localItems, setLocalItems ] = useState([]);
   const [ itemCards, setItemCards ] = useState([]);
-  const [ loadingMessage, setLoadingMessage ] = useState('');
+  const [ message, setMessage ] = useState('Page Loading');
   const [ otherItems, setOtherItems ] = useState([]);
   
   useEffect(() => {
@@ -35,40 +35,44 @@ function Results(
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [categoryData])
 
-  useEffect(() => {
-    if (localItems || otherItems) {
-      buildItemCards();
-    } else {
-      setLoadingMessage('Sorry, we couldn\'t find any results.');
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [localItems])
-
   const filterElements = async () => {
-    categoryData.forEach(elem => {
+    console.log("filtering!");
+    await categoryData.forEach(elem => {
+      // console.log("LOCAL ITEMS: ", localItems)
       if (!elem['common_locations']) {
+        console.log("NULL: ", [...otherItems, elem ]);
         setOtherItems([...otherItems, elem ]);
       } else if (elem['common_locations'].includes(location)) {
+        console.log("INCLUDED: ", [ ...localItems, elem])
         setLocalItems([ ...localItems, elem]);
       }
     });
+    if (localItems.length > 0 || otherItems.length > 0) {
+      buildItemCards();
+    }
   }
 
   const buildItemCards = async () => {
+    console.log("BUILDING CARDS")
     let cards = [];
-    if (localItems) {
+    if (localItems.length > 0) {
+      console.log("MAPPING: x", localItems.length)
       cards = localItems.map(item => {
         return (
           <Card
             item={item}
+            key={item.id}
+            id={item.id}
           />
         )
       });
     } else {
+      console.log("NO LOCAL ITEMS")
       cards = otherItems.map(item => {
         return (
           <Card
             item={item}
+            key={item.id}
           />
         )
       });
@@ -76,10 +80,21 @@ function Results(
     setItemCards(cards);
   }
 
-  if (itemCards.length === 0 || loadingMessage) {
+  if (itemCards.length === 0) {
     return (
       <main>
-        <h2 className='message'>Page Loading</h2>
+        <section className='banner' onMouseOver={utils.addShimmerEffect}>
+        <Link to={'/'}>
+          <h1 className='welcome-message'>WELCOME TO HYRULE</h1>
+        </Link>
+        <div className='nes-container is-rounded welcome-location'>
+          <h4>CURRENT LOCATION:</h4>
+          <h3>{location}</h3>
+        </div>
+      </section>
+        <h2 className='message'>
+          {message}
+        </h2>
       </main>
     )
   }

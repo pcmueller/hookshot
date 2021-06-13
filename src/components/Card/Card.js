@@ -13,9 +13,15 @@ class Card extends Component {
     console.log("ITEM: ", this.state.item);
   }
 
-  checkPropValidity = (prop) => {
-    if (this.state.item[prop] && this.state.item[prop].length > 0) {
-      return this.state.item[prop].join(', ');
+  checkPropValidity = (propName) => {
+    const prop = this.state.item[propName];
+    console.log("CHECKING: ", prop, typeof(prop));
+
+    if (prop && (typeof(prop) === 'object')) {
+      return prop.join(', ');
+    } else if (typeof(prop) === 'number' || prop.length > 1) { 
+      console.log("num/string: ", prop)
+      return prop;
     } else {
       return 'unknown';
     }
@@ -26,6 +32,8 @@ class Card extends Component {
       case 'treasure' || 'monsters' || 'non_food': 
         return (
           <div className='item-variables'>
+            Common Locations:
+            <p className='item-common-locations'>{this.checkPropValidity('common_locations')}</p>
             Drops:
             <p className='item-drops'>{this.checkPropValidity('drops')}</p>
           </div>
@@ -33,6 +41,8 @@ class Card extends Component {
       case 'equipment':
         return (
           <div className='item-variables'>
+            Common Locations:
+            <p className='item-common-locations'>{this.checkPropValidity('common_locations')}</p>
             Attack:
             <p className='item-attack'>{this.checkPropValidity('attack')}</p>
             Defense:
@@ -42,6 +52,8 @@ class Card extends Component {
       case 'materials' || 'food':
         return (
           <div className='item-variables'>
+            Common Locations:
+            <p className='item-common-locations'>{this.checkPropValidity('common_locations')}</p>
             Cooking Effect:
             <p className='item-cooking-effect'>{this.checkPropValidity('cooking_effect')}</p>
             Hearts Recovered:
@@ -61,9 +73,7 @@ class Card extends Component {
         </div>
         <div className='item-info'>
           <p className='item-name'>{this.state.item.name}</p>
-            Common Locations:
-          <p className='item-locations'>{this.checkPropValidity('common_locations')}</p>
-          {this.retrieveUniqueProps}
+          {this.retrieveUniqueProps()}
             Description: 
           <p className='item-description'>{this.state.item.description}</p>
         </div>
