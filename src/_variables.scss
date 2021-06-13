@@ -1,3 +1,11 @@
+// colors
+
+$background-dark: rgb(36, 33, 53);
+$banner: #021814be;
+$bright-green: rgba(127, 241, 92, 0.931);
+$light-opaque-green: rgba(57, 252, 122, 0.822);
+$parchment: rgb(210, 231, 167);
+
 // fonts
 
 @font-face {
@@ -11,3 +19,45 @@
 }
 
 $Roboto: 'Roboto', sans-serif;
+
+// box shadow
+
+$shadow-opaque: inset 0 -3em 3em rgba(0, 0, 0, 0),
+0.3em 0.3em 0.3em 0.1em rgba(0, 0, 0, 0.2),
+0.5em 0.5em 0.5em 0.2em rgba(0, 0, 0, 0.2);
+
+$shadow-light: inset 0 -3em 3em rgba(0, 0, 0, 0.1),
+0.1em 0.1em 0.1em 0.1em rgba(0, 0, 0, 0.137), 
+0.3em 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.207);
+
+$shadow-dark: inset 0 -3em 3em rgba(0, 0, 0, 0.267),
+0.3em 0.3em 0.3em 0.1em rgba(0, 0, 0, 0.474),
+0.5em 0.5em 0.5em 0.2em rgba(0, 0, 0, 0.2);
+
+// MIXINS
+
+@mixin shimmer {
+  animation-name: shimmer;
+  color: rgba(255, 255, 255, 0.1);
+  // background-color: rgb(233, 102, 62);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background: -webkit-gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, rgba(255, 226, 62, 0.856)));
+  background: -moz-gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, gold));
+  background: gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, gold));
+  -webkit-background-size: 125px 100%;
+  -moz-background-size: 125px 100%;
+  background-size: 125px 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  -webkit-animation-name: shimmer;
+  -moz-animation-name: shimmer;
+  animation-name: shimmer;
+  -webkit-animation-duration: 2s;
+  -moz-animation-duration: 2s;
+  animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}

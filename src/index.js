@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import "nes.css/css/nes.min.css";
 import './index.scss';
 import App from './components/App/App';
 

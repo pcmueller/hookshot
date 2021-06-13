@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Select from 'react-select';
 import utils from '../../utilities/utils';
 
 function Entry({ locations, assignLocation }) {
 
   const [ selectedOption, setSelectedOption ] = useState('');
+  const [ locationPath, setLocationPath ] = useState('');
   const [ clickEnter, setClickEnter ] = useState(false);
 
   useEffect(() => {
     setClickEnter(false);
   }, [clickEnter]);
+
+  const handleSelect = (e) => {
+    const location = e.target.value;
+    setSelectedOption(location);
+    setLocationPath(utils.convertLocationPath(location));
+  }
 
   const handleClick = () => {
     setClickEnter(true);
@@ -18,39 +24,45 @@ function Entry({ locations, assignLocation }) {
   };
 
   const options = locations.map(location => {
-    const path = utils.convertLocationPath(location);
-    return { value: location, label: location, key: path};
+    return <option value={location} label={location} key={location}></option>
   });
 
   return (
-    <main className='entry-page'>
-      <header className='entry-banner'>
-        <h1>HOOKSHOT</h1>
-        <h4>
-          ~ A FIELD GUIDE FOR HYRULIAN EXPLORATION ~
+    <main className='entry-page shine' onMouseOver={utils.addShimmerEffect}>
+      <header className='banner'>
+        <h1 className='app-title' id='app-title'>HOOKSHOT</h1>
+        <h4 className='app-subtitle'>
+          ~ A FIELD GUIDE FOR HYRULIAN EXPLORERS ~
         </h4>
       </header>
       <form className='form-container'>
-        <section className='location-dropdown-section' tabIndex='-1'>
-          <h3>WHERE ARE YOU NOW?</h3>
-          <Select
-            className='dropdown'
-            placeholder='Select your location'
-            defaultValue={selectedOption}
-            onChange={setSelectedOption}
-            options={options}
-            />
+        <section 
+          className='nes-container is-rounded is-dark dropdown-section'
+          style={{width: 'calc(50% + 8px)'}} 
+          tabIndex='-1'
+          >
+          <label className='drop-label' htmlFor="dark_select">where are you now?</label>
+          <div className="select nes-select">
+            <select 
+              defaultValue="0"
+              onChange={handleSelect}
+            >
+              <option value="0" disabled >Select your location...</option>
+              {options}
+            </select>
+          </div>
         </section>
-        <section className='entry-btn-section'>
-          <Link to={`/home/${selectedOption.key}`} 
-                id={selectedOption.key}
+        <section className='enter-btn-section'>
+          <Link to={`/home/${locationPath}`} 
+                id={locationPath}
                 className='entry-link-component'>
             <button 
               disabled={selectedOption.length < 1}
-              className='enter-btn' 
+              className='enter-btn blinker' 
               type='reset'
               onClick={handleClick}>
-                CLICK TO ENTER
+                <i className="snes-logo"></i><br></br>
+                PRESS START
             </button>
           </Link>
         </section>

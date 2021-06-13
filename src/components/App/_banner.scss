@@ -1,0 +1,68 @@
+// WELCOME HEADER
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 20%;
+  min-height: 20vw;
+  padding-top: 2%;
+  padding-bottom: 1%;
+  margin-top: 7vw;
+  margin-bottom: 4vw;
+  border-top: 3px ridge rgb(235, 238, 50);
+  border-bottom: 3px ridge rgb(235, 238, 50);
+  font-family: PressStart;
+  background-color: $banner;
+  box-shadow: $shadow-opaque;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.app-title {
+  margin: 0;
+  font-size: 4.5vw;
+  color: hsla(180, 38%, 94%, 0.829);
+}
+
+.app-subtitle {
+  margin: 0;
+  font-size: 1.5vw;
+  color: rgba(254, 254, 50, 0.808);
+  text-shadow: 2px 3px black;
+}
+
+.welcome-message {
+  margin: 2% auto 2% auto;
+  color: whitesmoke;
+  text-shadow: 2px 2px black;
+  font-size: 3vw;
+}
+
+.welcome-location {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(64, 235, 221, 0.048);
+
+  h4 {
+    font-size: 1.4vw;
+    letter-spacing: 0.25vw;
+    text-shadow: 1px 2px black;
+    color: rgb(45, 186, 241);
+    text-transform: uppercase;
+  }
+
+  h3 {
+    font-size: 2.5vw;
+    letter-spacing: .5vw;
+    font-family: $Roboto;
+    color: $bright-green;
+    // text-shadow: 1px 1px rgb(255, 255, 255);
+  }
+}

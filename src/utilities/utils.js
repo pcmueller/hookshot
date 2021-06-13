@@ -10,7 +10,11 @@ const utils = {
 
   revertLocationName(path) {
     return path.replaceAll('+', ' ');
-  }
+  },
+
+  addShimmerEffect(e) {
+    e.target.classList.add('shimmer');
+  },
 
 }
 
