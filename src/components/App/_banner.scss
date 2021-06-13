@@ -48,21 +48,21 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  margin: 0;
+  background-color: rgba(64, 235, 221, 0.048);
 
   h4 {
-    margin-bottom: 1%;
     font-size: 1.4vw;
     letter-spacing: 0.25vw;
     text-shadow: 1px 2px black;
-    color: skyblue;
+    color: rgb(45, 186, 241);
     text-transform: uppercase;
   }
 
   h3 {
-    margin-bottom: 1%;
-    font-size: 2.2vw;
-    color: rgb(140, 247, 119);
-    text-shadow: 2px 2px black;
+    font-size: 2.5vw;
+    letter-spacing: .5vw;
+    font-family: $Roboto;
+    color: $bright-green;
+    // text-shadow: 1px 1px rgb(255, 255, 255);
   }
 }

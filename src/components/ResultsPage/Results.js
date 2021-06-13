@@ -150,7 +150,7 @@ function Results(
           <Link to={'/'}>
             <h1 className='welcome-message'>WELCOME TO HYRULE</h1>
           </Link>
-          <div className='welcome-location'>
+          <div className='nes-container is-rounded welcome-location'>
             <h4>CURRENT LOCATION:</h4>
             <h3>{location}</h3>
           </div>

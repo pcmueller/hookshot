@@ -38,7 +38,7 @@ function Main({ location }) {
         <Link to={'/'}>
           <h1 className='welcome-message'>WELCOME TO HYRULE</h1>
         </Link>
-        <div className='welcome-location'>
+        <div className='nes-container is-rounded welcome-location'>
           <h4>current location:</h4>
           <h3>{currentLocation}</h3>
         </div>
