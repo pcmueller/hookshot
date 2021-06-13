@@ -28,8 +28,8 @@ function Entry({ locations, assignLocation }) {
   });
 
   return (
-    <main className='entry-page'>
-      <header className='banner'>
+    <main className='entry-page shine'>
+      <header className='banner glimmer'>
         <h1 className='app-title'>HOOKSHOT</h1>
         <h4 className='app-subtitle'>
           ~ A FIELD GUIDE FOR HYRULIAN EXPLORATION ~

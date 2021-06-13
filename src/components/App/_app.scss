@@ -26,27 +26,3 @@ body,
   min-height: 70vw;
   background-repeat: no-repeat;
 }
-
-.blinker {
-  animation-name: blink;
-  animation-duration: 1.5s;
-  animation-iteration-count: infinite;
-  animation-fill-mode: both;
-  font-family: PressStart;
-  color: ghostwhite;
-  text-shadow: 2px 2px rgb(0, 0, 0);
-}
-
-@keyframes blink {
-  0% {
-    opacity: .1;
-  }
-
-  40% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: .1;
-  }
-}
