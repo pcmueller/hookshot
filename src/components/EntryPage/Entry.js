@@ -27,14 +27,8 @@ function Entry({ locations, assignLocation }) {
     return <option value={location} label={location}></option>
   });
 
-  const addEffects = (e) => {
-    e.target.classList.add('shimmer');
-    // const title = document.getElementById('app-title');
-    // title.classList.add('shimmer');
-  }
-
   return (
-    <main className='entry-page shine' onMouseOver={addEffects}>
+    <main className='entry-page shine' onMouseOver={utils.addShimmerEffect}>
       <header className='banner'>
         <h1 className='app-title' id='app-title'>HOOKSHOT</h1>
         <h4 className='app-subtitle'>
