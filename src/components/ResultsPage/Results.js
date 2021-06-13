@@ -2,82 +2,51 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Card from '../Card/Card';
 import utils from '../../utilities/utils';
-// import categories from '../../datasets/categories';
 
 function Results(
   { location, 
     category, 
     categoryData, 
-    assignCategory, 
-    assignDataLoadState
+    localItems,
+    backupItems,
+    itemCards,
+    dataLoaded,
+    assignDataLoadState,
+    itemsFiltered,
+    assignCategory,
+    retrieveCategoryData,
+    filterItems,
+    addItemCard,
   }) {
 
   // const [ cleanedElements, setCleanedElements ] = useState([]);
-  const [ localItems, setLocalItems ] = useState([]);
-  const [ itemCards, setItemCards ] = useState([]);
   const [ message, setMessage ] = useState('Page Loading');
-  const [ otherItems, setOtherItems ] = useState([]);
   
   useEffect(() => {
     if (!categoryData) {
       assignDataLoadState(false)
       assignCategory(category);
+      retrieveCategoryData();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
-    if (categoryData) {
-      console.log("category data length: ", categoryData.length);
-      assignDataLoadState(true);
-      filterElements(categoryData);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [categoryData])
-
-  const filterElements = async () => {
-    console.log("filtering!");
-    await categoryData.forEach(elem => {
-      // console.log("LOCAL ITEMS: ", localItems)
-      if (!elem['common_locations']) {
-        console.log("NULL: ", [...otherItems, elem ]);
-        setOtherItems([...otherItems, elem ]);
-      } else if (elem['common_locations'].includes(location)) {
-        console.log("INCLUDED: ", [ ...localItems, elem])
-        setLocalItems([ ...localItems, elem]);
-      }
-    });
-    if (localItems.length > 0 || otherItems.length > 0) {
+    if (itemsFiltered) {
       buildItemCards();
     }
-  }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [itemsFiltered]);
 
   const buildItemCards = async () => {
-    console.log("BUILDING CARDS")
-    let cards = [];
-    if (localItems.length > 0) {
-      console.log("MAPPING: x", localItems.length)
-      cards = localItems.map(item => {
-        return (
-          <Card
-            item={item}
-            key={item.id}
-            id={item.id}
-          />
-        )
+    localItems.length > 0 ? 
+      localItems.forEach(item => {
+        addItemCard(item);
+      })
+    :
+      backupItems.forEach(item => {
+        addItemCard(item)
       });
-    } else {
-      console.log("NO LOCAL ITEMS")
-      cards = otherItems.map(item => {
-        return (
-          <Card
-            item={item}
-            key={item.id}
-          />
-        )
-      });
-    }
-    setItemCards(cards);
   }
 
   if (itemCards.length === 0) {

@@ -1,20 +1,9 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 
-class Card extends Component {
-  constructor({ item }) {
-    super()
-    this.state={
-      item: item,
-    }
-  }
+function Card({ item }) {
 
-  componentDidMount = () => {
-    console.log("CARD MOUNTED");
-    console.log("ITEM: ", this.state.item);
-  }
-
-  checkPropValidity = (propName) => {
-    const prop = this.state.item[propName];
+  const checkPropValidity = (propName) => {
+    const prop = item[propName];
     console.log("CHECKING: ", prop, typeof(prop));
 
     if (prop && (typeof(prop) === 'object')) {
@@ -27,37 +16,37 @@ class Card extends Component {
     }
   }
   
-  retrieveUniqueProps = () => {
+  const retrieveUniqueProps = () => {
     switch (this.state.item.category) {
       case 'treasure' || 'monsters' || 'non_food': 
         return (
           <div className='item-variables'>
             Common Locations:
-            <p className='item-common-locations'>{this.checkPropValidity('common_locations')}</p>
+            <p className='item-common-locations'>{checkPropValidity('common_locations')}</p>
             Drops:
-            <p className='item-drops'>{this.checkPropValidity('drops')}</p>
+            <p className='item-drops'>{checkPropValidity('drops')}</p>
           </div>
         );
       case 'equipment':
         return (
           <div className='item-variables'>
             Common Locations:
-            <p className='item-common-locations'>{this.checkPropValidity('common_locations')}</p>
+            <p className='item-common-locations'>{checkPropValidity('common_locations')}</p>
             Attack:
-            <p className='item-attack'>{this.checkPropValidity('attack')}</p>
+            <p className='item-attack'>{checkPropValidity('attack')}</p>
             Defense:
-            <p className='item-defense'>{this.checkPropValidity('defense')}</p>
+            <p className='item-defense'>{checkPropValidity('defense')}</p>
           </div>
         );
       case 'materials' || 'food':
         return (
           <div className='item-variables'>
             Common Locations:
-            <p className='item-common-locations'>{this.checkPropValidity('common_locations')}</p>
+            <p className='item-common-locations'>{checkPropValidity('common_locations')}</p>
             Cooking Effect:
-            <p className='item-cooking-effect'>{this.checkPropValidity('cooking_effect')}</p>
+            <p className='item-cooking-effect'>{checkPropValidity('cooking_effect')}</p>
             Hearts Recovered:
-            <p className='item-hearts-recovered'>{this.checkPropValidity('hearts_recovered')}</p>
+            <p className='item-hearts-recovered'>{checkPropValidity('hearts_recovered')}</p>
           </div>
         );
       default:
@@ -65,21 +54,20 @@ class Card extends Component {
     }
   }
 
-  render() {
-    return (
-      <article className='item-card' id={this.state.item.id} key={this.state.item.id}>
-        <div className='image-container'>
-        <img src={this.state.item.image} alt={this.state.item.name}/>
-        </div>
-        <div className='item-info'>
-          <p className='item-name'>{this.state.item.name}</p>
-          {this.retrieveUniqueProps()}
-            Description: 
-          <p className='item-description'>{this.state.item.description}</p>
-        </div>
-      </article>
-    )
-  }
+  return (
+    <article className='item-card' id={this.state.item.id} key={this.state.item.id}>
+      <div className='image-container'>
+      <img src={this.state.item.image} alt={this.state.item.name}/>
+      </div>
+      <div className='item-info'>
+        <p className='item-name'>{this.state.item.name}</p>
+        {retrieveUniqueProps}
+          Description: 
+        <p className='item-description'>{this.state.item.description}</p>
+      </div>
+    </article>
+  )
 }
+
 
 export default Card;
