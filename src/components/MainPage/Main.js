@@ -44,7 +44,7 @@ function Main({ location }) {
         </div>
       </section>
       <section className='search-section nes-container is-rounded'>
-        <label className='search-label' for="name_field">looking for an item or creature?</label>
+        <label className='search-label' htmlFor="name_field">looking for an item or creature?</label>
         <div className='nes-field search-bar'>
           <input
             type='text'
