@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import { Route, Redirect, BrowserRouter as Router, Switch } from "react-router-dom";
 import apiCalls from '../../utilities/apiCalls';
 import utils from '../../utilities/utils';
 import locationData from '../../datasets/locations';
@@ -13,7 +13,6 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
-      allData: {},
       locations: locationData,
       currentLocation: '',
       category: '',
@@ -26,23 +25,25 @@ class App extends Component {
       usingBackup: false,
       cardsBuilt: false,
       isLoading: true,
+      isRandom: false,
       hasErrored: false,
       error: '',
     }
   }
 
-  componentDidUpdate(prevState, prevProps) {
+  componentDidUpdate = (prevState, prevProps) => {
     if (prevProps.category !== this.state.category) {
       this.getDataByCategory(this.state.category);
+      console.log(this.state.category);
     }
     if (this.state.dataLoaded && !this.state.itemsFiltered) {
-      this.filterItems();
+      this.determineFilter();
     }
     if (this.state.itemsFiltered && !this.state.cardsBuilt) {
       this.buildItemCards();
     }
     if (this.state.cardsBuilt && this.state.isLoading) {
-      this.setState({ isLoading: false })
+      this.setState({ isLoading: false });
     }
   };
 
@@ -74,6 +75,7 @@ class App extends Component {
   assignLocation = (selection) => {
     if (selection) {
       this.setState({ currentLocation: selection });
+      this.resetItemData();
     }
   }
 
@@ -92,6 +94,34 @@ class App extends Component {
       })
   }
 
+  determineFilter = () => {
+    if (this.state.category === 'creatures') {
+      this.filterCreatures();
+    } else {
+      this.filterItems();
+    }
+  }
+
+  filterCreatures = () => {
+    const keys = Object.keys(this.state.categoryData);
+    keys.forEach(key => {
+      this.state.categoryData[key].forEach(elem => {
+        if (!elem['common_locations']) {
+          this.setState(prevState => ({
+            ...prevState,
+            backupItems: [...prevState.backupItems, elem],
+          }))
+        } else if (elem['common_locations'].includes(this.state.currentLocation)) {
+          this.setState(prevState => ({
+            ...prevState,
+            localItems: [...prevState.localItems, elem],
+          }))
+        }
+      })
+    })
+    this.setState({ itemsFiltered: true });
+  }
+
   filterItems = () => {
     this.state.categoryData.forEach(elem => {
       if (!elem['common_locations']) {
@@ -102,6 +132,11 @@ class App extends Component {
         }))
       } else if (elem['common_locations'].includes(this.state.currentLocation)) {
         this.setState(prevState => ({
+          ...prevState,
+          localItems: [...prevState.localItems, elem],
+        }))
+      } else if (elem.category === 'treasure') {
+          this.setState(prevState => ({
           ...prevState,
           localItems: [...prevState.localItems, elem],
         }))
@@ -167,8 +202,41 @@ class App extends Component {
       }
    }
 
-  resetError = () => {
-    this.setState({ hasErrored: false })
+  activateRandomState = () => {
+    this.setState({ isRandom: true})
+  }
+
+  resetItemData = () => {
+    this.setState({ 
+      categoryData: [],
+      localItems: [],
+      backupItems: [],
+      itemCards: [],
+      dataLoaded: false,
+      itemsFiltered: false,
+      usingBackup: false,
+      cardsBuilt: false,
+      isRandom: false,
+      isLoading: true,
+      hasErrored: false,
+      error: '',
+    });
+  }
+
+  evaluateLocationPath = (match) => {
+    const isLocation = this.state.locations.find(location => 
+      location === utils.revertLocationName(match.params.id));
+    return isLocation ? (
+      <Main 
+        location={match.params.id}
+        assignLocation={this.assignLocation}
+        assignCategory={this.assignCategory}
+        resetData={this.resetData}
+        activateRandomState={this.activateRandomState}
+      />
+    ) : (
+      <Redirect to='/'/>
+    )
   }
 
   render() {
@@ -181,35 +249,33 @@ class App extends Component {
         {!this.state.error && 
           <Router>
             <Switch>
-              <Route exact path='/'>
-                <Entry 
-                  locations={this.state.locations} 
-                  assignLocation={this.assignLocation}
-                />
-              </Route>
               <Route exact path='/home/:id' 
-                    render={({ match }) => 
-                <Main 
-                  location={match.params.id}
-                  assignLocation={this.assignLocation}
-                /> 
-              }>
+                render={({ match }) => this.evaluateLocationPath(match)}>
               </Route>
               <Route 
-                exact path={`/location/:location/category/:id`}
+                exact path='/location/:location/category/:id'
                 render={({ match }) => 
                   <Results
                     location={utils.revertLocationName(match.params.location)}
                     category={match.params.id}
                     itemCards={this.state.itemCards}
                     assignCategory={this.assignCategory}
+                    assignLocation={this.assignLocation}
                     error={this.state.error}
-                    resetError={this.resetError}
+                    resetData={this.resetItemData}
                     usingBackup={this.state.usingBackup}
                     hasErrored={this.state.hasErrored}
                     isLoading={this.state.isLoading}
+                    isRandom={this.state.isRandom}
                   />
               }>
+              </Route>
+              <Route path='/'>
+                <Entry 
+                  locations={this.state.locations} 
+                  assignLocation={this.assignLocation}
+                  resetData={this.resetItemData}
+                />
               </Route>
             </Switch>
           </Router>

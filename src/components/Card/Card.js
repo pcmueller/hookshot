@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Loading from '../Loading/Loading';
 
 function Card({ item }) {
 
   const [ uniqueProps, setUniqueProps ] = useState('');
 
   useEffect(() => {
-    if (uniqueProps.length < 1) {
+    if (!uniqueProps || uniqueProps.length < 1) {
       setUniqueProps(retrieveUniqueProps());
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -15,9 +14,11 @@ function Card({ item }) {
   const checkPropValidity = (propName) => {
     const prop = item[propName];
 
-    if (prop && (typeof(prop) === 'object')) {
+    if (prop && prop.length === 0) {
+      return 'none';
+    } else if (prop && (typeof(prop) === 'object')) {
       return prop.join(', ');
-    } else if (prop && (typeof(prop) === 'number')){ 
+    } else if (typeof(prop) === 'number') { 
       return prop;
     } else if (prop && prop.length > 1) {
       return prop;
@@ -28,7 +29,16 @@ function Card({ item }) {
   
   const retrieveUniqueProps = () => {
     switch (item.category) {
-      case 'treasure' || 'monsters' || 'non_food': 
+      case 'monsters': 
+        return (
+          <div className='item-variables'>
+            <h3>Common Locations</h3>
+            <p className='item-common-locations'>{checkPropValidity('common_locations')}</p>
+            <h3>Drops</h3>
+            <p className='item-drops'>{checkPropValidity('drops')}</p>
+          </div>
+        );
+      case 'treasure': 
         return (
           <div className='item-variables'>
             <h3>Common Locations</h3>
@@ -48,7 +58,7 @@ function Card({ item }) {
             <p className='item-defense'>{checkPropValidity('defense')}</p>
           </div>
         );
-      case 'materials' || 'food':
+      case 'materials':
         return (
           <div className='item-variables'>
             <h3>Common Locations</h3>
@@ -59,15 +69,31 @@ function Card({ item }) {
             <p className='item-hearts-recovered'>{checkPropValidity('hearts_recovered')}</p>
           </div>
         );
+      case 'creatures':
+        if (item['cooking_effect']) {
+          return (
+            <div className='item-variables'>
+              <h3>Common Locations</h3>
+              <p className='item-common-locations'>{checkPropValidity('common_locations')}</p>
+              <h3>Cooking Effect</h3>
+              <p className='item-cooking-effect'>{checkPropValidity('cooking_effect')}</p>
+              <h3>Hearts Recovered</h3>
+              <p className='item-hearts-recovered'>{checkPropValidity('hearts_recovered')}</p>
+            </div>
+          );
+        } else {
+          return (
+            <div className='item-variables'>
+              <h3>Common Locations</h3>
+              <p className='item-common-locations'>{checkPropValidity('common_locations')}</p>
+              <h3>Drops</h3>
+              <p className='item-drops'>{checkPropValidity('drops')}</p>
+            </div>
+          );
+        }
       default:
         break;
     }
-  }
-
-  if (!uniqueProps.length < 1) {
-    return (
-      <Loading />
-    );
   }
 
   return (

@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-const Error = ({ error, resetError }) => {
+const Error = ({ error, resetData }) => {
   return (
     <main className='entry-page shine'>
       <header className='banner'>
@@ -11,12 +11,12 @@ const Error = ({ error, resetError }) => {
           ~ A FIELD GUIDE FOR HYRULIAN EXPLORERS ~
         </h4>
       </header>
-      <Link to='/' className="error">
+      <Link to='/' className="error" onClick={resetData}>
         <div className='nes-container is-rounded '>
           <section className="error-message message -left">
             <i className="nes-bcrikko animate__heartBeat"></i>
             <div className="nes-balloon from-left">
-              <p className="message" onClick={resetError}>
+              <p className="message" onClick={resetData}>
                 {error}
               </p>
             </div>

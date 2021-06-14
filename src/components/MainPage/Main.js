@@ -3,7 +3,13 @@ import { Link } from 'react-router-dom';
 import categories from '../../datasets/categories';
 import utils from '../../utilities/utils';
 
-function Main({ location, assignLocation }) {
+function Main (
+  { location, 
+    assignLocation, 
+    assignCategory, 
+    resetData,
+    activateRandomState,
+  }) {
 
   const [ currentLocation, setCurrentLocation ] = useState('');
   const [ buttons, setButtons ]  = useState([]);
@@ -20,14 +26,19 @@ function Main({ location, assignLocation }) {
     const buttonsArr = categories.names.map(elem => {
       return (
         <Link to={`/location/${location}/category/${elem}`} key={elem}>
-          <button className='nes-btn is-primary' id={elem}>{elem}</button>
+          <button onClick={() => assignCategory(elem)} className='nes-btn is-primary' id={elem}>{elem}</button>
         </Link>
       )
     });
     const random = utils.getRandomElement(categories.names);
     buttonsArr.push(
-      <Link to={`/category/${random}`} key='random'>
-        <button className='nes-btn is-error' id='random'>ROLL THE DICE</button>
+      <Link to={`/location/${location}/category/${random}`} key='random'>
+        <button 
+          id='random'
+          className='nes-btn is-error' 
+          onClick={activateRandomState}>
+            ROLL THE DICE
+        </button>
       </Link>
     )
     return buttonsArr;
@@ -36,7 +47,7 @@ function Main({ location, assignLocation }) {
   return (
     <main className='main-page'>
       <section className='banner' onMouseOver={utils.addShimmerEffect}>
-        <Link to={'/'}>
+        <Link to={'/'} onClick={resetData}>
           <h1 className='welcome-message'>WELCOME TO HYRULE</h1>
         </Link>
         <div className='welcome-location'>
