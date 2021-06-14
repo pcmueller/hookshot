@@ -32,7 +32,7 @@ function Entry({ locations, assignLocation, resetData }) {
 
   return (
     <main className='entry-page shine' onMouseOver={utils.addShimmerEffect}>
-      <Header key='entry' id='entry' pageName='entry' resetData={resetData} />
+      <Header pageName='entry' resetData={resetData} />
       <form className='form-container'>
         <section 
           className='nes-container is-rounded is-dark dropdown-section'

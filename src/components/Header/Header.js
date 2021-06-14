@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import utils from '../../utilities/utils';
-// import PropTypes from 'prop-types';
 
-const Header = ({ pageName, resetData, location }) => {
+const Header = ({ pageName, location, resetData }) => {
 
   const [ pageHeader, setPageHeader ] = useState('');
 
@@ -62,6 +62,8 @@ const Header = ({ pageName, resetData, location }) => {
 
 export default Header;
 
-// Header.propTypes = {
-
-// }
+Header.propTypes = {
+  pageName: PropTypes.string,
+  location: PropTypes.string,
+  resetData: PropTypes.func
+}
