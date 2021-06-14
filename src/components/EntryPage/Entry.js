@@ -16,7 +16,6 @@ function Entry({ locations, assignLocation, resetData }) {
     const location = e.target.value;
     setSelectedOption(location);
     setLocationPath(utils.convertLocationPath(location));
-    // assignLocation(location);
   }
 
   const handleClick = () => {

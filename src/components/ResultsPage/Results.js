@@ -26,7 +26,7 @@ function Results (
     } else if (!isRandom && category === 'treasure' ) {
       setBalloonMessage(`You'll have to find the treasure yourself!  Here's what we've heard is out there:`);
     } else if (usingBackup) {
-      setBalloonMessage(`We're not sure about ${category} in your area, so here's some that might be anywhere!`);
+      setBalloonMessage(`We're not sure about ${category} in your area, so here's some that could be anywhere!`);
     } else {
       setBalloonMessage(`Great choice! Here's a list of ${category} in your area:`);
     }
