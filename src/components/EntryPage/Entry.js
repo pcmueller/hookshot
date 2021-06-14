@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Header from '../Header/Header';
+
 import utils from '../../utilities/utils';
 
 function Entry({ locations, assignLocation, resetData }) {
@@ -19,7 +21,7 @@ function Entry({ locations, assignLocation, resetData }) {
     setLocationPath(utils.convertLocationPath(location));
   }
 
-  const handleClick = () => {
+  const handleEnterBtnClick = () => {
     setClickEnter(true);
     assignLocation(selectedOption.value);
   };
@@ -30,14 +32,7 @@ function Entry({ locations, assignLocation, resetData }) {
 
   return (
     <main className='entry-page shine' onMouseOver={utils.addShimmerEffect}>
-      <header className='banner'>
-        <Link to={'/'} onClick={resetData}>
-          <h1 className='app-title' id='app-title'>HOOKSHOT</h1>
-        </Link>
-        <h2 className='app-subtitle'>
-          ~ A FIELD GUIDE FOR HYRULIAN EXPLORERS ~
-        </h2>
-      </header>
+      <Header key='entry' id='entry' pageName='entry' resetData={resetData} />
       <form className='form-container'>
         <section 
           className='nes-container is-rounded is-dark dropdown-section'
@@ -64,7 +59,7 @@ function Entry({ locations, assignLocation, resetData }) {
               disabled={selectedOption.length < 1}
               className='enter-btn blinker' 
               type='reset'
-              onClick={handleClick}>
+              onClick={handleEnterBtnClick}>
                 <i className="snes-logo"></i><br></br>
                 PRESS START
             </button>

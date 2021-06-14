@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import categories from '../../utilities/categories';
-import utils from '../../utilities/utils';
+import Header from '../Header/Header';
 
 function Main (
   { location, 
@@ -23,6 +23,13 @@ function Main (
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location]);
 
+  const handleGoalBtnClick = (e) => {
+    assignCategory(e.target.id);
+    if (e.target.name === 'ROLL THE DICE') {
+      activateRandomState();
+    }
+  }
+
   const buildButtons = () => {
     const buttonsArr = categories.map(elem => {
       let btnClass = elem.buttonText === 'ROLL THE DICE' ? 'is-error' : 'is-primary';
@@ -31,8 +38,9 @@ function Main (
         <Link to={`/location/${location}/category/${elem.name}`} key={keyName}>
           <button
             id={elem.name}
+            name={elem.buttonText}
             className={`goal-btn nes-btn ${btnClass}`}
-            onClick={() => assignCategory(elem.name)}>
+            onClick={(e) => handleGoalBtnClick(e)}>
               {elem.buttonText}
           </button>
         </Link>
@@ -43,15 +51,7 @@ function Main (
 
   return (
     <main className='main-page'>
-      <section className='banner' onMouseOver={utils.addShimmerEffect}>
-        <Link to={'/'} onClick={resetData}>
-          <h1 className='welcome-message'>WELCOME TO HYRULE</h1>
-        </Link>
-        <div className='welcome-location'>
-          <h2>current location:</h2>
-          <h3>{currentLocation}</h3>
-        </div>
-      </section>
+      <Header pageName='main' location={currentLocation} resetData={resetData} />
       <section className='search-section nes-container is-rounded'>
         <label className='search-label' htmlFor="search_field">looking for an item or creature?</label>
         <div className='nes-field search-bar'>

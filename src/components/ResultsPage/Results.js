@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import utils from '../../utilities/utils';
+import Header from '../Header/Header';
 
 function Results (
   { location, 
@@ -41,15 +40,7 @@ function Results (
 
   return (
       <main className='results-page'>
-        <section className='banner' onMouseOver={utils.addShimmerEffect}>
-          <Link to={'/'}>
-            <h1 className='welcome-message'>WELCOME TO HYRULE</h1>
-          </Link>
-          <div className='welcome-location'>
-            <h2>CURRENT LOCATION:</h2>
-            <h3>{location}</h3>
-          </div>
-        </section>
+        <Header pageName='results' location={location} />
         <section className="results-header message -left">
           <i className="nes-bcrikko animate__heartBeat"></i>
           <div className="nes-balloon from-left">
