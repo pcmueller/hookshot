@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Header from '../Header/Header';
 
-function Results (
+const Results = (
   { location, 
     category, 
     itemCards,
@@ -10,7 +10,7 @@ function Results (
     assignLocation,
     usingBackup,
     isRandom
-  }) {
+  }) => {
 
   const [ balloonMessage, setBalloonMessage ] = useState('');
 

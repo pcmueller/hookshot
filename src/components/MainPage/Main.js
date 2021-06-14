@@ -4,13 +4,13 @@ import PropTypes from 'prop-types';
 import categories from '../../utilities/categories';
 import Header from '../Header/Header';
 
-function Main (
+const Main = (
   { location, 
     assignLocation, 
     assignCategory, 
     resetData,
     activateRandomState,
-  }) {
+  }) => {
 
   const [ currentLocation, setCurrentLocation ] = useState('');
   const [ buttons, setButtons ]  = useState([]);

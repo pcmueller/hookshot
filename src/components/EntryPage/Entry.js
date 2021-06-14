@@ -5,7 +5,7 @@ import Header from '../Header/Header';
 
 import utils from '../../utilities/utils';
 
-function Entry({ locations, assignLocation, resetData }) {
+const Entry = ({ locations, assignLocation, resetData }) => {
 
   const [ selectedOption, setSelectedOption ] = useState('');
   const [ locationPath, setLocationPath ] = useState('');
