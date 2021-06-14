@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-const Error = ({ error, resetError }) => {
+const Loading = () => {
   return (
     <main className='entry-page shine'>
       <header className='banner'>
@@ -11,13 +11,13 @@ const Error = ({ error, resetError }) => {
           ~ A FIELD GUIDE FOR HYRULIAN EXPLORERS ~
         </h4>
       </header>
-      <Link to='/' className="error">
+      <Link to='/' className="loading">
         <div className='nes-container is-rounded '>
-          <section className="error-message message -left">
+          <section className="loading-message message -left">
             <i className="nes-bcrikko animate__heartBeat"></i>
             <div className="nes-balloon from-left">
-              <p className="message" onClick={resetError}>
-                {error}
+              <p className="loading">
+                Page is loading, please wait.
               </p>
             </div>
           </section>
@@ -27,8 +27,8 @@ const Error = ({ error, resetError }) => {
   )
 }
 
-export default Error
+export default Loading
 
-Error.propTypes = {
+Loading.propTypes = {
   resetError: PropTypes.func
 }

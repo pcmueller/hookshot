@@ -1,15 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Loading from '../Loading/Loading';
 
 function Card({ item }) {
 
+  const [ uniqueProps, setUniqueProps ] = useState('');
+
+  useEffect(() => {
+    if (uniqueProps.length < 1) {
+      setUniqueProps(retrieveUniqueProps());
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const checkPropValidity = (propName) => {
     const prop = item[propName];
-    console.log("CHECKING: ", prop, typeof(prop));
 
     if (prop && (typeof(prop) === 'object')) {
       return prop.join(', ');
-    } else if (typeof(prop) === 'number' || prop.length > 1) { 
-      console.log("num/string: ", prop)
+    } else if (prop && (typeof(prop) === 'number')){ 
+      return prop;
+    } else if (prop && prop.length > 1) {
       return prop;
     } else {
       return 'unknown';
@@ -17,7 +27,7 @@ function Card({ item }) {
   }
   
   const retrieveUniqueProps = () => {
-    switch (this.state.item.category) {
+    switch (item.category) {
       case 'treasure' || 'monsters' || 'non_food': 
         return (
           <div className='item-variables'>
@@ -54,20 +64,25 @@ function Card({ item }) {
     }
   }
 
+  if (!uniqueProps.length < 1) {
+    return (
+      <Loading />
+    );
+  }
+
   return (
-    <article className='item-card' id={this.state.item.id} key={this.state.item.id}>
+    <article className='item-card' id={item.id} key={item.id}>
       <div className='image-container'>
-      <img src={this.state.item.image} alt={this.state.item.name}/>
+      <img src={item.image} alt={item.name}/>
       </div>
       <div className='item-info'>
-        <p className='item-name'>{this.state.item.name}</p>
-        {retrieveUniqueProps}
-          Description: 
-        <p className='item-description'>{this.state.item.description}</p>
+        <p className='item-name'>{item.name}</p>
+          {uniqueProps}
+        Description: 
+        <p className='item-description'>{item.description}</p>
       </div>
     </article>
   )
 }
-
 
 export default Card;
