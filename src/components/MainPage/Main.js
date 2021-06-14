@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import categories from '../../datasets/categories';
+import categories from '../../utilities/categories';
 import utils from '../../utilities/utils';
 
 function Main (
@@ -24,29 +24,20 @@ function Main (
   }, [location]);
 
   const buildButtons = () => {
-    const buttonsArr = categories.names.map(elem => {
+    const buttonsArr = categories.map(elem => {
+      let btnClass = elem.buttonText === 'ROLL THE DICE' ? 'is-error' : 'is-primary';
+      let keyName = elem.buttonText === 'ROLL THE DICE' ? 'random' : elem.name;
       return (
-        <Link to={`/location/${location}/category/${elem}`} key={elem}>
+        <Link to={`/location/${location}/category/${elem.name}`} key={keyName}>
           <button
-            id={elem}
-            className='goal-btn nes-btn is-primary' 
-            onClick={() => assignCategory(elem)}>
-              {elem}
+            id={elem.name}
+            className={`goal-btn nes-btn ${btnClass}`}
+            onClick={() => assignCategory(elem.name)}>
+              {elem.buttonText}
           </button>
         </Link>
       )
     });
-    const random = utils.getRandomElement(categories.names);
-    buttonsArr.push(
-      <Link to={`/location/${location}/category/${random}`} key='random'>
-        <button 
-          id='random'
-          className='goal-btn nes-btn is-error' 
-          onClick={activateRandomState}>
-            ROLL THE DICE
-        </button>
-      </Link>
-    )
     return buttonsArr;
   }
 
