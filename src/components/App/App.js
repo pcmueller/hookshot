@@ -66,20 +66,13 @@ class App extends Component {
     this.setState({ isRandom: true})
   }
 
-  retrieveCategoryData = () => {
-    this.getDataByCategory()
-      .then(() => {
-        this.setState({ dataLoaded: true })
-      })
-  }
-
   getDataByCategory = () => {
     fetchDataByCategory(this.state.category)
       .then(data => {
         this.setState({ categoryData: data.data })
       })
       .then(() => {
-        this.setState({ dataLoaded: true })
+        this.setState({ dataLoaded: true, hasErrored: false })
       })
       .catch((error) => {
         console.log(error);
@@ -216,6 +209,7 @@ class App extends Component {
       localItems: [],
       backupItems: [],
       itemCards: [],
+      error: '',
       dataLoaded: false,
       itemsFiltered: false,
       usingBackup: false,
@@ -223,7 +217,6 @@ class App extends Component {
       isRandom: false,
       isLoading: false,
       hasErrored: false,
-      error: '',
     });
   }
 
@@ -248,11 +241,11 @@ class App extends Component {
     return (
       <div className='app'>
         {this.state.hasErrored && 
-          <Error error={this.state.error} resetError={this.resetError}/>}
+          <Error error={this.state.error} resetItemData={this.resetItemData}/>}
 
         {this.state.isLoading && <Loading />}
 
-        {!this.state.error && 
+        {!this.state.hasErrored && 
           <Router>
             <Switch>
               <Route exact path='/home/:id' 
@@ -280,14 +273,14 @@ class App extends Component {
                 <Entry 
                   locations={this.state.locations} 
                   assignLocation={this.assignLocation}
-                  resetData={this.resetItemData}
+                  resetItemData={this.resetItemData}
                 />
               </Route>
               <Route path='/*' render={() => 
                 <Error 
-                  error="Sorry, this page doesn'/t exist"
-                  resetError={this.resetError}/>} 
-                />
+                  error={this.state.error}
+                  resetItemData={this.resetItemData}/>} 
+              />
             </Switch>
           </Router>
         }

@@ -5,7 +5,7 @@ import Header from '../Header/Header';
 
 import utils from '../../utilities/utils';
 
-const Entry = ({ locations, assignLocation, resetData }) => {
+const Entry = ({ locations, assignLocation, resetItemData }) => {
 
   const [ selectedOption, setSelectedOption ] = useState('');
   const [ locationPath, setLocationPath ] = useState('');
@@ -32,7 +32,7 @@ const Entry = ({ locations, assignLocation, resetData }) => {
 
   return (
     <main className='entry-page shine' onMouseOver={utils.addShimmerEffect}>
-      <Header pageName='entry' resetData={resetData} />
+      <Header pageName='entry' resetItemData={resetItemData} />
       <form className='form-container'>
         <section 
           className='nes-container is-rounded is-dark dropdown-section'
@@ -75,5 +75,5 @@ export default Entry;
 Entry.propTypes = {
   locations: PropTypes.array,
   assignLocation: PropTypes.func, 
-  resetData: PropTypes.func
+  resetItemData: PropTypes.func
 }

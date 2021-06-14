@@ -8,7 +8,7 @@ const Main = (
   { location, 
     assignLocation, 
     assignCategory, 
-    resetData,
+    resetItemData,
     activateRandomState,
   }) => {
 
@@ -51,7 +51,7 @@ const Main = (
 
   return (
     <main className='main-page'>
-      <Header pageName='main' location={currentLocation} resetData={resetData} />
+      <Header pageName='main' location={currentLocation} resetItemData={resetItemData} />
       <section className='search-section nes-container is-rounded'>
         <label className='search-label' htmlFor="search_field">looking for an item or creature?</label>
         <div className='nes-field search-bar'>
@@ -69,7 +69,7 @@ const Main = (
         <div className='goal-heading'>
           <h4>~OR~</h4>
         </div>
-        <div className='goal-btns nes-container is-rounded with-title'>
+        <div className='goal-btn-container nes-container is-rounded with-title'>
           <span>choose your adventure!</span>
           <article>
             {buttons}
