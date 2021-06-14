@@ -43,6 +43,10 @@ class App extends Component {
     }
     if (this.state.cardsBuilt && this.state.isLoading) {
       this.setState({ isLoading: false })
+      console.log("CATEGORY DATA: ", this.state.categoryData.length)
+      console.log("LOCAL ITEMS: ", this.state.localItems.length)
+      console.log("BACKUP ITEMS: ", this.state.backupItems.length)
+      console.log("ITEM CARDS: ", this.state.itemCards.length)
     }
   };
 
@@ -137,26 +141,34 @@ class App extends Component {
     }
   }
 
+  screenDuplicates = (item) => {
+    const isDuplicate = false;
+    this.state.itemCards.forEach(card => {
+      if (item.id === card.id) {
+        isDuplicate = true;
+      }
+    });
+    if (!isDuplicate) {
+      this.setState(prevState => ({...prevState,
+        itemCards: 
+          [...prevState.itemCards, 
+            <Card item={item} key={item.id} id={item.id} /> 
+          ],
+      }))
+    };
+  }
+
   addItemCard = (item) => {
-    // if (this.state.itemCards.length > 0) {
-    //   console.log("CHECKING CARDS FOR: ", item)
-    //   this.state.itemCards.forEach(card => {
-    //     if (item.id !== card.id) {
-    //       this.setState(prevState => ({...prevState,
-    //         itemCards: 
-    //           [...prevState.itemCards, 
-    //             <Card item={item} key={item.id} id={item.id} /> 
-    //           ],
-    //       }))
-    //     }
-    //   });
-    // } else {
+    if (this.state.itemCards.length > 0) {
+      this.screenDuplicates(item);
+    } else {
         this.setState(prevState => ({...prevState,
           itemCards: 
             [...prevState.itemCards, 
               <Card item={item} key={item.id} id={item.id} /> 
             ],
         }))
+      }
    }
 
   resetError = () => {

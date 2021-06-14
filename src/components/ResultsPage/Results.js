@@ -74,12 +74,6 @@ function Results(
 
 export default Results;
 
-
-
-
-
-
-
     // if (category === 'creatures') {
     //   localItems.food.forEach(item => {
     //     itemList.push(
