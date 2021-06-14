@@ -43,10 +43,6 @@ class App extends Component {
     }
     if (this.state.cardsBuilt && this.state.isLoading) {
       this.setState({ isLoading: false })
-      console.log("CATEGORY DATA: ", this.state.categoryData.length)
-      console.log("LOCAL ITEMS: ", this.state.localItems.length)
-      console.log("BACKUP ITEMS: ", this.state.backupItems.length)
-      console.log("ITEM CARDS: ", this.state.itemCards.length)
     }
   };
 
@@ -142,9 +138,9 @@ class App extends Component {
   }
 
   screenDuplicates = (item) => {
-    const isDuplicate = false;
+    let isDuplicate = false;
     this.state.itemCards.forEach(card => {
-      if (item.id === card.id) {
+      if (item.id === card.props.id) {
         isDuplicate = true;
       }
     });
@@ -152,7 +148,7 @@ class App extends Component {
       this.setState(prevState => ({...prevState,
         itemCards: 
           [...prevState.itemCards, 
-            <Card item={item} key={item.id} id={item.id} /> 
+            <Card item={item} id={item.id} key={parseInt(item.id)} /> 
           ],
       }))
     };
@@ -209,7 +205,7 @@ class App extends Component {
                     assignCategory={this.assignCategory}
                     error={this.state.error}
                     resetError={this.resetError}
-                    usingBackup={this.usingBackup}
+                    usingBackup={this.state.usingBackup}
                     hasErrored={this.state.hasErrored}
                     isLoading={this.state.isLoading}
                   />

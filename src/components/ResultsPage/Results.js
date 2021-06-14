@@ -22,10 +22,10 @@ function Results(
     if (!usingBackup) {
       setBalloonMessage(`Great choice! Here's a list of ${category} in your area:`);
     } else {
-      setBalloonMessage(`We couldn't find any ${category} specifically to your area, so here's some with locations unknown!`);
+      setBalloonMessage(`We couldn't locate any ${category} in your area, so here's some that could be anywhere!`);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [usingBackup]);
 
   useEffect(() => {
     assignCategory(category);

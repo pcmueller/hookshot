@@ -37,6 +37,13 @@
   height: 60%;
   list-style-type: none;
 
+  h3 {
+    font-weight: 400;
+    font-size: 1.3vw;
+    margin: 1vw auto 2% auto;
+    line-height: 0;
+  }
+
   p {
     width: 100%;
     font-family: $Roboto;
@@ -45,8 +52,9 @@
 }
 
 .item-name {
-  color: rgb(30, 62, 158);
-  text-shadow: 1px 1px rgb(42, 211, 233);
+  color: rgb(69, 111, 235);
+  text-align: center;
+  text-shadow: 1px 1px rgb(0, 0, 0);
   text-transform: uppercase;
   letter-spacing: 0.1vw;
   font-weight: 500;
@@ -57,7 +65,18 @@
   font-size: 1.5vw;
 }
 
+.item-variables {
+  p, h3 {
+    margin-bottom: 5%;
+  }
+}
+
 .item-description {
+  line-height: 1.5;
   font-size: 1.5vw;
-  margin-bottom: 1vw;
+
+  h3 {
+    font-weight: 400;
+    font-size: 1.3vw;
+  }
 }

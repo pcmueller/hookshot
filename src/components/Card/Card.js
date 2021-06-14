@@ -31,31 +31,31 @@ function Card({ item }) {
       case 'treasure' || 'monsters' || 'non_food': 
         return (
           <div className='item-variables'>
-            Common Locations:
+            <h3>Common Locations</h3>
             <p className='item-common-locations'>{checkPropValidity('common_locations')}</p>
-            Drops:
+            <h3>Drops</h3>
             <p className='item-drops'>{checkPropValidity('drops')}</p>
           </div>
         );
       case 'equipment':
         return (
           <div className='item-variables'>
-            Common Locations:
+            <h3>Common Locations</h3>
             <p className='item-common-locations'>{checkPropValidity('common_locations')}</p>
-            Attack:
+            <h3>Attack</h3>
             <p className='item-attack'>{checkPropValidity('attack')}</p>
-            Defense:
+            <h3>Defense</h3>
             <p className='item-defense'>{checkPropValidity('defense')}</p>
           </div>
         );
       case 'materials' || 'food':
         return (
           <div className='item-variables'>
-            Common Locations:
+            <h3>Common Locations</h3>
             <p className='item-common-locations'>{checkPropValidity('common_locations')}</p>
-            Cooking Effect:
+            <h3>Cooking Effect</h3>
             <p className='item-cooking-effect'>{checkPropValidity('cooking_effect')}</p>
-            Hearts Recovered:
+            <h3>Hearts Recovered</h3>
             <p className='item-hearts-recovered'>{checkPropValidity('hearts_recovered')}</p>
           </div>
         );
@@ -71,14 +71,14 @@ function Card({ item }) {
   }
 
   return (
-    <article className='item-card' id={item.id} key={item.id}>
+    <article className='item-card'>
       <div className='image-container'>
       <img src={item.image} alt={item.name}/>
       </div>
       <div className='item-info'>
         <p className='item-name'>{item.name}</p>
           {uniqueProps}
-        Description: 
+        <h3>Description </h3>
         <p className='item-description'>{item.description}</p>
       </div>
     </article>
