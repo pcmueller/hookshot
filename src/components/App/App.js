@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Redirect, BrowserRouter as Router, Switch } from "react-router-dom";
-import apiCalls from '../../utilities/apiCalls';
+import { fetchDataByCategory } from '../../utilities/apiCalls';
 import utils from '../../utilities/utils';
 import locationData from '../../datasets/locations';
 import Entry from '../EntryPage/Entry';
@@ -32,7 +32,7 @@ class App extends Component {
     }
   }
 
-  componentDidUpdate = (prevState, prevProps) => {
+  componentDidUpdate = (prevProps) => {
     if (prevProps.category !== this.state.category) {
       this.getDataByCategory(this.state.category);
     }
@@ -74,7 +74,7 @@ class App extends Component {
   }
 
   getDataByCategory = () => {
-    apiCalls.fetchDataByCategory(this.state.category)
+    fetchDataByCategory(this.state.category)
       .then(data => {
         this.setState({ categoryData: data.data })
       })
