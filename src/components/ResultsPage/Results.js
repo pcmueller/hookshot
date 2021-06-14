@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import utils from '../../utilities/utils';
 
 function Results (
@@ -69,3 +70,14 @@ function Results (
 }
 
 export default Results;
+
+Results.propTypes = {
+  location: PropTypes.string,
+  category: PropTypes.string,
+  itemCards: PropTypes.array,
+  usingBackup: PropTypes.bool,
+  isRandom: PropTypes.bool,
+  assignLocation: PropTypes.func,
+  assignCategory: PropTypes.func,
+}
+

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 const Loading = () => {
   return (
@@ -15,7 +14,3 @@ const Loading = () => {
 }
 
 export default Loading;
-
-Loading.propTypes = {
-  resetError: PropTypes.func
-}

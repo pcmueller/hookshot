@@ -30,5 +30,6 @@ const Error = ({ error, resetData }) => {
 export default Error
 
 Error.propTypes = {
-  resetError: PropTypes.func
+  error: PropTypes.string,
+  resetData: PropTypes.func
 }

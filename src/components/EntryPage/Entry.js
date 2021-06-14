@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import utils from '../../utilities/utils';
 
 function Entry({ locations, assignLocation, resetData }) {
@@ -75,3 +76,9 @@ function Entry({ locations, assignLocation, resetData }) {
 }
 
 export default Entry;
+
+Entry.propTypes = {
+  locations: PropTypes.array,
+  assignLocation: PropTypes.func, 
+  resetData: PropTypes.func
+}

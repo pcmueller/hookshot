@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
 function Card({ item }) {
 
@@ -112,3 +113,7 @@ function Card({ item }) {
 }
 
 export default Card;
+
+Card.propTypes = {
+  item: PropTypes.object,
+}

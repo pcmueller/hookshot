@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import categories from '../../datasets/categories';
 import utils from '../../utilities/utils';
 
@@ -84,3 +85,11 @@ function Main (
 }
 
 export default Main;
+
+Main.propTypes = {
+  location: PropTypes.string,
+  assignLocation: PropTypes.func,
+  assignCategory: PropTypes.func,
+  resetData: PropTypes.func,
+  activateRandomState: PropTypes.func
+}
