@@ -34,9 +34,9 @@ function Entry({ locations, assignLocation, resetData }) {
         <Link to={'/'} onClick={resetData}>
           <h1 className='app-title' id='app-title'>HOOKSHOT</h1>
         </Link>
-        <h4 className='app-subtitle'>
+        <h2 className='app-subtitle'>
           ~ A FIELD GUIDE FOR HYRULIAN EXPLORERS ~
-        </h4>
+        </h2>
       </header>
       <form className='form-container'>
         <section 

@@ -27,7 +27,12 @@ function Main (
     const buttonsArr = categories.names.map(elem => {
       return (
         <Link to={`/location/${location}/category/${elem}`} key={elem}>
-          <button onClick={() => assignCategory(elem)} className='nes-btn is-primary' id={elem}>{elem}</button>
+          <button
+            id={elem}
+            className='goal-btn nes-btn is-primary' 
+            onClick={() => assignCategory(elem)}>
+              {elem}
+          </button>
         </Link>
       )
     });
@@ -36,7 +41,7 @@ function Main (
       <Link to={`/location/${location}/category/${random}`} key='random'>
         <button 
           id='random'
-          className='nes-btn is-error' 
+          className='goal-btn nes-btn is-error' 
           onClick={activateRandomState}>
             ROLL THE DICE
         </button>
@@ -52,21 +57,21 @@ function Main (
           <h1 className='welcome-message'>WELCOME TO HYRULE</h1>
         </Link>
         <div className='welcome-location'>
-          <h4>current location:</h4>
+          <h2>current location:</h2>
           <h3>{currentLocation}</h3>
         </div>
       </section>
       <section className='search-section nes-container is-rounded'>
-        <label className='search-label' htmlFor="name_field">looking for an item or creature?</label>
+        <label className='search-label' htmlFor="search_field">looking for an item or creature?</label>
         <div className='nes-field search-bar'>
           <input
             type='text'
-            id='name_field'
+            id='search_field'
             className='nes-input is-inline search-input'
             placeholder='search here!'
             name='input'
           />
-          <button className='nes-btn'>search</button>
+          <button type='submit' className='nes-btn'>search</button>
         </div>
       </section>
       <section className='goal-container'>
