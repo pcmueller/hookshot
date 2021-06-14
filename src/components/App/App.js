@@ -8,6 +8,7 @@ import Main from '../MainPage/Main';
 import Results from '../ResultsPage/Results';
 import Card from '../Card/Card';
 import Error from '../Error/Error';
+import Loading from '../Loading/Loading';
 
 class App extends Component {
   constructor() {
@@ -24,7 +25,7 @@ class App extends Component {
       itemsFiltered: false,
       usingBackup: false,
       cardsBuilt: false,
-      isLoading: true,
+      isLoading: false,
       isRandom: false,
       hasErrored: false,
       error: '',
@@ -205,7 +206,7 @@ class App extends Component {
       usingBackup: false,
       cardsBuilt: false,
       isRandom: false,
-      isLoading: true,
+      isLoading: false,
       hasErrored: false,
       error: '',
     });
@@ -233,6 +234,8 @@ class App extends Component {
       <div className='app'>
         {this.state.hasErrored && 
           <Error error={this.state.error} resetError={this.resetError}/>}
+
+        {this.state.isLoading && <Loading />}
 
         {!this.state.error && 
           <Router>
