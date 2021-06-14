@@ -1,6 +1,8 @@
 const baseURL = 'https://botw-compendium.herokuapp.com/api/v2';
 
 export const fetchDataByCategory = async (category) => {
+  console.log(category);
+  console.log(`${baseURL}/category/${category}`);
     const response = await fetch(`${baseURL}/category/${category}`);
     const data = await response.json();
     return data;

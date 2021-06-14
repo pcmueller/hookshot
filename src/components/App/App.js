@@ -32,7 +32,7 @@ class App extends Component {
     }
   }
 
-  componentDidUpdate = (prevProps) => {
+  componentDidUpdate = (prevState, prevProps) => {
     if (prevProps.category !== this.state.category) {
       this.getDataByCategory(this.state.category);
     }
