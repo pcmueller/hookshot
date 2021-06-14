@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import Header from '../Header/Header';
+
 import utils from '../../utilities/utils';
 
-function Entry({ locations, assignLocation }) {
+const Entry = ({ locations, assignLocation, resetData }) => {
 
   const [ selectedOption, setSelectedOption ] = useState('');
   const [ locationPath, setLocationPath ] = useState('');
@@ -18,7 +21,7 @@ function Entry({ locations, assignLocation }) {
     setLocationPath(utils.convertLocationPath(location));
   }
 
-  const handleClick = () => {
+  const handleEnterBtnClick = () => {
     setClickEnter(true);
     assignLocation(selectedOption.value);
   };
@@ -29,12 +32,7 @@ function Entry({ locations, assignLocation }) {
 
   return (
     <main className='entry-page shine' onMouseOver={utils.addShimmerEffect}>
-      <header className='banner'>
-        <h1 className='app-title' id='app-title'>HOOKSHOT</h1>
-        <h4 className='app-subtitle'>
-          ~ A FIELD GUIDE FOR HYRULIAN EXPLORERS ~
-        </h4>
-      </header>
+      <Header pageName='entry' resetData={resetData} />
       <form className='form-container'>
         <section 
           className='nes-container is-rounded is-dark dropdown-section'
@@ -55,12 +53,13 @@ function Entry({ locations, assignLocation }) {
         <section className='enter-btn-section'>
           <Link to={`/home/${locationPath}`} 
                 id={locationPath}
-                className='entry-link-component'>
+                className='entry-link-component'
+                onClick={assignLocation}>
             <button 
               disabled={selectedOption.length < 1}
               className='enter-btn blinker' 
               type='reset'
-              onClick={handleClick}>
+              onClick={handleEnterBtnClick}>
                 <i className="snes-logo"></i><br></br>
                 PRESS START
             </button>
@@ -72,3 +71,9 @@ function Entry({ locations, assignLocation }) {
 }
 
 export default Entry;
+
+Entry.propTypes = {
+  locations: PropTypes.array,
+  assignLocation: PropTypes.func, 
+  resetData: PropTypes.func
+}

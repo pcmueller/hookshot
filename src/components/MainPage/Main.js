@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import categories from '../../datasets/categories';
-import utils from '../../utilities/utils';
+import PropTypes from 'prop-types';
+import categories from '../../utilities/categories';
+import Header from '../Header/Header';
 
-function Main({ location }) {
+const Main = (
+  { location, 
+    assignLocation, 
+    assignCategory, 
+    resetData,
+    activateRandomState,
+  }) => {
 
   const [ currentLocation, setCurrentLocation ] = useState('');
   const [ buttons, setButtons ]  = useState([]);
@@ -11,49 +18,51 @@ function Main({ location }) {
   useEffect(() => {
     const formatted = location.replaceAll('+', ' ');
     setCurrentLocation(formatted);
+    assignLocation(formatted);
     setButtons(buildButtons());
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location]);
 
+  const handleGoalBtnClick = (e) => {
+    assignCategory(e.target.id);
+    if (e.target.name === 'ROLL THE DICE') {
+      activateRandomState();
+    }
+  }
+
   const buildButtons = () => {
-    const buttonsArr = categories.names.map(elem => {
+    const buttonsArr = categories.map(elem => {
+      let btnClass = elem.buttonText === 'ROLL THE DICE' ? 'is-error' : 'is-primary';
+      let keyName = elem.buttonText === 'ROLL THE DICE' ? 'random' : elem.name;
       return (
-        <Link to={`/location/${location}/category/${elem}`} key={elem}>
-          <button className='nes-btn is-primary' id={elem}>{elem}</button>
+        <Link to={`/location/${location}/category/${elem.name}`} key={keyName}>
+          <button
+            id={elem.name}
+            name={elem.buttonText}
+            className={`goal-btn nes-btn ${btnClass}`}
+            onClick={(e) => handleGoalBtnClick(e)}>
+              {elem.buttonText}
+          </button>
         </Link>
       )
     });
-    const random = utils.getRandomElement(categories.names);
-    buttonsArr.push(
-      <Link to={`/category/${random}`} key='random'>
-        <button className='nes-btn is-error' id='random'>ROLL THE DICE</button>
-      </Link>
-    )
     return buttonsArr;
   }
 
   return (
     <main className='main-page'>
-      <section className='banner' onMouseOver={utils.addShimmerEffect}>
-        <Link to={'/'}>
-          <h1 className='welcome-message'>WELCOME TO HYRULE</h1>
-        </Link>
-        <div className='nes-container is-rounded welcome-location'>
-          <h4>current location:</h4>
-          <h3>{currentLocation}</h3>
-        </div>
-      </section>
+      <Header pageName='main' location={currentLocation} resetData={resetData} />
       <section className='search-section nes-container is-rounded'>
-        <label className='search-label' htmlFor="name_field">looking for an item or creature?</label>
+        <label className='search-label' htmlFor="search_field">looking for an item or creature?</label>
         <div className='nes-field search-bar'>
           <input
             type='text'
-            id='name_field'
+            id='search_field'
             className='nes-input is-inline search-input'
             placeholder='search here!'
             name='input'
           />
-          <button className='nes-btn'>search</button>
+          <button type='submit' className='nes-btn'>search</button>
         </div>
       </section>
       <section className='goal-container'>
@@ -72,3 +81,11 @@ function Main({ location }) {
 }
 
 export default Main;
+
+Main.propTypes = {
+  location: PropTypes.string,
+  assignLocation: PropTypes.func,
+  assignCategory: PropTypes.func,
+  resetData: PropTypes.func,
+  activateRandomState: PropTypes.func
+}

@@ -1,85 +1,119 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 
-class Card extends Component {
-  constructor({ item }) {
-    super()
-    this.state={
-      item: item,
+const Card = ({ item }) => {
+
+  const [ uniqueProps, setUniqueProps ] = useState('');
+
+  useEffect(() => {
+    if (!uniqueProps || uniqueProps.length < 1) {
+      setUniqueProps(retrieveUniqueProps());
     }
-  }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  componentDidMount = () => {
-    console.log("CARD MOUNTED");
-    console.log("ITEM: ", this.state.item);
-  }
+  const checkPropValidity = (propName) => {
+    const prop = item[propName];
 
-  checkPropValidity = (propName) => {
-    const prop = this.state.item[propName];
-    console.log("CHECKING: ", prop, typeof(prop));
-
-    if (prop && (typeof(prop) === 'object')) {
+    if (prop && prop.length === 0) {
+      return 'none';
+    } else if (prop && (typeof(prop) === 'object')) {
       return prop.join(', ');
-    } else if (typeof(prop) === 'number' || prop.length > 1) { 
-      console.log("num/string: ", prop)
+    } else if (typeof(prop) === 'number') { 
+      return prop;
+    } else if (prop && prop.length > 1) {
       return prop;
     } else {
       return 'unknown';
     }
   }
   
-  retrieveUniqueProps = () => {
-    switch (this.state.item.category) {
-      case 'treasure' || 'monsters' || 'non_food': 
+  const retrieveUniqueProps = () => {
+    switch (item.category) {
+      case 'monsters': 
         return (
           <div className='item-variables'>
-            Common Locations:
-            <p className='item-common-locations'>{this.checkPropValidity('common_locations')}</p>
-            Drops:
-            <p className='item-drops'>{this.checkPropValidity('drops')}</p>
+            <h3>Common Locations</h3>
+            <p className='item-common-locations'>{checkPropValidity('common_locations')}</p>
+            <h3>Drops</h3>
+            <p className='item-drops'>{checkPropValidity('drops')}</p>
+          </div>
+        );
+      case 'treasure': 
+        return (
+          <div className='item-variables'>
+            <h3>Common Locations</h3>
+            <p className='item-common-locations'>{checkPropValidity('common_locations')}</p>
+            <h3>Drops</h3>
+            <p className='item-drops'>{checkPropValidity('drops')}</p>
           </div>
         );
       case 'equipment':
         return (
           <div className='item-variables'>
-            Common Locations:
-            <p className='item-common-locations'>{this.checkPropValidity('common_locations')}</p>
-            Attack:
-            <p className='item-attack'>{this.checkPropValidity('attack')}</p>
-            Defense:
-            <p className='item-defense'>{this.checkPropValidity('defense')}</p>
+            <h3>Common Locations</h3>
+            <p className='item-common-locations'>{checkPropValidity('common_locations')}</p>
+            <h3>Attack</h3>
+            <p className='item-attack'>{checkPropValidity('attack')}</p>
+            <h3>Defense</h3>
+            <p className='item-defense'>{checkPropValidity('defense')}</p>
           </div>
         );
-      case 'materials' || 'food':
+      case 'materials':
         return (
           <div className='item-variables'>
-            Common Locations:
-            <p className='item-common-locations'>{this.checkPropValidity('common_locations')}</p>
-            Cooking Effect:
-            <p className='item-cooking-effect'>{this.checkPropValidity('cooking_effect')}</p>
-            Hearts Recovered:
-            <p className='item-hearts-recovered'>{this.checkPropValidity('hearts_recovered')}</p>
+            <h3>Common Locations</h3>
+            <p className='item-common-locations'>{checkPropValidity('common_locations')}</p>
+            <h3>Cooking Effect</h3>
+            <p className='item-cooking-effect'>{checkPropValidity('cooking_effect')}</p>
+            <h3>Hearts Recovered</h3>
+            <p className='item-hearts-recovered'>{checkPropValidity('hearts_recovered')}</p>
           </div>
         );
+      case 'creatures':
+        if (item['cooking_effect']) {
+          return (
+            <div className='item-variables'>
+              <h3>Common Locations</h3>
+              <p className='item-common-locations'>{checkPropValidity('common_locations')}</p>
+              <h3>Cooking Effect</h3>
+              <p className='item-cooking-effect'>{checkPropValidity('cooking_effect')}</p>
+              <h3>Hearts Recovered</h3>
+              <p className='item-hearts-recovered'>{checkPropValidity('hearts_recovered')}</p>
+            </div>
+          );
+        } else {
+          return (
+            <div className='item-variables'>
+              <h3>Common Locations</h3>
+              <p className='item-common-locations'>{checkPropValidity('common_locations')}</p>
+              <h3>Drops</h3>
+              <p className='item-drops'>{checkPropValidity('drops')}</p>
+            </div>
+          );
+        }
       default:
         break;
     }
   }
 
-  render() {
-    return (
-      <article className='item-card' id={this.state.item.id} key={this.state.item.id}>
-        <div className='image-container'>
-        <img src={this.state.item.image} alt={this.state.item.name}/>
-        </div>
-        <div className='item-info'>
-          <p className='item-name'>{this.state.item.name}</p>
-          {this.retrieveUniqueProps()}
-            Description: 
-          <p className='item-description'>{this.state.item.description}</p>
-        </div>
-      </article>
-    )
-  }
+  return (
+    <article className='item-card'>
+      <div className='image-container'>
+      <img src={item.image} alt={item.name}/>
+      </div>
+      <div className='item-info'>
+        <p className='item-name'>{item.name}</p>
+          {uniqueProps}
+        <h3>Description </h3>
+        <p className='item-description'>{item.description}</p>
+      </div>
+    </article>
+  )
 }
 
 export default Card;
+
+Card.propTypes = {
+  item: PropTypes.object,
+}

@@ -2,8 +2,10 @@
 @import './_variables';
 @import './_effects';
 @import './components/App/_app';
-@import './components/App/_banner';
+@import './components/Header/_header';
 @import './components/EntryPage/_entry';
 @import './components/MainPage/_main';
 @import './components/ResultsPage/_results';
-@import './components/Card/card';
+@import './components/Card/_card';
+@import './components/Loading/_loading';
+@import './components/Error/_error';
