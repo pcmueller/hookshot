@@ -34,7 +34,6 @@ class App extends Component {
   componentDidUpdate = (prevState, prevProps) => {
     if (prevProps.category !== this.state.category) {
       this.getDataByCategory(this.state.category);
-      console.log(this.state.category);
     }
     if (this.state.dataLoaded && !this.state.itemsFiltered) {
       this.determineFilter();
@@ -47,14 +46,29 @@ class App extends Component {
     }
   };
 
-  getAllData = () => {
-    apiCalls.fetchAllData()
-      .then(data => {
-        this.setState({ allData: data.data })
-      })
-      .catch((error) => {
-        console.log(error);
-        this.setState({ error: 'Uh Oh, Something Went Wrong' });
+  assignLocation = (selection) => {
+    if (selection) {
+      this.setState({ currentLocation: selection });
+      this.resetItemData();
+    }
+  }
+
+  assignCategory = (selection) => {
+    this.setState({ category: selection });
+  }
+
+  assignDataLoadState = (bool) => {
+    this.setState({ dataLoaded: bool });
+  }
+
+  activateRandomState = () => {
+    this.setState({ isRandom: true})
+  }
+
+  retrieveCategoryData = () => {
+    this.getDataByCategory()
+      .then(() => {
+        this.setState({ dataLoaded: true })
       })
   }
 
@@ -71,28 +85,6 @@ class App extends Component {
         this.setState({ hasErrored: true, error: 'Uh Oh, Something Went Wrong' });
       })
   };
-
-  assignLocation = (selection) => {
-    if (selection) {
-      this.setState({ currentLocation: selection });
-      this.resetItemData();
-    }
-  }
-
-  assignDataLoadState = (bool) => {
-    this.setState({ dataLoaded: bool });
-  }
-
-  assignCategory = (selection) => {
-    this.setState({ category: selection });
-  }
-
-  retrieveCategoryData = () => {
-    this.getDataByCategory()
-      .then(() => {
-        this.setState({ dataLoaded: true })
-      })
-  }
 
   determineFilter = () => {
     if (this.state.category === 'creatures') {
@@ -172,6 +164,19 @@ class App extends Component {
     }
   }
 
+  addItemCard = (item) => {
+    if (this.state.itemCards.length > 0) {
+      this.screenDuplicates(item);
+    } else {
+        this.setState(prevState => ({...prevState,
+          itemCards: 
+            [...prevState.itemCards, 
+              <Card item={item} key={item.id} id={item.id} /> 
+            ],
+        }))
+      }
+  }
+
   screenDuplicates = (item) => {
     let isDuplicate = false;
     this.state.itemCards.forEach(card => {
@@ -187,23 +192,6 @@ class App extends Component {
           ],
       }))
     };
-  }
-
-  addItemCard = (item) => {
-    if (this.state.itemCards.length > 0) {
-      this.screenDuplicates(item);
-    } else {
-        this.setState(prevState => ({...prevState,
-          itemCards: 
-            [...prevState.itemCards, 
-              <Card item={item} key={item.id} id={item.id} /> 
-            ],
-        }))
-      }
-   }
-
-  activateRandomState = () => {
-    this.setState({ isRandom: true})
   }
 
   resetItemData = () => {
