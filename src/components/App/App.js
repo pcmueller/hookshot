@@ -283,6 +283,11 @@ class App extends Component {
                   resetData={this.resetItemData}
                 />
               </Route>
+              <Route path='/*' render={() => 
+                <Error 
+                  error="Sorry, this page doesn'/t exist"
+                  resetError={this.resetError}/>} 
+                />
             </Switch>
           </Router>
         }
