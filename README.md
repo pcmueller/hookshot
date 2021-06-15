@@ -4,8 +4,9 @@
 
 ## Table of Contents
 * [Description](#description)
+* [Notable Features](#notable features)
 * [Installation](#installation)
-* [Walkthrough](#walkthrough)
+* [Demonstration](#demonstration)
 * [Developer](#developer)
 * [Technologies](#technologies)
 
@@ -41,9 +42,7 @@ For more about combining `React` with `Redux` here: [React Redux Documentation](
 2. To open and run the tests
   * Run `npx cypress open`
 
-## Walkthrough
-
-#### Demonstration
+## Demonstration
 
 ![](https://media.giphy.com/media/saXyE2XxvF8MHUOZCN/giphy.gif)
 
