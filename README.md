@@ -38,7 +38,7 @@ For more about combining `React` with `Redux` here: [React Redux Documentation](
 
 #### Demonstration
 
-![](https://media.giphy.com/media/zexFKyCLIxml3n4m9F/giphy.gif)
+![](https://media.giphy.com/media/saXyE2XxvF8MHUOZCN/giphy.gif)
 
 ## Learning Goals
 
