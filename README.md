@@ -1,17 +1,27 @@
-# <-- H  O  O  K  S  H  O  T -->
-*A digital field guide for busy Hyrulian professionals*
+# <--- H  O  O  K  S  H  O  T --->
+*the essential field guide for Hyrulian exploration*
 * [Deployed Page](https://hookshot-app.herokuapp.com)
+
+![](https://media.giphy.com/media/FKmMmOrqljFxf0GlpQ/giphy.gif)
 
 ## Table of Contents
 * [Description](#description)
+* [Features](#features)
 * [Installation](#installation)
-* [Walkthrough](#walkthrough)
+* [Demonstration](#demonstration)
 * [Developer](#developer)
 * [Technologies](#technologies)
 
 ## Description
 
-## Notable Features
+HOOKSHOT is a web app for the aspirant Zelda player - for those who yearn to disappear into the vast world of *Hyrule* but don't quite have the time to do so.  By allowing a user to choose a specific "goal" in Nintendo's *Breath of the Wild* game, this interactive data rendering tool provides even the busiest would-be gamer with the specific information needed to dabble and explore as efficiently as possible.    
+
+## Features
+
+* A catered, "location-specific" experience: immediately on launch of the root page, the user can select any location on the game map to proceed.
+* "Choose Your Adventure": once their player-location has been selected, the user can then click any of six different "goal" buttons, each filtering game data down to a different category: **creatures**, **equipment**, **treasure**, **monsters**, **materials**, or a final "*Roll the Dice*" option to randomly select one of the five.
+* Detailed item/creature data: once a "goal" has been selected, the user is presented with all data that matches both the selected location and selected goal. These matches are used to build and display individual "cards" utilizing an assortment of proprietary stats that vary by category.
+* Never a dull moment: if no matches are found, the user is presented with alternative data using the same "goal" preference but different locations around the map.
 
 ## Installation
 
@@ -25,8 +35,6 @@
 
 You can learn more about creating apps using `React` and `JSX` here: [Create React App Documentation](https://create-react-app.dev/docs/getting-started/)
 
-For more about combining `React` with `Redux` here: [React Redux Documentation](https://react-redux.js.org/introduction/getting-started)
-
 #### Cypress Testing
 
 1. Once the app is set up locally, from the root directory, install `Cypress`
@@ -34,15 +42,9 @@ For more about combining `React` with `Redux` here: [React Redux Documentation](
 2. To open and run the tests
   * Run `npx cypress open`
 
-## Walkthrough
+## Demonstration
 
-#### Demonstration
-
-## Learning Goals
-
-## Evolution of the Project
-
-## Future Iterations
+![](https://media.giphy.com/media/saXyE2XxvF8MHUOZCN/giphy.gif)
 
 ## Developer
 
