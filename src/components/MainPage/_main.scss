@@ -57,6 +57,7 @@
     justify-content: space-around;
     width: 100%;
     height: 100%;
+    padding: 1vw auto 1vw auto;
 
     a {
       display: flex;
@@ -65,6 +66,8 @@
       justify-content: center;
       width: 32%;
       height: 30%;
+      max-height: 100%;
+      max-width: 100%;
       margin: 0;
       padding: 2%;
     }
@@ -82,13 +85,30 @@
   }
 }
 
-@media screen and (max-width: 770px) {}
+@media screen and (min-width: 1200px) {
+  .goal-btn-container {
+    min-height: 20vw;
+
+    a {
+      width: 25%;
+      height: 25%;
+      margin: 0;
+      padding: 0;
+    }
+
+  }
+  .goal-btn {
+    margin: 0;
+  }
+}
 
 @media screen and (max-width: 651px) {
 
   .goal-btn {
     max-width: 90%;
+    min-height: 0;
   }
+
 
 }
 
