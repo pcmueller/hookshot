@@ -64,8 +64,14 @@
 }
 
 .item-variables {
-  p, h3 {
+  p {
     margin-bottom: 5%;
+    font-size: 1.5vw;
+  } 
+  
+  h3 {
+    margin-bottom: 5%;
+    font-size: 1.5vw;
   }
 }
 
@@ -80,3 +86,11 @@
     font-size: 1.3vw;
   }
 }
+
+@media screen and (max-width: 770px) {}
+
+@media screen and (max-width: 651px) {}
+
+@media screen and (max-width: 426px) {}
+
+@media screen and (max-width: 376px) {}

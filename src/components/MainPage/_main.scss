@@ -2,43 +2,9 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
   width: 100%;
   height: 100%;
-}
-
-// SEARCH
-
-.search-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: rgba(100, 145, 241, 0.596);
-  font-family: KongText;
-  
-  h3 {
-    font-size: 1.5vw;
-    height: 50%;
-    color: rgb(255, 255, 255);
-    text-shadow: 5px 3px black;
-    text-transform: uppercase;
-  }
-}
-
-.search-label {
-  color: ghostwhite;
-  text-shadow: 3px 3px black;
-}
-
-.search-bar {
-  display: flex;
-  width: 70%;
-  padding: 0;
-}
-
-.search-input {
-  margin-right: 5%;
-  font-family: $Roboto;
 }
 
 // GOAL SELECT
@@ -48,6 +14,7 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  margin-top: 5vw;
 }
 
 .goal-heading {
@@ -68,8 +35,7 @@
   align-items: space-evenly;
   justify-content: space-evenly;
   width: 65%;
-  height: 60%;
-  min-height: 15vw;
+  height: 100%;
   margin-top: 2%;
   padding: 1%;
   border: 2px solid black;
@@ -98,13 +64,14 @@
       justify-content: center;
       width: 32%;
       height: 100%;
+      max-height: 20vw;
       margin: 0;
       padding: 2%;
     }
   }
 
   .goal-btn {
-    width: 100%;;
+    width: 100%;
     height: 100%;
     min-height: 5vw;
     font-family: KongText;
@@ -115,9 +82,24 @@
   }
 }
 
-.svg-img {
-  background: transparent;
-  stroke: none;
-  stroke-opacity: 0;
-  fill: none;
+@media screen and (max-width: 770px) {}
+
+@media screen and (max-width: 651px) {}
+
+@media screen and (max-width: 426px) {
+
+  .goal-container {
+    height: 70vw;
+    margin-top: 10vw;
+  }
+
+  .goal-btn {
+    width: 100%;
+    height: 100%;
+    font-size: 2vw;
+  }
+
+
 }
+
+@media screen and (max-width: 376px) {}
