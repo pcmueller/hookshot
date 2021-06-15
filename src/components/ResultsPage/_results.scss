@@ -62,3 +62,27 @@
   height: 90%;
   font-size: 100%;
 }
+
+@media screen and (max-width: 770px) {}
+
+@media screen and (max-width: 651px) {}
+
+@media screen and (max-width: 426px) {
+
+  .results-header {
+    margin-bottom: 4vw;
+    justify-content: space-between;
+  }
+
+  .nes-bcrikko {
+    max-height: 100%;
+  }
+
+  .nes-balloon {
+    width: 10vw;
+    font-size: 1.5vw;
+    align-self: flex-start;
+  }
+}
+
+@media screen and (max-width: 376px) {}

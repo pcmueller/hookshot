@@ -76,7 +76,6 @@ describe('Hookshot - Main Page', () => {
 
   it('Should display \'goal buttons\' container with expected elements', () => {
     cy.get('.goal-container').should('be.visible')
-      .get('.goal-heading').should('contain', '~OR~')
     cy.get('.goal-btn-container').should('be.visible')
       .find('span').should('contain', 'choose your adventure!')
     cy.get('.goal-btn').should('have.length', 6)

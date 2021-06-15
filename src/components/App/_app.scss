@@ -6,7 +6,7 @@
 html,
 body,
 #root {
-  // height: auto;
+  height: 100%;
   background-color: $background-dark;
 }
 
@@ -23,6 +23,26 @@ body,
   // background-position: cover;
   // background-size: 100% 100%;
   background-size: contain;
-  min-height: 70vw;
+  min-height: 50vw;
   background-repeat: no-repeat;
 }
+
+/*~~~~~~ RESPONSIVE ~~~~~~ */
+
+@media screen and (max-width: 651px) {
+}
+
+@media screen and (max-width: 770px) {}
+
+@media screen and (max-width: 651px) {}
+
+@media screen and (max-width: 426px) {
+
+  .app {
+    height: 100vh;
+    background-position: center;
+    // background-size: 100% 100%;
+  }
+}
+
+@media screen and (max-width: 376px) {}
