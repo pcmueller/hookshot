@@ -11,7 +11,14 @@
 
 ## Description
 
+HOOKSHOT is a web app for the Zelda fan who doesn't have enough time to disappear into the vast world of *Breath of the Wild*.  By allowing a user to choose a specific "goal" in the game, this interactive data rendering tool is then able to provide specific information on how and where they can do so the fastest.
+
 ## Notable Features
+
+* A catered, "location-specific" experience: immediately on launch of the root page, the user can select any location on the game map to proceed.
+* "Choose Your Adventure": once their player-location has been selected, the user can then click any of six different "goal" buttons, each filtering game data down to a different category: **creatures**, **equipment**, **treasure**, **monsters**, **materials**, or a final "*Roll the Dice*" option to randomly select one of the five.
+* Detailed item/creature data: once a "goal" has been selected, the user is presented with all data that matches both the selected location and selected goal. These matches are used to build and display individual "cards" utilizing an assortment of proprietary stats that vary by category.
+* Never a dull moment: if no matches are found, the user is presented with alternative data using the same "goal" preference but different locations around the map.
 
 ## Installation
 
@@ -39,12 +46,6 @@ For more about combining `React` with `Redux` here: [React Redux Documentation](
 #### Demonstration
 
 ![](https://media.giphy.com/media/saXyE2XxvF8MHUOZCN/giphy.gif)
-
-## Learning Goals
-
-## Evolution of the Project
-
-## Future Iterations
 
 ## Developer
 
