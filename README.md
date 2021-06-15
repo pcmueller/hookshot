@@ -12,7 +12,7 @@
 
 ## Description
 
-HOOKSHOT is a web app for the Zelda fan who doesn't have enough time to disappear into the vast world of *Breath of the Wild*.  By allowing a user to choose a specific "goal" in the game, this interactive data rendering tool is then able to provide specific information on how and where they can do so the fastest.
+HOOKSHOT is a web app for the aspirant Zelda player - for those who year to disappear into the vast world of *Hyrule*, but simply don't have the time to do so.  By allowing a user to choose a specific "goal" in Nintendo's *Breath of the Wild* game, this interactive data rendering tool provides even the busiest would-be gamer with the specific information needed to dabble as effiiently as possible.    
 
 ## Features
 
