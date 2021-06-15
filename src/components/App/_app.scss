@@ -29,8 +29,14 @@ body,
 
 /*~~~~~~ RESPONSIVE ~~~~~~ */
 
-@media screen and (max-width: 651px) {
+@media screen and (min-width: 1000px) {
+  .app {
+    max-height: 100vh;
+  }
 }
+
+
+@media screen and (max-width: 651px) {}
 
 @media screen and (max-width: 770px) {}
 

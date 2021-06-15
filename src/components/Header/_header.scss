@@ -74,9 +74,38 @@
 
 @media screen and (max-width: 426px) {
   .banner {
-    margin-top: 10vw;
+    margin-top: 5vw;
     height: 40vw;
+    width: 100%;
     margin-bottom: 0;
+    padding: 0;
+  }
+
+  .results {
+    min-height: 30vw;
+  }
+
+  .welcome-message {
+    width: 100%;
+    height: 100%;
+    font-size: 5vw;
+  }
+
+  .welcome-location {
+    h2 {
+      font-size: 2vw;
+    }
+    h3 {
+      font-size: 4vw;
+    }
+  }
+
+  .app-title {
+    letter-spacing: 3vw;
+  }
+
+  .app-subtitle {
+    font-size: 2vw;
   }
 
 }
