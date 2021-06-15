@@ -67,7 +67,11 @@
   }
 }
 
-@media screen and (max-width: 770px) {}
+@media screen and (max-width: 770px) {
+  .banner {
+    margin-top: 7vw;
+  }
+}
 
 @media screen and (max-width: 651px) {}
 
