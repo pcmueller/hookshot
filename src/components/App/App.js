@@ -133,22 +133,7 @@ class App extends Component {
       }
     })
 
-    // if (this.state.localItems.length === 0 && this.state.backupItems.length === 0) {
-    //   this.buildBackupItems();
-    // }
-
     this.setState({ itemsFiltered: true });
-  }
-
-  buildBackupItems = () => {
-    console.log("BUILD BACKUPS");
-    // do {
-    //   const item = utils.getRandomElement(this.state.categoryData);
-    //   this.setState(prevState => ({
-    //     ...prevState,
-    //     backupItems: [...prevState.backupItems, item],
-    //   }))
-    // } while (this.state.backupItems.length < 10);
   }
 
   buildItemCards = () => {

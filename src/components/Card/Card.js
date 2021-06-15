@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import errorImage from '../../assets/images/no-image.jpeg';
 
 const Card = ({ item }) => {
 
@@ -11,6 +12,12 @@ const Card = ({ item }) => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const replaceBrokenImage = (image) => {
+    image.onerror = "";
+    image.src = errorImage;
+    return true;
+  }
 
   const checkPropValidity = (propName) => {
     const prop = item[propName];
@@ -100,7 +107,10 @@ const Card = ({ item }) => {
   return (
     <article className='item-card'>
       <div className='image-container'>
-      <img src={item.image} alt={item.name}/>
+      <img 
+        src={item.image} 
+        alt={item.name} 
+        onError={(e)=>replaceBrokenImage(e.target)}/>
       </div>
       <div className='item-info'>
         <p className='item-name'>{item.name}</p>
