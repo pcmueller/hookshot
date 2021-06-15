@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   width: 100%;
   height: 100%;
 }
@@ -13,10 +13,9 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  margin-top: 4vw;
   padding: 1%;
   width: 100%;
-  height: 30%;
+  // height: 30%;
 }
 
 // LOCATION DROPDOWN SECTION
@@ -40,7 +39,6 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-top: 5vw;
   width: 100%;
   height: 40%;
   min-height: 10vw;
@@ -78,7 +76,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     width: 100%;
     height: 100%;
   }
