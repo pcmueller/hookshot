@@ -1,5 +1,5 @@
 # <-- H  O  O  K  S  H  O  T -->
-*A digital field guide for busy Hyrulian professionals*
+*A digital field guide for busy Hyrulian explorers*
 * [Deployed Page](https://hookshot-app.herokuapp.com)
 
 ## Table of Contents
@@ -37,6 +37,8 @@ For more about combining `React` with `Redux` here: [React Redux Documentation](
 ## Walkthrough
 
 #### Demonstration
+
+![](https://media.giphy.com/media/zexFKyCLIxml3n4m9F/giphy.gif)
 
 ## Learning Goals
 
