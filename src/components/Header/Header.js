@@ -39,7 +39,7 @@ const Header = ({ pageName, location, resetItemData }) => {
         );
       case 'results':
         return (
-          <header className='banner' onMouseOver={utils.addShimmerEffect}>
+          <header className='banner results' onMouseOver={utils.addShimmerEffect}>
             <Link to={'/'}>
               <h1 className='welcome-message'>WELCOME TO HYRULE</h1>
             </Link>

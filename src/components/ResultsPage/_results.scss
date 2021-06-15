@@ -33,6 +33,8 @@
   .nes-bcrikko {
     width: 10%;
     align-self: flex-end;
+    max-height: 100%;
+    max-width: 100%;
   }
   
   .nes-balloon {
@@ -69,19 +71,28 @@
 
 @media screen and (max-width: 426px) {
 
+  .results-page {
+    width: 100%;
+    height: auto;
+  }
+
   .results-header {
     margin-bottom: 4vw;
     justify-content: space-between;
   }
 
   .nes-bcrikko {
-    max-height: 100%;
+    margin: 5vw;
   }
 
   .nes-balloon {
     width: 10vw;
     font-size: 1.5vw;
     align-self: flex-start;
+  }
+
+  .results-section {
+    height: auto;
   }
 }
 
