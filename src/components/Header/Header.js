@@ -44,7 +44,7 @@ const Header = ({ pageName, location, resetItemData }) => {
               <h1 className='welcome-message'>WELCOME TO HYRULE</h1>
             </Link>
             <div className='welcome-location'>
-              <h2>CURRENT LOCATION:</h2>
+              <h2>current location:</h2>
               <h3>{location}</h3>
             </div>
           </header>

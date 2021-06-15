@@ -32,9 +32,14 @@ class App extends Component {
     }
   }
 
+  componentDidMount = () => {
+    this.setState({ isLoading: false });
+  }
+
   componentDidUpdate = (prevState, prevProps) => {
     if (prevProps.category !== this.state.category) {
       this.getDataByCategory(this.state.category);
+      this.setState({ isLoading: true })
     }
     if (this.state.dataLoaded && !this.state.itemsFiltered) {
       this.determineFilter();
@@ -159,7 +164,7 @@ class App extends Component {
       this.addItemCard(item);
     });
     if (this.state.itemCards.length === this.state.localItems.length) {
-      this.setState({ cardsBuilt: true })
+      this.setState({ cardsBuilt: true, isLoading: false })
     }
   }
 
