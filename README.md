@@ -2,6 +2,8 @@
 *the essential field guide for Hyrulian exploration*
 * [Deployed Page](https://hookshot-app.herokuapp.com)
 
+![](https://media.giphy.com/media/FKmMmOrqljFxf0GlpQ/giphy.gif)
+
 ## Table of Contents
 * [Description](#description)
 * [Features](#features)
