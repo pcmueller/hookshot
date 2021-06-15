@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Header from '../Header/Header';
+import Loading from '../Loading/Loading';
 
 const Results = (
   { location, 
@@ -39,7 +40,12 @@ const Results = (
   }, [category]);
 
   return (
-      <main className='results-page'>
+    <main className='results-page'>
+
+      {!itemCards && <Loading />}
+
+      {itemCards &&
+        <>
         <Header pageName='results' location={location} />
         <section className="results-header message -left">
           <i className="nes-bcrikko animate__heartBeat"></i>
@@ -56,7 +62,9 @@ const Results = (
             </div>
           </div>
         </section>
-      </main>
+        </>
+      }
+    </main>
   )
 }
 

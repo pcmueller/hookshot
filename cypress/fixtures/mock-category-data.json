@@ -1,0 +1,130 @@
+{
+    "data": [
+        {
+            "attack": 0,
+            "category": "equipment",
+            "common_locations": [
+                "Hyrule Field",
+                "Lanayru Great Spring"
+            ],
+            "defense": 44,
+            "description": "This Lynel-made shield has been reinforced with armor and even more blades. Stronger in both defense and offense, it can tear through basic armor when deflecting.",
+            "id": 384,
+            "image": "https://botw-compendium.herokuapp.com/api/v2/entry/mighty_lynel_shield/image",
+            "name": "mighty lynel shield"
+        },
+        {
+            "attack": 0,
+            "category": "equipment",
+            "common_locations": [
+                "Tabantha Frontier",
+                "Gerudo Desert"
+            ],
+            "defense": 22,
+            "description": "This Lizal shield has been strengthened by adding a different type of metal to the mix. The edge is lined with spikes, so handle with care.",
+            "id": 378,
+            "image": "https://botw-compendium.herokuapp.com/api/v2/entry/reinforced_lizal_shield/image",
+            "name": "reinforced lizal shield"
+        },
+        {
+            "attack": 40,
+            "category": "equipment",
+            "common_locations": [
+                "Gerudo Highlands",
+                "West Necluda"
+            ],
+            "defense": 0,
+            "description": "This sword is favored by high-ranking members of the Yiga. When wielded by a proficient fighter, its unique shape cleaves the very wind and creates a vacuum.",
+            "id": 283,
+            "image": "https://botw-compendium.herokuapp.com/api/v2/entry/windcleaver/image",
+            "name": "windcleaver"
+        },
+        {
+            "attack": 32,
+            "category": "equipment",
+            "common_locations": null,
+            "defense": 0,
+            "description": "This Sheikah-made spear was created using ancient technology to combat the Calamity. Its attack power is very high, but a critical design flaw left it with poor durability.",
+            "id": 304,
+            "image": "https://botw-compendium.herokuapp.com/api/v2/entry/royal_guard's_spear/image",
+            "name": "royal guard's spear"
+        },
+        {
+            "attack": 14,
+            "category": "equipment",
+            "common_locations": [
+                "Lanayru Great Spring",
+                "Lanayru Wetlands"
+            ],
+            "defense": 0,
+            "description": "A wooden bow created by Lizalfos. It's reinforced by the bones of a large fish - a marked improvement over any standard wooden bow.",
+            "id": 341,
+            "image": "https://botw-compendium.herokuapp.com/api/v2/entry/lizal_bow/image",
+            "name": "lizal bow"
+        },
+        {
+            "attack": 14,
+            "category": "equipment",
+            "common_locations": [
+                "Lanayru Great Spring"
+            ],
+            "defense": 0,
+            "description": "A spear modeled after the Lightscale trident wielded by the Zora Champion Mipha. They may be identical in appearance, but this spear's strength and durability are inferior.",
+            "id": 296,
+            "image": "https://botw-compendium.herokuapp.com/api/v2/entry/ceremonial_trident/image",
+            "name": "ceremonial trident"
+        },
+        {
+            "attack": 22,
+            "category": "equipment",
+            "common_locations": [
+                "Hyrule Field",
+                "West Necluda"
+            ],
+            "defense": 0,
+            "description": "A magical sword forged and refined by lightning from the Hyrule Hills. When the blade shines with a golden light, it will electrocute enemies struck by it.",
+            "id": 223,
+            "image": "https://botw-compendium.herokuapp.com/api/v2/entry/thunderblade/image",
+            "name": "thunderblade"
+        },
+        {
+            "attack": 26,
+            "category": "equipment",
+            "common_locations": [
+                "Gerudo Desert",
+                "Tabantha Frontier"
+            ],
+            "defense": 0,
+            "description": "The sturdy metal construction of this bow offers superior durability, while its lack of firing quirks makes it quite reliable. Once favored by the knights at Hyrule Castle.",
+            "id": 327,
+            "image": "https://botw-compendium.herokuapp.com/api/v2/entry/knight's_bow/image",
+            "name": "knight's bow"
+        },
+        {
+            "attack": 26,
+            "category": "equipment",
+            "common_locations": [
+                "Gerudo Desert",
+                "Tabantha Frontier"
+            ],
+            "defense": 0,
+            "description": "Knights of Hyrule once carried this sword. These days it's the weapon of choice for seasoned adventurers thanks to its ease of use and high attack power.",
+            "id": 209,
+            "image": "https://botw-compendium.herokuapp.com/api/v2/entry/knight's_broadsword/image",
+            "name": "knight's broadsword"
+        },
+        {
+            "attack": 0,
+            "category": "equipment",
+            "common_locations": [
+                "East Necluda",
+                "Hebra Mountains"
+            ],
+            "defense": 3,
+            "description": "This shield features a traditional design from Necluda. Its combat capabilities aren't much better than the standard wooden shield, but it found popularity for its design.",
+            "id": 357,
+            "image": "https://botw-compendium.herokuapp.com/api/v2/entry/emblazoned_shield/image",
+            "name": "emblazoned shield"
+        }
+    ]
+}

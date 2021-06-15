@@ -62,7 +62,7 @@
   }
 }
 
-.goal-btns {
+.goal-btn-container {
   display: flex;
   flex-flow: column nowrap;
   align-items: space-evenly;
@@ -72,7 +72,7 @@
   min-height: 15vw;
   margin-top: 2%;
   padding: 1%;
-  // background-color: $bright-green;
+  border: 2px solid black;
   background-color: rgb(23, 104, 23);
 
   span {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Redirect, BrowserRouter as Router, Switch } from "react-router-dom";
-import apiCalls from '../../utilities/apiCalls';
+import { fetchDataByCategory } from '../../utilities/apiCalls';
 import utils from '../../utilities/utils';
 import locationData from '../../datasets/locations';
 import Entry from '../EntryPage/Entry';
@@ -32,9 +32,14 @@ class App extends Component {
     }
   }
 
+  componentDidMount = () => {
+    this.setState({ isLoading: false });
+  }
+
   componentDidUpdate = (prevState, prevProps) => {
     if (prevProps.category !== this.state.category) {
       this.getDataByCategory(this.state.category);
+      this.setState({ isLoading: true })
     }
     if (this.state.dataLoaded && !this.state.itemsFiltered) {
       this.determineFilter();
@@ -66,20 +71,13 @@ class App extends Component {
     this.setState({ isRandom: true})
   }
 
-  retrieveCategoryData = () => {
-    this.getDataByCategory()
-      .then(() => {
-        this.setState({ dataLoaded: true })
-      })
-  }
-
   getDataByCategory = () => {
-    apiCalls.fetchDataByCategory(this.state.category)
+    fetchDataByCategory(this.state.category)
       .then(data => {
         this.setState({ categoryData: data.data })
       })
       .then(() => {
-        this.setState({ dataLoaded: true })
+        this.setState({ dataLoaded: true, hasErrored: false })
       })
       .catch((error) => {
         console.log(error);
@@ -166,7 +164,7 @@ class App extends Component {
       this.addItemCard(item);
     });
     if (this.state.itemCards.length === this.state.localItems.length) {
-      this.setState({ cardsBuilt: true })
+      this.setState({ cardsBuilt: true, isLoading: false })
     }
   }
 
@@ -216,6 +214,7 @@ class App extends Component {
       localItems: [],
       backupItems: [],
       itemCards: [],
+      error: '',
       dataLoaded: false,
       itemsFiltered: false,
       usingBackup: false,
@@ -223,7 +222,6 @@ class App extends Component {
       isRandom: false,
       isLoading: false,
       hasErrored: false,
-      error: '',
     });
   }
 
@@ -248,11 +246,11 @@ class App extends Component {
     return (
       <div className='app'>
         {this.state.hasErrored && 
-          <Error error={this.state.error} resetError={this.resetError}/>}
+          <Error error={this.state.error} resetItemData={this.resetItemData}/>}
 
         {this.state.isLoading && <Loading />}
 
-        {!this.state.error && 
+        {!this.state.hasErrored && 
           <Router>
             <Switch>
               <Route exact path='/home/:id' 
@@ -280,9 +278,14 @@ class App extends Component {
                 <Entry 
                   locations={this.state.locations} 
                   assignLocation={this.assignLocation}
-                  resetData={this.resetItemData}
+                  resetItemData={this.resetItemData}
                 />
               </Route>
+              <Route path='/*' render={() => 
+                <Error 
+                  error={this.state.error}
+                  resetItemData={this.resetItemData}/>} 
+              />
             </Switch>
           </Router>
         }

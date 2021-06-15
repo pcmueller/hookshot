@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import utils from '../../utilities/utils';
 
-const Header = ({ pageName, location, resetData }) => {
+const Header = ({ pageName, location, resetItemData }) => {
 
   const [ pageHeader, setPageHeader ] = useState('');
 
   useEffect(() => {
     setPageHeader(assignHeader());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pageName]);
 
   const assignHeader = () => {
@@ -16,7 +17,7 @@ const Header = ({ pageName, location, resetData }) => {
       case 'entry': 
         return (
           <header className='banner'>
-            <Link to={'/'} onClick={resetData}>
+            <Link to={'/'} onClick={resetItemData}>
               <h1 className='app-title' id='app-title'>HOOKSHOT</h1>
             </Link>
             <h2 className='app-subtitle'>
@@ -27,7 +28,7 @@ const Header = ({ pageName, location, resetData }) => {
       case 'main': 
         return (
           <header className='banner' onMouseOver={utils.addShimmerEffect}>
-            <Link to={'/'} onClick={resetData}>
+            <Link to={'/'} onClick={resetItemData}>
               <h1 className='welcome-message'>WELCOME TO HYRULE</h1>
             </Link>
             <div className='welcome-location'>
@@ -43,7 +44,7 @@ const Header = ({ pageName, location, resetData }) => {
               <h1 className='welcome-message'>WELCOME TO HYRULE</h1>
             </Link>
             <div className='welcome-location'>
-              <h2>CURRENT LOCATION:</h2>
+              <h2>current location:</h2>
               <h3>{location}</h3>
             </div>
           </header>
@@ -65,5 +66,5 @@ export default Header;
 Header.propTypes = {
   pageName: PropTypes.string,
   location: PropTypes.string,
-  resetData: PropTypes.func
+  resetItemData: PropTypes.func
 }

@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import categories from '../../utilities/categories';
 import Header from '../Header/Header';
+import Loading from '../Loading/Loading';
 
 const Main = (
   { location, 
     assignLocation, 
     assignCategory, 
-    resetData,
+    resetItemData,
     activateRandomState,
   }) => {
 
@@ -48,34 +49,40 @@ const Main = (
     });
     return buttonsArr;
   }
-
+  
   return (
     <main className='main-page'>
-      <Header pageName='main' location={currentLocation} resetData={resetData} />
-      <section className='search-section nes-container is-rounded'>
-        <label className='search-label' htmlFor="search_field">looking for an item or creature?</label>
-        <div className='nes-field search-bar'>
-          <input
-            type='text'
-            id='search_field'
-            className='nes-input is-inline search-input'
-            placeholder='search here!'
-            name='input'
-          />
-          <button type='submit' className='nes-btn'>search</button>
-        </div>
-      </section>
-      <section className='goal-container'>
-        <div className='goal-heading'>
-          <h4>~OR~</h4>
-        </div>
-        <div className='goal-btns nes-container is-rounded with-title'>
-          <span>choose your adventure!</span>
-          <article>
-            {buttons}
-          </article>
-        </div>
-      </section>
+      {!currentLocation && <Loading />}
+
+      {currentLocation &&
+        <>
+        <Header pageName='main' location={currentLocation} resetItemData={resetItemData} />
+        <section className='search-section nes-container is-rounded'>
+          <label className='search-label' htmlFor="search_field">looking for an item or creature?</label>
+          <div className='nes-field search-bar'>
+            <input
+              type='text'
+              id='search_field'
+              className='nes-input is-inline search-input'
+              placeholder='search here!'
+              name='input'
+            />
+            <button type='submit' className='nes-btn'>search</button>
+          </div>
+        </section>
+        <section className='goal-container'>
+          <div className='goal-heading'>
+            <h4>~OR~</h4>
+          </div>
+          <div className='goal-btn-container nes-container is-rounded with-title'>
+            <span>choose your adventure!</span>
+            <article>
+              {buttons}
+            </article>
+          </div>
+        </section>
+        </>
+      }
     </main>
   )
 }
