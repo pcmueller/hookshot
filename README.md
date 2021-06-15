@@ -4,7 +4,7 @@
 
 ## Table of Contents
 * [Description](#description)
-* [Notable Features](#notable features)
+* [Features](#features)
 * [Installation](#installation)
 * [Demonstration](#demonstration)
 * [Developer](#developer)
@@ -14,7 +14,7 @@
 
 HOOKSHOT is a web app for the Zelda fan who doesn't have enough time to disappear into the vast world of *Breath of the Wild*.  By allowing a user to choose a specific "goal" in the game, this interactive data rendering tool is then able to provide specific information on how and where they can do so the fastest.
 
-## Notable Features
+## Features
 
 * A catered, "location-specific" experience: immediately on launch of the root page, the user can select any location on the game map to proceed.
 * "Choose Your Adventure": once their player-location has been selected, the user can then click any of six different "goal" buttons, each filtering game data down to a different category: **creatures**, **equipment**, **treasure**, **monsters**, **materials**, or a final "*Roll the Dice*" option to randomly select one of the five.
