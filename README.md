@@ -1,5 +1,5 @@
 # <--- H  O  O  K  S  H  O  T --->
-*the essential field guide for Hyrulian explorers*
+*the essential field guide for Hyrulian exploration*
 * [Deployed Page](https://hookshot-app.herokuapp.com)
 
 ## Table of Contents
