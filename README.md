@@ -33,8 +33,6 @@ HOOKSHOT is a web app for the aspirant Zelda player - for those who year to disa
 
 You can learn more about creating apps using `React` and `JSX` here: [Create React App Documentation](https://create-react-app.dev/docs/getting-started/)
 
-For more about combining `React` with `Redux` here: [React Redux Documentation](https://react-redux.js.org/introduction/getting-started)
-
 #### Cypress Testing
 
 1. Once the app is set up locally, from the root directory, install `Cypress`
