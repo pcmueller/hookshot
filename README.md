@@ -22,6 +22,9 @@ HOOKSHOT is a web app for the aspirant Zelda player - for those who yearn to dis
 * "Choose Your Adventure": once their player-location has been selected, the user can then click any of six different "goal" buttons, each filtering game data down to a different category: **creatures**, **equipment**, **treasure**, **monsters**, **materials**, or a final "*Roll the Dice*" option to randomly select one of the five.
 * Detailed item/creature data: once a "goal" has been selected, the user is presented with all data that matches both the selected location and selected goal. These matches are used to build and display individual "cards" utilizing an assortment of proprietary stats that vary by category.
 * Never a dull moment: if no matches are found, the user is presented with alternative data using the same "goal" preference but different locations around the map.
+* Test-Driven Development:  utilizes Cypress testing for various UI flows
+* User accessibility: scores 100 on the Chrome _Lighthouse_ test
+* Responsive design: application can be viewed proportionately on all devices and typical screen sizes, ranging from mobile to desktop monitor
 
 ## Installation
 
@@ -42,9 +45,23 @@ You can learn more about creating apps using `React` and `JSX` here: [Create Rea
 2. To open and run the tests
   * Run `npx cypress open`
 
+## Walkthrough
+
+1. On initial page load, the user is display presented with the option to select a location from a dropdown menu, which is required to proceed via button submission.
+
+2. After submitting a location choice, the user is then taken to the main navigation page, where they are welcomed to the selected location and presented with six "goal" buttons to choose from. 
+
+3. Once any of these buttons has been clicked, the user is rerouted to a results page, which displays all matching items/creatures for that location and category.  Each of these items is presented in the form of a custom "card" that includes the item name, image (when available), "common locations" in which the item can be found, and a brief description, as well as any proprietary data specific to that category.  
+
+4. If at any time a user wants to return to the home page to change their selected location, all they have to do is click the "welcome message" on any of the page displays!
+
 ## Demonstration
 
 ![](https://media.giphy.com/media/saXyE2XxvF8MHUOZCN/giphy.gif)
+
+## Future Iterations
+* _Item/Creature Searching_: My initial wireframe for this project included a search bar on the "Navigation Page" view (above the "Goal Button" container), and in the initial build I completed the basic JSX and CSS for this, but didn't have time to add the actual  data fetching/filtering functionality.  This feature should be coming in the near future, though!
+* _Theme-Consistent UI_: While I'm very happy with the layout and design of this project, I'd like to further dig into the specific _Breath of the Wild_ "identity" by adding more icons, background images, and other design elements that tie-in directly to this Zelda-centric theme.
 
 ## Developer
 
