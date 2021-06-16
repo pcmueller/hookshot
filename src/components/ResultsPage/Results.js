@@ -41,12 +41,12 @@ const Results = (
 
   return (
     <main className='results-page'>
+      <Header pageName='results' location={location} />
 
-      {!itemCards && <Loading />}
+      {!itemCards && <Loading message='Results are loading, please wait.'/>}
 
       {itemCards &&
         <>
-        <Header pageName='results' location={location} />
         <section className="results-header message -left">
           <i className="nes-bcrikko animate__heartBeat"></i>
           <div className="nes-balloon from-left">

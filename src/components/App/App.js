@@ -8,7 +8,6 @@ import Main from '../MainPage/Main';
 import Results from '../ResultsPage/Results';
 import Card from '../Card/Card';
 import Error from '../Error/Error';
-import Loading from '../Loading/Loading';
 
 class App extends Component {
   constructor() {
@@ -25,30 +24,21 @@ class App extends Component {
       itemsFiltered: false,
       usingBackup: false,
       cardsBuilt: false,
-      isLoading: false,
       isRandom: false,
       hasErrored: false,
       error: '',
     }
   }
 
-  componentDidMount = () => {
-    this.setState({ isLoading: false });
-  }
-
   componentDidUpdate = (prevState, prevProps) => {
     if (prevProps.category !== this.state.category) {
       this.getDataByCategory(this.state.category);
-      this.setState({ isLoading: true })
     }
     if (this.state.dataLoaded && !this.state.itemsFiltered) {
       this.determineFilter();
     }
     if (this.state.itemsFiltered && !this.state.cardsBuilt) {
       this.buildItemCards();
-    }
-    if (this.state.cardsBuilt && this.state.isLoading) {
-      this.setState({ isLoading: false });
     }
   };
 
@@ -149,7 +139,7 @@ class App extends Component {
       this.addItemCard(item);
     });
     if (this.state.itemCards.length === this.state.localItems.length) {
-      this.setState({ cardsBuilt: true, isLoading: false })
+      this.setState({ cardsBuilt: true })
     }
   }
 
@@ -205,7 +195,6 @@ class App extends Component {
       usingBackup: false,
       cardsBuilt: false,
       isRandom: false,
-      isLoading: false,
       hasErrored: false,
     });
   }
@@ -218,7 +207,7 @@ class App extends Component {
         location={match.params.id}
         assignLocation={this.assignLocation}
         assignCategory={this.assignCategory}
-        resetData={this.resetData}
+        resetItemData={this.resetItemData}
         activateRandomState={this.activateRandomState}
       />
     ) : (
@@ -232,8 +221,6 @@ class App extends Component {
       <div className='app'>
         {this.state.hasErrored && 
           <Error error={this.state.error} resetItemData={this.resetItemData}/>}
-
-        {this.state.isLoading && <Loading />}
 
         {!this.state.hasErrored && 
           <Router>
@@ -250,11 +237,7 @@ class App extends Component {
                     itemCards={this.state.itemCards}
                     assignCategory={this.assignCategory}
                     assignLocation={this.assignLocation}
-                    error={this.state.error}
-                    resetData={this.resetItemData}
                     usingBackup={this.state.usingBackup}
-                    hasErrored={this.state.hasErrored}
-                    isLoading={this.state.isLoading}
                     isRandom={this.state.isRandom}
                   />
               }>

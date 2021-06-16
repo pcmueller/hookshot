@@ -18,19 +18,27 @@
 
   a {
     text-decoration: none;
+    margin: 0;
+    padding: 0;
+    width: auto;
   }
 }
 
 .app-title {
   margin: 0;
+  width: 100%;
   font-size: 4.5vw;
+  align-items: center;
   letter-spacing: 2vw;
+  margin-left: 2%;
+  justify-content: center;
   color: hsla(180, 38%, 94%, 0.829);
 }
 
 .app-subtitle {
   margin: 0;
   font-size: 1.5vw;
+  letter-spacing: 0.5vw;
   color: rgba(254, 254, 50, 0.808);
   text-shadow: 2px 3px black;
 }
@@ -50,7 +58,7 @@
   margin-top: 2vw;
 
   h2 {
-    font-size: 1.4vw;
+    font-size: 1.5vw;
     letter-spacing: 0.25vw;
     text-shadow: 1px 2px black;
     color: rgb(45, 186, 241);
@@ -106,16 +114,18 @@
       font-size: 2vw;
     }
     h3 {
-      font-size: 4vw;
+      font-size: 5vw;
     }
   }
 
   .app-title {
+    font-size: 5vw;
     letter-spacing: 3vw;
   }
 
   .app-subtitle {
     font-size: 2vw;
+    letter-spacing: 0.25vw;
   }
 
 }
