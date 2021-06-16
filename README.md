@@ -61,7 +61,7 @@ You can learn more about creating apps using `React` and `JSX` here: [Create Rea
 
 ## Project Goals & Requirements
 
-* As the final assignment of the module, we were asked in this project to use the technologies and methodologies we’ve been working with over the previous six weeks in order to demonstrate mastery of the following:
+As the final assignment of the module, we were asked in this project to use the technologies and methodologies we’ve been working with over the previous six weeks in order to demonstrate mastery of the following:
 - React
 - Router
 - Asynchronous JavaScript
@@ -71,17 +71,6 @@ You can learn more about creating apps using `React` and `JSX` here: [Create Rea
 ## Future Iterations
 * _Item/Creature Searching_: My initial wireframe for this project included a search bar on the "Navigation Page" view (above the "Goal Button" container), and in the initial build I completed the basic JSX and CSS for this, but didn't have time to add the actual  data fetching/filtering functionality.  This feature should be coming in the near future, though!
 * _Theme-Consistent UI_: While I'm very happy with the layout and design of this project, I'd like to further dig into the specific _Breath of the Wild_ "identity" by adding more icons, background images, and other design elements that tie-in directly to this Zelda-centric theme.
-
-## Developer
-
-<table>
-    <tr>
-        <td> Peter Muellerleile <a href="https://github.com/pcmueller">GH</td>
-    </tr>
-    </tr>
-        <td><img src="https://avatars.githubusercontent.com/u/51062974?v=4" alt="P. Muellerleile" width="125" height="auto" /></td>
-    </tr>
-</table>
 
 ## Technologies
 
@@ -109,3 +98,19 @@ You can learn more about creating apps using `React` and `JSX` here: [Create Rea
         <td><img src="https://user-images.githubusercontent.com/73092355/119361263-b5f0a600-bc68-11eb-9f41-8e10aa013e7a.png" alt="Cypress" width="50" height="auto" /></td>
     </tr>
 </table>
+
+
+## Developer
+
+<table>
+    <tr>
+        <td> Peter Muellerleile <a href="https://github.com/pcmueller">GH</td>
+    </tr>
+    </tr>
+        <td><img src="https://avatars.githubusercontent.com/u/51062974?v=4" alt="P. Muellerleile" width="125" height="auto" /></td>
+    </tr>
+</table>
+
+Contact me!
+* 🖇 &nbsp; [LinkedIn](http://www.linkedin.com/in/pcmueller)
+* 📫 &nbsp; pmuellerleile@gmail.com
