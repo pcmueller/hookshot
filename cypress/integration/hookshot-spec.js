@@ -83,10 +83,6 @@ describe('Hookshot - Main Page', () => {
       .find('span').should('contain', 'choose your adventure!')
     cy.get('.goal-btn').should('have.length', 6)
   });
-
-  it('Should be able to click a goal button', () => {
-    cy.get('.goal-btn').eq(0).click()
-  });
 })
 
 describe('Hookshot - Results Page', () => {
@@ -98,6 +94,7 @@ describe('Hookshot - Results Page', () => {
       .then(mockData => {
         cy.intercept('GET', 'https://botw-compendium.herokuapp.com/api/v2/category/equipment', {
           statusCode: 200,
+          delay: 100,
           body: mockData
         })
       })
@@ -108,7 +105,7 @@ describe('Hookshot - Results Page', () => {
       .get('.goal-btn').eq(2).click()
   })
 
-  it('Should load the results page with the selected category and location as the path', () => {
+  it('Should be able to click a button to load the results page with the selected category and location as the path', () => {
     cy.get('.results-page').should('be.visible')
     cy.url().should('eq', 'http://localhost:3000/location/Death+Mountain/category/equipment')
     cy.get('.app').should('have.css', 'background-image', 'url("http://localhost:3000/static/media/pixel-forest.74c9af66.jpeg")')
@@ -144,8 +141,13 @@ describe('Hookshot - Results Page', () => {
     cy.get('.item-variables').find('p').eq(2).should('contain', 0)
   });
 
-  it('Should display a message for the user while the page is loading', () => {
-    cy.get('.loading').should('contain', 'Page is loading, please wait.')
+  it('Should display a message for the user while the item image is loading', () => {
+    cy.get('.loading').should('be.visible')
+  });
+
+  it('Should allow the user to click app title to return to the entry page', () => {
+    cy.get('.banner').find('a').click()
+      .url().should('eq', 'http://localhost:3000/')
   });
 })
 

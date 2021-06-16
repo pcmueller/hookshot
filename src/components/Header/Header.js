@@ -40,9 +40,9 @@ const Header = ({ pageName, location, resetItemData }) => {
       case 'results':
         return (
           <header className='banner results' onMouseOver={utils.addShimmerEffect}>
-            {/* <Link to={'/'}> */}
+            <Link to={'/'}>
               <h1 className='welcome-message'>WELCOME TO HYRULE</h1>
-            {/* </Link> */}
+            </Link>
             <div className='welcome-location'>
               <h2>current location:</h2>
               <h3>{location}</h3>
