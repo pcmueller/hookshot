@@ -18,10 +18,10 @@ HOOKSHOT is a web app for the aspirant Zelda player - for those who yearn to dis
 
 ## Features
 
-* A catered, "location-specific" experience: immediately on launch of the root page, the user can select any location on the game map to proceed.
-* "Choose Your Adventure": once their player-location has been selected, the user can then click any of six different "goal" buttons, each filtering game data down to a different category: **creatures**, **equipment**, **treasure**, **monsters**, **materials**, or a final "*Roll the Dice*" option to randomly select one of the five.
-* Detailed item/creature data: once a "goal" has been selected, the user is presented with all data that matches both the selected location and selected goal. These matches are used to build and display individual "cards" utilizing an assortment of proprietary stats that vary by category.
-* Never a dull moment: if no matches are found, the user is presented with alternative data using the same "goal" preference but different locations around the map.
+* A catered, "location-specific" experience: immediately on page launch, a user can select any location on the game map.
+* "Choose Your Adventure": once their player-location has been selected, a user can then click any of six different "goal" buttons, each filtering game data down to a different category: **creatures**, **equipment**, **treasure**, **monsters**, **materials**, or a "*Roll the Dice*" option to randomly select one of the five.
+* Custom results: once a "goal" has been selected, the user is presented with all data that matches both the selected location and selected goal. These matches are used to build and display individual "cards" utilizing an assortment of proprietary stats that vary by category.
+* All bases covered: if no matches are found, the user is presented with alternative data using the same "goal" preference but different locations around the map.
 * Test-Driven Development:  utilizes Cypress testing for various UI flows
 * User accessibility: scores 100 on the Chrome _Lighthouse_ test
 * Responsive design: application can be viewed proportionately on all devices and typical screen sizes, ranging from mobile to desktop monitor
