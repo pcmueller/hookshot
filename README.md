@@ -59,6 +59,15 @@ You can learn more about creating apps using `React` and `JSX` here: [Create Rea
 
 ![](https://media.giphy.com/media/saXyE2XxvF8MHUOZCN/giphy.gif)
 
+## Project Goals & Requirements
+
+* As the final assignment of the module, we were asked in this project to use the technologies and methodologies we’ve been working with over the previous six weeks in order to demonstrate mastery of the following:
+- React
+- Router
+- Asynchronous JavaScript
+- End-to-end testing using Cypress
+- Create personas and user stories to describe your target audience.
+
 ## Future Iterations
 * _Item/Creature Searching_: My initial wireframe for this project included a search bar on the "Navigation Page" view (above the "Goal Button" container), and in the initial build I completed the basic JSX and CSS for this, but didn't have time to add the actual  data fetching/filtering functionality.  This feature should be coming in the near future, though!
 * _Theme-Consistent UI_: While I'm very happy with the layout and design of this project, I'd like to further dig into the specific _Breath of the Wild_ "identity" by adding more icons, background images, and other design elements that tie-in directly to this Zelda-centric theme.
