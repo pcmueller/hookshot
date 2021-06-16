@@ -1,14 +1,21 @@
 const baseURL = 'https://botw-compendium.herokuapp.com/api/v2';
 
-export const fetchDataByCategory = async (category) => {
-  console.log(`${baseURL}/category/${category}`);
-    const response = await fetch(`${baseURL}/category/${category}`);
-    const data = await response.json();
-    return data;
+export const fetchEntryImage = async (entry) => {
+  return fetch(`${baseURL}/entry/${entry}/image`)
+      .then(response => {
+        handleErrors(response)
+        return response.text()})
 }
 
-// export const fetchAllData = async () => {
-//     const response = await fetch(`${baseURL}`);
-//     const data = await response.json();
-//     return data;
-// }
+export const fetchDataByCategory = async (category) => {
+  return fetch(`${baseURL}/category/${category}`)
+      .then(response => {
+        handleErrors(response)
+        return response.json()})
+}
+
+const handleErrors = (response) => {
+  if (!response.ok) {
+    throw new Error()
+  }
+}

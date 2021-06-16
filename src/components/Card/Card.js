@@ -1,22 +1,30 @@
 import React, { useState, useEffect } from 'react';
+import { fetchEntryImage } from '../../utilities/apiCalls';
 import PropTypes from 'prop-types';
-import errorImage from '../../assets/images/no-image.jpeg';
+import backupImage from '../../assets/images/no-image.jpeg';
 
 const Card = ({ item }) => {
 
   const [ uniqueProps, setUniqueProps ] = useState('');
+  const [ imageUrl, setImageUrl ] = useState('');
 
   useEffect(() => {
+    testImageUrl();
     if (!uniqueProps || uniqueProps.length < 1) {
       setUniqueProps(retrieveUniqueProps());
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const replaceBrokenImage = (image) => {
-    image.onerror = "";
-    image.src = errorImage;
-    return true;
+  const testImageUrl = () => {
+    fetchEntryImage(item.id)
+      .then(() => {
+        setImageUrl(item.image);
+      })
+      .catch(error => {
+        console.log(error);
+        setImageUrl(backupImage);
+      })
   }
 
   const checkPropValidity = (propName) => {
@@ -105,20 +113,29 @@ const Card = ({ item }) => {
   }
 
   return (
-    <article className='item-card'>
-      <div className='image-container'>
-      <img 
-        src={item.image} 
-        alt={item.name} 
-        onError={(e)=>replaceBrokenImage(e.target)}/>
-      </div>
-      <div className='item-info'>
-        <p className='item-name'>{item.name}</p>
-          {uniqueProps}
-        <h3>Description </h3>
-        <p className='item-description'>{item.description}</p>
-      </div>
-    </article>
+    <>
+    {imageUrl.length < 1 && 
+      <article className='item-card'>
+        <p>Image Loading</p>
+      </article>
+    }
+    {imageUrl.length > 0 && 
+      <article className='item-card'>
+        <div className='image-container'>
+        <img 
+          src={imageUrl}
+          alt={item.name} 
+        />
+        </div>
+        <div className='item-info'>
+          <p className='item-name'>{item.name}</p>
+            {uniqueProps}
+          <h3>Description </h3>
+          <p className='item-description'>{item.description}</p>
+        </div>
+      </article>
+    }
+    </>
   )
 }
 
