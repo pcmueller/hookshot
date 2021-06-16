@@ -27,10 +27,10 @@ HOOKSHOT is a web app for the aspirant Zelda player - for those who yearn to dis
 ### Development & Design
 * RESTful API fetching using the excellent [_Hyrule Compendium API_](https://gadhagod.github.io/Hyrule-Compendium-API/#/)
 * Retro 8-bit UI design using the [NES.css](https://nostalgic-css.github.io/NES.css/) CSS framework.
-* User accessibility: scores 100 on the Chrome _Lighthouse_ test
-* Responsive design: application can be viewed proportionately on all devices and typical screen sizes, ranging from mobile to desktop monitor
-* Test-Driven Development:  utilizes Cypress testing for various UI flows.
-* Modular component structure using React
+* User accessibility: displayed in the browser, this project scores **100** on the Chrome _Lighthouse_ test
+* Responsive design: application can be viewed proportionately on devices of various sizes, ranging from mobile screen to desktop monitor.
+* Test-Driven Development: utilizes Cypress testing for various UI flows.
+* Developer-friendly file structure: project repository was built using an intuitive, modular React architecture.
 
 ## Installation
 
