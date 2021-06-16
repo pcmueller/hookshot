@@ -79,7 +79,7 @@ class App extends Component {
       .then(() => {
         this.setState({ dataLoaded: true, hasErrored: false })
       })
-      .catch((error) => {
+      .catch(error => {
         console.log(error);
         this.setState({ hasErrored: true, error: 'Uh Oh, Something Went Wrong' });
       })
