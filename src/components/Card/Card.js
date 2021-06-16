@@ -116,7 +116,7 @@ const Card = ({ item }) => {
     <>
     {imageUrl.length < 1 && 
       <article className='item-card'>
-        <p>Image Loading</p>
+        <p className='loading'>Image Loading</p>
       </article>
     }
     {imageUrl.length > 0 && 
