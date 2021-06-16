@@ -130,7 +130,7 @@ const Card = ({ item }) => {
         <div className='item-info'>
           <p className='item-name'>{item.name}</p>
             {uniqueProps}
-          <h3>Description </h3>
+          <h3>Description</h3>
           <p className='item-description'>{item.description}</p>
         </div>
       </article>

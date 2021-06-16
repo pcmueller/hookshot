@@ -207,7 +207,7 @@ class App extends Component {
         location={match.params.id}
         assignLocation={this.assignLocation}
         assignCategory={this.assignCategory}
-        resetData={this.resetData}
+        resetItemData={this.resetItemData}
         activateRandomState={this.activateRandomState}
       />
     ) : (

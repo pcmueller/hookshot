@@ -40,7 +40,6 @@ const Entry = ({ locations, assignLocation, resetItemData }) => {
         <form className='form-container'>
           <section 
             className='nes-container is-rounded is-dark dropdown-section'
-            style={{width: 'calc(50% + 8px)'}} 
             tabIndex='-1'
             >
             <label className='drop-label' htmlFor="dark_select">where are you now?</label>

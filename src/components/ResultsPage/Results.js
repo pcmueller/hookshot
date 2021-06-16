@@ -14,7 +14,6 @@ const Results = (
   }) => {
 
   const [ balloonMessage, setBalloonMessage ] = useState('');
-  const [ loadingState, setloadingState ] = useState('');
 
   useEffect(() => {
     const formatted = location.replaceAll('+', ' ');
