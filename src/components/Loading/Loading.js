@@ -1,12 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const Loading = () => {
+const Loading = ({ message }) => {
   return (
     <section className="loading-message message -left">
       <i className="nes-bcrikko animate__heartBeat"></i>
       <div className="nes-balloon from-left">
         <p>
-          Page is loading, please wait.
+          {message}
         </p>
       </div>
     </section>
@@ -14,3 +15,7 @@ const Loading = () => {
 }
 
 export default Loading;
+
+Loading.propTypes = {
+  message: PropTypes.string
+}

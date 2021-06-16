@@ -4,4 +4,17 @@
   justify-content: space-evenly;
   width: 95%;
   font-family: PressStart;
+
+  .nes-bcrikko {
+    width: 10%;
+    align-self: flex-end;
+    max-height: 100%;
+    max-width: 100%;
+  }
+
+  .nes-balloon {
+    width: 80%;
+    font-size: 1.5vw;
+    align-self: flex-start;
+  }
 }

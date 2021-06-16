@@ -52,12 +52,11 @@ const Main = (
   
   return (
     <main className='main-page'>
-      {!currentLocation && <Loading />}
+      <Header pageName='main' location={currentLocation} resetItemData={resetItemData} />
+
+      {!currentLocation && <Loading message='Page loading, please wait.'/>}
 
       {currentLocation &&
-        <>
-        <Header pageName='main' location={currentLocation} resetItemData={resetItemData} />
-
         <section className='goal-container'>
           <div className='goal-btn-container nes-container is-rounded with-title'>
             <span>choose your adventure!</span>
@@ -66,7 +65,6 @@ const Main = (
             </article>
           </div>
         </section>
-        </>
       }
     </main>
   )
