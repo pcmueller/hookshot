@@ -1,4 +1,4 @@
-# <--- H  O  O  K  S  H  O  T --->
+# <--- H   O   O   K   S   H   O   T --->
 *a digital field guide for Hyrulian exploration*
 * [Deployed Page](https://hookshot-app.herokuapp.com)
 
@@ -55,7 +55,7 @@ You can learn more about creating apps using `React` and `JSX` here: [Create Rea
 
 4. If at any time a user wants to return to the home page to change their selected location, all they have to do is click the "welcome message" on any of the page displays!
 
-## Demonstration
+#### Demonstration
 
 ![](https://media.giphy.com/media/saXyE2XxvF8MHUOZCN/giphy.gif)
 
