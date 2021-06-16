@@ -1,4 +1,4 @@
-# <--- H   O   O   K   S   H   O   T --->
+# <-- H   O   O   K   S   H   O   T -->
 *a digital field guide for Hyrulian exploration*
 * [Deployed Page](https://hookshot-app.herokuapp.com)
 
