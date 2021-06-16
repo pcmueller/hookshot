@@ -50,16 +50,19 @@ describe('Hookshot - Entry Page', () => {
 
 describe('Hookshot - Main Page', () => {
 
-  const baseUrl = 'http://localhost:3000/home/Death+Mountain';
+  const baseUrl = 'http://localhost:3000';
 
   beforeEach(() => {
     cy.visit(baseUrl)
+      .get('select').select('Death Mountain')
+      .get('.enter-btn').click()
   })
   
   it('Should load the main page with the selected location as the path', () => {
+   
     cy.get('.main-page').should('be.visible')
-    cy.url().should('eq', 'http://localhost:3000/home/Death+Mountain')
-    cy.get('.app').should('have.css', 'background-image', 'url("http://localhost:3000/static/media/pixel-forest.74c9af66.jpeg")')
+      .url().should('eq', 'http://localhost:3000/home/Death+Mountain')
+      .get('.app').should('have.css', 'background-image', 'url("http://localhost:3000/static/media/pixel-forest.74c9af66.jpeg")')
   });
   
   it('Should display welcome banner with all expected elements', () => {
@@ -84,29 +87,25 @@ describe('Hookshot - Main Page', () => {
   it('Should be able to click a goal button', () => {
     cy.get('.goal-btn').eq(0).click()
   });
-
-  it('Should navigate to a \'results\' page when a goal button is clicked', () => {
-    cy.get('.goal-btn').eq(2).click()
-      .url().should('eq', 'http://localhost:3000/location/Death+Mountain/category/equipment')
-  });
-
 })
 
 describe('Hookshot - Results Page', () => {
 
-  const baseUrl = 'http://localhost:3000/location/Death+Mountain/category/equipment';
+  const baseUrl = 'http://localhost:3000';
 
   beforeEach(() => {
     cy.fixture('mock-category-data.json')
       .then(mockData => {
         cy.intercept('GET', 'https://botw-compendium.herokuapp.com/api/v2/category/equipment', {
           statusCode: 200,
-          delay: 100,
           body: mockData
         })
       })
     
-    cy.visit(baseUrl);
+    cy.visit(baseUrl)
+      .get('select').select('Death Mountain')
+      .get('.enter-btn').click()
+      .get('.goal-btn').eq(2).click()
   })
 
   it('Should load the results page with the selected category and location as the path', () => {
@@ -145,8 +144,8 @@ describe('Hookshot - Results Page', () => {
     cy.get('.item-variables').find('p').eq(2).should('contain', 0)
   });
 
-  // it('Should display a message for the user while the page is loading', () => {
-  //   cy.get('.loading').should('contain', 'Page is loading, please wait.')
-  // });
+  it('Should display a message for the user while the page is loading', () => {
+    cy.get('.loading').should('contain', 'Page is loading, please wait.')
+  });
 })
 
