@@ -1,6 +1,7 @@
 # <-- H   O   O   K   S   H   O   T -->
 *a digital field guide for Hyrulian exploration*
 * [Deployed Page](https://hookshot-app.herokuapp.com)
+* [Project Specifications](https://frontend.turing.edu/projects/module-3/niche-audience.html)
 
 ![](https://media.giphy.com/media/FKmMmOrqljFxf0GlpQ/giphy.gif)
 
