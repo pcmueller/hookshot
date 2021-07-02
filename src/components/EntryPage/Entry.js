@@ -28,7 +28,12 @@ const Entry = ({ locations, assignLocation, resetItemData }) => {
   };
 
   const options = locations.map(location => {
-    return <option value={location} label={location} key={location}></option>
+    return <option 
+            className='location-option' 
+            value={location} 
+            label={location} 
+            key={location}>
+          </option>
   });
 
   return (
