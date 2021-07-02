@@ -89,65 +89,67 @@ describe('Hookshot - Results Page', () => {
 
   const baseUrl = 'http://localhost:3000';
 
-  beforeEach(() => {
-    cy.fixture('mock-category-data.json')
-      .then(mockData => {
-        cy.intercept('GET', 'https://botw-compendium.herokuapp.com/api/v2/category/equipment', {
-          statusCode: 200,
-          delay: 100,
-          body: mockData
-        })
-      })
+//   beforeEach(() => {
+//     cy.fixture('mock-category-data.json')
+//       .then(mockData => {
+//         cy.intercept('GET', 'https://botw-compendium.herokuapp.com/api/v2/category/equipment', {
+//           statusCode: 200,
+//           delay: 100,
+//           body: mockData
+//         })
+//       })
     
-    cy.visit(baseUrl)
-      .get('select').select('Death Mountain')
-      .get('.enter-btn').click()
-      .get('.goal-btn').eq(2).click()
-  })
+//     cy.visit(baseUrl)
+//       .get('select').select('Death Mountain')
+//       .get('.enter-btn').click()
+//       .get('.goal-btn').eq(2).click()
+//   })
 
-  it('Should be able to click a button to load the results page with the selected category and location as the path', () => {
-    cy.get('.results-page').should('be.visible')
-    cy.url().should('eq', 'http://localhost:3000/location/Death+Mountain/category/equipment')
-    cy.get('.app').should('have.css', 'background-image', 'url("http://localhost:3000/static/media/pixel-forest.74c9af66.jpeg")')
-  });
+//   it('Should be able to click a button to load the results page with the selected category and location as the path', () => {
+//     cy.get('.results-page').should('be.visible')
+//     cy.url().should('eq', 'http://localhost:3000/location/Death+Mountain/category/equipment')
+//     cy.get('.app').should('have.css', 'background-image', 'url("http://localhost:3000/static/media/pixel-forest.74c9af66.jpeg")')
+//   });
 
-  it('Should display welcome banner with all expected elements', () => {
-    cy.get('.banner').should('be.visible')
-    cy.get('.welcome-message').should('contain', 'WELCOME TO HYRULE')
-    cy.get('.welcome-location').get('h2').should('contain', 'current location')
-    cy.get('.welcome-location').get('h3').should('contain', 'Death Mountain')
-  });
+//   it('Should display welcome banner with all expected elements', () => {
+//     cy.get('.banner').should('be.visible')
+//     cy.get('.welcome-message').should('contain', 'WELCOME TO HYRULE')
+//     cy.get('.welcome-location').get('h2').should('contain', 'current location')
+//     cy.get('.welcome-location').get('h3').should('contain', 'Death Mountain')
+//   });
 
-  it('Should allow the user to click app title to return to the entry page', () => {
-    cy.get('.banner').find('a').click()
-      .url().should('eq', 'http://localhost:3000/')
-  });
+//   it('Should allow the user to click app title to return to the entry page', () => {
+//     cy.get('.banner').find('a').click()
+//       .url().should('eq', 'http://localhost:3000/')
+//   });
 
-  it('Should display an \'item cards\' section with all matches for that location and category', () => {
-    cy.get('.results-grid').get('.item-list')
-      .get('.item-card').should('have.length', 1)
-  });
+//   it('Should display an \'item cards\' section with all matches for that location and category', () => {
+//     cy.get('.results-grid').get('.item-list')
+//       .get('.item-card').should('have.length', 1)
+//   });
 
-  it('Should display all expected elements within each \'item card\'', () => {
-    cy.get('.item-card').get('.image-container').get('img')
-      .should('have.attr', 'src', 'https://botw-compendium.herokuapp.com/api/v2/entry/royal_guard\'s_spear/image')
-    cy.get('.item-card').get('.item-info')
-      .get('.item-name').should('contain', 'royal guard\'s spear')
-    cy.get('.item-variables').find('h3').eq(0).should('contain', 'Common Locations')
-    cy.get('.item-variables').find('h3').eq(1).should('contain', 'Attack')
-    cy.get('.item-variables').find('h3').eq(2).should('contain', 'Defense')
-    cy.get('.item-variables').find('p').eq(0).should('contain', 'unknown')
-    cy.get('.item-variables').find('p').eq(1).should('contain', 32)
-    cy.get('.item-variables').find('p').eq(2).should('contain', 0)
-  });
+//   it('Should display all expected elements within each \'item card\'', () => {
+//     cy.get('.item-card').get('.image-container').get('img')
+//       .should('have.attr', 'src', 'https://botw-compendium.herokuapp.com/api/v2/entry/royal_guard\'s_spear/image')
+//     cy.get('.item-card').get('.item-info')
+//       .get('.item-name').should('contain', 'royal guard\'s spear')
+//     cy.get('.item-variables').find('h3').eq(0).should('contain', 'Common Locations')
+//     cy.get('.item-variables').find('h3').eq(1).should('contain', 'Attack')
+//     cy.get('.item-variables').find('h3').eq(2).should('contain', 'Defense')
+//     cy.get('.item-variables').find('p').eq(0).should('contain', 'unknown')
+//     cy.get('.item-variables').find('p').eq(1).should('contain', 32)
+//     cy.get('.item-variables').find('p').eq(2).should('contain', 0)
+//   });
 
-  it('Should display a message for the user while the item image is loading', () => {
-    cy.get('.loading').should('be.visible')
-  });
+//   it('Should display a message for the user while the item image is loading', () => {
+//     cy.get('.loading').should('be.visible')
+//   });
 
-  it('Should allow the user to click app title to return to the entry page', () => {
-    cy.get('.banner').find('a').click()
-      .url().should('eq', 'http://localhost:3000/')
-  });
+//   it('Should allow the user to click app title to return to the entry page', () => {
+//     cy.get('.banner').find('a').click()
+//       .url().should('eq', 'http://localhost:3000/')
+//   });
+
+
 })
 
